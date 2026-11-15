@@ -126,7 +126,7 @@
     }
 
     .signin-field {
-      text-align: start;
+      text-align: left;
       margin-bottom: 16px;
     }
 
@@ -1028,7 +1028,7 @@
       color: var(--text-main);
       font-size: 0.88rem;
       font-weight: 700;
-      text-align: start;
+      text-align: left;
       cursor: pointer;
     }
 
@@ -1052,7 +1052,7 @@
       margin-top: 12px;
     }
 
-    /* REALISTIC ACADEMIC CERTIFICATE (STUDENT-ONLY SIGNATURES) */
+    /* REALISTIC ACADEMIC CERTIFICATE */
     .certificate-box {
       margin-top: 18px;
       padding: 12px;
@@ -1274,35 +1274,15 @@
       transform: translateY(0);
     }
 
-    /* PRINTABLE STUDY SHEET WITH DUAL VISUALS */
+    /* PRINTABLE STUDY SHEET */
     #printSheetSection {
       display: none;
-    }
-
-    .print-dual-thumbs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3px;
-      width: 112px;
-      height: 54px;
-    }
-
-    .print-dual-thumbs img,
-    .print-dual-thumbs svg {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 4px;
-      border: 1px solid #cbd5e1;
-      display: block;
     }
 
     @media print {
       body {
         background: #ffffff !important;
         color: #0f172a !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
       }
       #studentSignInGate, .hero, .stats-grid, .world-map-panel, .controls-panel, #cardsSection,
       #flashcardSection, #ecoLabSection, #survivalSection, .modal-backdrop, .compare-tray, .toast {
@@ -1327,20 +1307,17 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 12px;
-        font-size: 9pt;
+        font-size: 9.5pt;
       }
       .sheet-table th, .sheet-table td {
         border: 1px solid #334155;
-        padding: 5px 7px;
-        text-align: start;
-        vertical-align: middle;
+        padding: 6px 8px;
+        text-align: left;
+        vertical-align: top;
       }
       .sheet-table th {
         background: #e2e8f0 !important;
         font-weight: 800;
-      }
-      .sheet-table tr {
-        break-inside: avoid;
       }
     }
 
@@ -1387,13 +1364,13 @@
   <!-- ==================== 1. STUDENT SIGN-IN WELCOME SCREEN ==================== -->
   <section id="studentSignInGate">
     <div class="signin-box">
-      <div class="signin-pill" id="signInPillText">🦁 FAUNA WORLD • STUDENT LEARNING PORTAL</div>
-      <h1 id="signInTitleText">Welcome to Fauna World</h1>
-      <p id="signInSubText">Enter your name to personalize your 220-species wildlife expedition, interactive voice lessons, and final Zoology Certificate.</p>
+      <div class="signin-pill">🦁 FAUNA WORLD • STUDENT LEARNING PORTAL</div>
+      <h1>Welcome to Fauna World</h1>
+      <p>Enter your name to personalize your 220-species wildlife expedition, interactive voice lessons, and final Zoology Certificate.</p>
 
       <form id="studentSignInForm" onsubmit="handleStudentSignIn(event)" novalidate>
         <div class="signin-field">
-          <label for="entryStudentName" id="signInLabelText">Student / Explorer Full Name</label>
+          <label for="entryStudentName">Student / Explorer Full Name</label>
           <input
             type="text"
             id="entryStudentName"
@@ -1405,7 +1382,7 @@
           />
           <div class="signin-error" id="signInErrorMsg">Please enter at least 2 characters to start learning.</div>
         </div>
-        <button type="submit" class="signin-submit-btn" id="signInBtnText">Start Exploring 220 Species →</button>
+        <button type="submit" class="signin-submit-btn">Start Exploring 220 Species →</button>
       </form>
     </div>
   </section>
@@ -1415,19 +1392,19 @@
     <header class="hero">
       <div class="hero-inner">
         <div class="hero-top-row">
-          <span class="brand-badge" id="heroBrandBadge">🦁 FAUNA WORLD • 220 WILDLIFE SPECIES</span>
+          <span class="brand-badge">🦁 FAUNA WORLD • 220 WILDLIFE SPECIES</span>
           <span class="student-badge-pill">
-            <span>👋 <span id="heroHelloWord">Hello</span>, <strong id="headerStudentName">Explorer</strong>!</span>
-            <button type="button" class="switch-student-btn" id="switchNameBtn" onclick="switchStudentProfile()" title="Switch Student Name">Switch Name</button>
+            <span>👋 Hello, <strong id="headerStudentName">Explorer</strong>!</span>
+            <button type="button" class="switch-student-btn" onclick="switchStudentProfile()" title="Switch Student Name">Switch Name</button>
           </span>
         </div>
-        <h1><span id="heroTitleGreeting">Hello</span> <span id="heroStudentName">Explorer</span> — <span id="heroTitleMain">Living Species &amp; Habitat Encyclopedia</span></h1>
-        <p class="hero-sub" id="heroSubText">
+        <h1>Hello <span id="heroStudentName">Explorer</span> — Living Species &amp; Habitat Encyclopedia</h1>
+        <p class="hero-sub">
           Explore 220 mammals, birds, reptiles, amphibians, fish, insects &amp; marine life with side-by-side Species + Habitat visuals, tap-to-spell letter tiles, and a soft multi-language teacher voice.
         </p>
 
         <button type="button" class="studio-drawer-toggle" onclick="toggleStudioDrawer()">
-          <span id="drawerToggleLabel">🎛️ Study Modes, Voice &amp; Accessibility Tools</span>
+          <span>🎛️ Study Modes, Voice &amp; Accessibility Tools</span>
           <span id="studioDrawerArrow">▼ Open</span>
         </button>
 
@@ -1442,8 +1419,8 @@
           <button type="button" class="hero-btn" id="darkModeBtn" onclick="toggleDarkMode()">🌙 Dark</button>
           <button type="button" class="hero-btn" id="dyslexiaBtn" onclick="toggleDyslexiaMode()">🔤 Easy-Read</button>
           <button type="button" class="hero-btn" id="dataSaverBtn" onclick="toggleDataSaver()">📶 Data Saver: OFF</button>
-          <button type="button" class="hero-btn" id="backupBtn" onclick="exportProgress()">💾 Backup</button>
-          <button type="button" class="hero-btn" id="restoreBtn" onclick="importProgress()">📥 Restore</button>
+          <button type="button" class="hero-btn" id="exportBtn" onclick="exportProgress()">💾 Backup</button>
+          <button type="button" class="hero-btn" id="importBtn" onclick="importProgress()">📥 Restore</button>
         </div>
       </div>
     </header>
@@ -1452,7 +1429,7 @@
       <section class="stats-grid" id="statsGrid"></section>
 
       <section class="world-map-panel" id="worldMapPanel">
-        <strong id="worldMapHeading">🌍 Filter Wildlife by Biogeographic Realm &amp; Ocean Basin:</strong>
+        <strong>🌍 Filter Wildlife by Biogeographic Realm &amp; Ocean Basin:</strong>
         <div class="map-chips" id="mapRegionChips"></div>
       </section>
 
@@ -1463,27 +1440,28 @@
             <option value="ALL">🌍 All World Realms</option>
           </select>
           <select id="voiceLangSelect" class="control-select" onchange="changeVoiceLang()">
-            <option value="en">🌐 Language &amp; Voice: English</option>
-            <option value="hi">🌐 भाषा व आवाज़: हिन्दी (Hindi)</option>
-            <option value="es">🌐 Idioma y Voz: Español (Spanish)</option>
-            <option value="fr">🌐 Langue et Voix: Français (French)</option>
-            <option value="de">🌐 Sprache &amp; Stimme: Deutsch (German)</option>
-            <option value="ja">🌐 言語と音声: 日本語 (Japanese)</option>
-            <option value="ar">🌐 اللغة والصوت: العربية (Arabic)</option>
+            <option value="en">🔊 Voice: Soft English (Universal)</option>
+            <option value="hi">🔊 Voice: Hindi (हिन्दी)</option>
+            <option value="es">🔊 Voice: Spanish (Español)</option>
+            <option value="fr">🔊 Voice: French (Français)</option>
+            <option value="de">🔊 Voice: German (Deutsch)</option>
+            <option value="ja">🔊 Voice: Japanese (日本語)</option>
+            <option value="ar">🔊 Voice: Arabic (العربية)</option>
           </select>
         </div>
 
+        <!-- SINGLE COMPACT SPECIES DROPDOWN WITH SMALL ICONS + REVISION PILL -->
         <div class="category-dropdown-bar" id="categoryTabs"></div>
         <div class="subgroup-tabs" id="subgroupTabs"></div>
 
         <div class="arena-bar">
           <span id="countSummary" style="font-size:0.82rem;font-weight:700;color:var(--text-muted);">Showing 220 wildlife species</span>
           <div class="arena-btns">
-            <button type="button" class="action-pill-btn" id="printSheetBtn" onclick="printStudySheet()">🖨️ Print Sheet</button>
-            <button type="button" class="action-pill-btn" id="flashcardsBtn" onclick="openArenaTab('FLASHCARDS')">🃏 Flashcards</button>
-            <button type="button" class="action-pill-btn" id="ecoLabBtn" onclick="openArenaTab('ECOLAB')">🌿 Food Web Lab</button>
-            <button type="button" class="action-pill-btn" id="survivalBtn" onclick="openArenaTab('SURVIVAL')">♾️ 3-Hearts Survival</button>
-            <button type="button" class="action-pill-btn primary" id="quizCertBtn" onclick="openQuizTab()">🏆 Quiz &amp; Certificate</button>
+            <button type="button" class="action-pill-btn" onclick="printStudySheet()">🖨️ Print Sheet</button>
+            <button type="button" class="action-pill-btn" onclick="openArenaTab('FLASHCARDS')">🃏 Flashcards</button>
+            <button type="button" class="action-pill-btn" onclick="openArenaTab('ECOLAB')">🌿 Food Web Lab</button>
+            <button type="button" class="action-pill-btn" onclick="openArenaTab('SURVIVAL')">♾️ 3-Hearts Survival</button>
+            <button type="button" class="action-pill-btn primary" onclick="openQuizTab()">🏆 Quiz &amp; Certificate</button>
           </div>
         </div>
       </section>
@@ -1492,28 +1470,27 @@
         <div class="cards-grid" id="cardsGrid"></div>
       </section>
 
-      <!-- DEDICATED PRINTABLE STUDY SHEET WITH DUAL VISUALS -->
+      <!-- DEDICATED PRINTABLE STUDY SHEET -->
       <section id="printSheetSection">
         <div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #0b1f3a;padding-bottom:8px;">
           <div>
-            <h1 id="printSheetMainTitle" style="font-size:16pt;color:#0b1f3a;margin:0;">Fauna World — Student Wildlife Study Sheet</h1>
+            <h1 style="font-size:16pt;color:#0b1f3a;margin:0;">Fauna World — Student Wildlife Study Sheet</h1>
             <p id="printSheetSubtitle" style="font-size:9.5pt;color:#475569;margin-top:3px;"></p>
           </div>
-          <div style="text-align:end;font-size:9pt;">
-            <strong id="printStudentLbl">Student Name:</strong> <span id="printSheetStudentName"></span><br>
-            <strong id="printDateLbl">Date:</strong> <span id="printSheetDate"></span>
+          <div style="text-align:right;font-size:9pt;">
+            <strong>Student Name:</strong> <span id="printSheetStudentName"></span><br>
+            <strong>Date:</strong> <span id="printSheetDate"></span>
           </div>
         </div>
         <table class="sheet-table">
           <thead>
             <tr>
               <th>#</th>
-              <th id="printThVisual">Species &amp; Habitat</th>
-              <th id="printThName">Common Name &amp; Syllables</th>
-              <th id="printThSci">Scientific Name</th>
-              <th id="printThClass">Class &amp; Sub-Group</th>
-              <th id="printThHab">Habitat &amp; Conservation</th>
-              <th id="printThDiet">Diet &amp; Key Fact</th>
+              <th>Common Name &amp; Syllables</th>
+              <th>Scientific Name</th>
+              <th>Class &amp; Sub-Group</th>
+              <th>Habitat &amp; Conservation</th>
+              <th>Diet &amp; Key Fact</th>
             </tr>
           </thead>
           <tbody id="printSheetBody"></tbody>
@@ -1522,18 +1499,27 @@
 
       <section class="arena-section" id="quizSection">
         <div id="quizSetupView">
-          <span class="quiz-badge" id="quizBadgeText">🏆 INTERACTIVE ZOOLOGY &amp; ECOLOGY CHALLENGE</span>
-          <h2 style="font-size:1.45rem;margin-bottom:4px;"><span id="quizReadyTitle">Ready for Your Challenge</span>, <span id="quizSetupStudentName">Explorer</span>?</h2>
-          <p id="quizSetupDesc" style="color:var(--text-muted);font-size:0.88rem;">Score 70% or higher on any 10-question challenge to unlock your verified Fauna World Certificate!</p>
+          <span class="quiz-badge">🏆 INTERACTIVE ZOOLOGY &amp; ECOLOGY CHALLENGE</span>
+          <h2 style="font-size:1.45rem;margin-bottom:4px;">Ready for Your Challenge, <span id="quizSetupStudentName">Explorer</span>?</h2>
+          <p style="color:var(--text-muted);font-size:0.88rem;">Score 70% or higher on any 10-question challenge to unlock your verified Fauna World Certificate!</p>
 
           <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;">
-            <select id="quizCategorySelect" class="control-select"></select>
+            <select id="quizCategorySelect" class="control-select">
+              <option value="ALL">🐾 All 220 Species</option>
+              <option value="Mammal">🦁 Mammals Only (65)</option>
+              <option value="Bird">🦅 Birds Only (45)</option>
+              <option value="Reptile">🦎 Reptiles Only (30)</option>
+              <option value="Amphibian">🐸 Amphibians Only (15)</option>
+              <option value="Fish">🦈 Fish &amp; Sharks (25)</option>
+              <option value="Insect">🦋 Insects &amp; Spiders (20)</option>
+              <option value="Marine">🐙 Marine Invertebrates (20)</option>
+            </select>
           </div>
 
           <div class="quiz-modes-grid" id="quizModesGrid"></div>
           <div style="display:flex;flex-wrap:wrap;gap:10px;">
-            <button type="button" class="launch-btn" id="startQuizBtn" onclick="startQuiz()">Start 10-Question Challenge →</button>
-            <button type="button" class="action-pill-btn" id="quizBackBtn" onclick="selectCategory('ALL')">← Back to Encyclopedia</button>
+            <button type="button" class="launch-btn" onclick="startQuiz()">Start 10-Question Challenge →</button>
+            <button type="button" class="action-pill-btn" onclick="selectCategory('ALL')">← Back to Encyclopedia</button>
           </div>
         </div>
         <div class="quiz-play-view" id="quizPlayView"></div>
@@ -1801,731 +1787,52 @@
       [219,"Colossal & Giant Squid","Marine","Cephalopods (Octopuses & Squids)","Giant Squid (Hindi) • Calamar gigante (Spanish)","Architeuthis dux","Basketball-Eyed Deep-Ocean Cephalopod","Oceans & Marine","Deep Oceans Worldwide (300–1,000 m)","Least Concern (IUCN)","Carnivore • Deep-sea fish & smaller squids","Hunting in abyssal darkness with the largest eyes in the animal kingdom","Its eyes grow up to 27 cm wide—the size of basketballs—to spot faint bioluminescent whale shadows!","A legendary deep-ocean giant equipped with basketball-sized eyes to see in the dark abyss."],
       [220,"Sand Dollar","Marine","Echinoderms (Sea Stars & Urchins)","Sand Dollar (Hindi) • Dólar de arena (Spanish)","Dendraster excentricus","Five-Petal-Patterned Burrowing Sea Urchin","Oceans & Marine","Sandy Coastal Seabeds of North America & Oceans","Least Concern (IUCN)","Filter Feeder • Tiny organic particles & diatoms in sand","Standing tilted on edge in sandy currents covered in velvety purple cilia","Actually a flattened, burrowing sea urchin—its five-petal flower pattern is breathing pores!","A flat, velvety coastal sea urchin relative whose sun-bleached skeleton shows a five-petal flower."]
     ];
-    // ==================== STATE & PERSISTENCE ====================
-    const STORAGE_KEY = "fauna_world_220_state_v2";
-    const VALID_CATEGORIES = ["ALL", "Mammal", "Bird", "Reptile", "Amphibian", "Fish", "Insect", "Marine"];
 
-    const appState = {
-      studentName: "",
-      category: "ALL",
-      subgroup: "ALL",
-      visualMode: "photo",
-      kidVoice: true,
-      studentMode: false,
-      memoryHide: false,
-      darkMode: false,
-      dyslexiaMode: false,
-      dataSaver: false,
-      voiceLang: "en",
-      masteredIds: [],
-      starredIds: [],
-      compareIds: [],
-      dailyIds: [],
-      lastDailyDate: "",
-      quizMode: "visual",
-      quizCategory: "ALL",
-      lastCertificate: null
-    };
+    const ANIMALS = RAW_ANIMALS.map(r => {
+      const sciSlug = r[5].replace(/\s+var\..*|\s+subsp\..*/g, "").trim().replace(/\s+/g, "_");
+      const cleanNameSlug = r[1].replace(/\(.*?\)/g, "").split("/")[0].split("&")[0].trim().replace(/\s+/g, "_");
+      const habitatKeyword = r[6].split("•")[1] ? r[6].split("•")[1].trim() : r[7];
+      return {
+        id: r[0], name: r[1], category: r[2], subGroup: r[3], regional: r[4],
+        scientific: r[5], formTag: r[6], originRegion: r[7], origin: r[8],
+        conservation: r[9], diet: r[10], behavior: r[11], memoryClue: r[12],
+        kidSummary: r[13], animalWiki: sciSlug, altWiki: cleanNameSlug, habitatQuery: habitatKeyword
+      };
+    });
 
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-      if (saved && typeof saved === "object") {
-        Object.assign(appState, saved);
-        if (!VALID_CATEGORIES.includes(appState.category)) appState.category = "ALL";
-        if (!Array.isArray(appState.masteredIds)) appState.masteredIds = [];
-        if (!Array.isArray(appState.starredIds)) appState.starredIds = [];
-        if (!Array.isArray(appState.compareIds)) appState.compareIds = [];
-      }
-    } catch (e) {}
+    // STATE
+    let currentStudentName = localStorage.getItem("fauna_student_name_v1") || "";
+    let activeCategory = "ALL";
+    let activeSubGroup = "ALL";
+    let visualMode = "photo";
+    let studentMode = false;
+    let memoryHide = false;
+    let dataSaverMode = false;
+    let dailyDeckOnly = false;
+    let kidFriendlyVoice = true;
+    let selectedVoiceLang = "en";
+    let compareIds = [];
+    let starredIds = new Set(JSON.parse(localStorage.getItem("fauna_revision_v5") || "[]"));
+    let masteredIds = new Set(JSON.parse(localStorage.getItem("fauna_mastered_v5") || "[]"));
+    let bestSurvivalStreak = Number(localStorage.getItem("fauna_survival_best_v2") || "0");
+    let imgCache = JSON.parse(localStorage.getItem("fauna_dual_img_cache_v6") || "{}");
+    let savedScrollY = 0;
 
-    function saveState() {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); } catch (e) {}
+    // ==================== STUDENT SIGN-IN & PERSONALIZATION ====================
+    function syncStudentNameAcrossPortal(name) {
+      currentStudentName = name.trim();
+      localStorage.setItem("fauna_student_name_v1", currentStudentName);
+      const displayName = currentStudentName || "Explorer";
+      const hName = document.getElementById("headerStudentName");
+      const heroName = document.getElementById("heroStudentName");
+      const quizSetupName = document.getElementById("quizSetupStudentName");
+      if (hName) hName.textContent = displayName;
+      if (heroName) heroName.textContent = displayName;
+      if (quizSetupName) quizSetupName.textContent = displayName;
     }
 
-    // ==================== FULL UI TRANSLATIONS (7 LANGUAGES) ====================
-    const UI_I18N = {
-      en: {
-        dir: "ltr",
-        signInPill: "🦁 FAUNA WORLD • STUDENT LEARNING PORTAL",
-        signInTitle: "Welcome to Fauna World",
-        signInSub: "Enter your name to personalize your 220-species wildlife expedition, interactive voice lessons, and final Zoology Certificate.",
-        signInLabel: "Student / Explorer Full Name",
-        signInPlaceholder: "Type your name here (e.g., Aarav Sharma)",
-        signInError: "Please enter at least 2 characters to start learning.",
-        signInBtn: "Start Exploring 220 Species →",
-        heroBadge: "🦁 FAUNA WORLD • 220 WILDLIFE SPECIES",
-        hello: "Hello",
-        switchName: "Switch Name",
-        heroMainTitle: "Living Species & Habitat Encyclopedia",
-        heroSub: "Explore 220 mammals, birds, reptiles, amphibians, fish, insects & marine life with side-by-side Species + Habitat visuals, tap-to-spell letter tiles, and a soft multi-language teacher voice.",
-        drawerLabel: "🎛️ Study Modes, Voice & Accessibility Tools",
-        visPhoto: "📸 Dual Real Photos",
-        visVector: "🎨 Wildlife Diagrams",
-        kidVoiceOn: "🧸 Soft Gentle Teacher Voice: ON",
-        kidVoiceOff: "🎙️ Standard Voice: OFF",
-        studentModeOn: "Student Mode: ON",
-        studentModeOff: "Student Mode: OFF",
-        memoryHideOn: "Memory Hide: ON",
-        memoryHideOff: "Memory Hide: OFF",
-        dailyStreak: "🔥 Daily 5-Animals",
-        worldMapBtn: "🌍 World Wildlife Map",
-        darkBtn: "🌙 Dark",
-        lightBtn: "☀️ Light",
-        dyslexiaBtn: "🔤 Easy-Read",
-        dataSaverOn: "📶 Data Saver: ON",
-        dataSaverOff: "📶 Data Saver: OFF",
-        backupBtn: "💾 Backup",
-        restoreBtn: "📥 Restore",
-        worldMapHeading: "🌍 Filter Wildlife by Biogeographic Realm & Ocean Basin:",
-        allRealms: "🌍 All World Realms",
-        searchPlaceholder: "Search 220 animals by name, habitat, diet, or superpower...",
-        showingCount: (n) => `Showing ${n} wildlife species`,
-        printSheet: "🖨️ Print Sheet",
-        flashcards: "🃏 Flashcards",
-        ecoLab: "🌿 Food Web Lab",
-        survival: "♾️ 3-Hearts Survival",
-        quizCert: "🏆 Quiz & Certificate",
-        catNames: { ALL: "All Species", Mammal: "Mammals", Bird: "Birds", Reptile: "Reptiles", Amphibian: "Amphibians", Fish: "Fish & Sharks", Insect: "Insects", Marine: "Marine Life" },
-        statMastered: "Mastered",
-        statStarred: "Starred",
-        speciesTag: "🐾 Species",
-        habitatTag: "🌿 Habitat",
-        masteredRibbon: "✓ Mastered",
-        detailsCue: "Tap for Details",
-        listenBtn: "🔊 Listen",
-        spellBtn: "🔤 Spell",
-        spellTilesLabel: "Tap each letter tile to hear phonics:",
-        panelForm: "🧬 Body Form & Adaptation",
-        panelHabitat: "🌍 Native Habitat & Conservation",
-        panelDiet: "🍃 Diet & Trophic Role",
-        panelBehavior: "⚡ Key Behavior",
-        panelFact: "💡 Amazing Fact",
-        readFullStory: "📖 Read Full Wildlife Story",
-        markMastered: "✅ Mark Mastered",
-        unmarkMastered: "🏅 Mastered (Undo)",
-        closeModal: "Close",
-        printTitle: "Fauna World — Student Wildlife Study Sheet",
-        printSub: (cat, realm, n) => `Filter: ${cat} | Realm: ${realm} | Total Species: ${n}`,
-        printStudent: "Student Name:",
-        printDate: "Date:",
-        printThVisual: "Species & Habitat",
-        printThName: "Common Name & Syllables",
-        printThSci: "Scientific Name",
-        printThClass: "Class & Sub-Group",
-        printThHab: "Habitat & Conservation",
-        printThDiet: "Diet & Key Fact",
-        quizBadge: "🏆 INTERACTIVE ZOOLOGY & ECOLOGY CHALLENGE",
-        quizReady: "Ready for Your Challenge",
-        quizDesc: "Score 70% or higher on any 10-question challenge to unlock your verified Fauna World Certificate!",
-        startQuiz: "Start 10-Question Challenge →",
-        backEncyclopedia: "← Back to Encyclopedia",
-        certTitle: "Certificate of Wildlife Mastery",
-        certSubtitle: "FAUNA WORLD NATURAL HISTORY & ZOOLOGY ACADEMY",
-        certAwardedTo: "This certifies that",
-        certBody: (score, total, pct, mode) => `has successfully completed the 220-Species Wildlife & Ecology Assessment (${mode}) with a distinguished score of ${score}/${total} (${pct}%).`,
-        certStudentSig: "Student Explorer Signature",
-        certDateLabel: "Date of Conferral",
-        certSeal: "OFFICIAL<br>FAUNA WORLD<br>SEAL",
-        printCertBtn: "🖨️ Print Official Certificate",
-        storyTemplate: (a) => `${a.name}. Scientific name: ${a.sci}. Class: ${a.cat}. ${a.summary} It lives in ${a.habitat}, and its conservation status is ${a.status}. Diet: ${a.diet}. Key behavior: ${a.behavior}. Amazing fact: ${a.fact}`
-      },
-      hi: {
-        dir: "ltr",
-        signInPill: "🦁 फ़ॉना वर्ल्ड • छात्र शिक्षण पोर्टल",
-        signInTitle: "फ़ॉना वर्ल्ड में स्वागत है",
-        signInSub: "अपनी 220 वन्यजीव प्रजातियों की यात्रा, इंटरैक्टिव वॉयस पाठ और अंतिम प्राणीशास्त्र प्रमाणपत्र के लिए अपना नाम दर्ज करें।",
-        signInLabel: "छात्र / अन्वेषक का पूरा नाम",
-        signInPlaceholder: "यहाँ अपना नाम लिखें (जैसे: आरव शर्मा)",
-        signInError: "सीखना शुरू करने के लिए कृपया कम से कम 2 अक्षर दर्ज करें।",
-        signInBtn: "220 प्रजातियों की खोज शुरू करें →",
-        heroBadge: "🦁 फ़ॉना वर्ल्ड • 220 वन्यजीव प्रजातियाँ",
-        hello: "नमस्ते",
-        switchName: "नाम बदलें",
-        heroMainTitle: "जीवित प्रजातियाँ और आवास विश्वकोश",
-        heroSub: "220 स्तनधारियों, पक्षियों, सरीसृपों, उभयचरों, मछलियों, कीटों और समुद्री जीवों को प्रजाति + आवास चित्रों और मधुर शिक्षक आवाज़ के साथ जानें।",
-        drawerLabel: "🎛️ अध्ययन मोड, आवाज़ और सुगम्यता उपकरण",
-        visPhoto: "📸 वास्तविक दोहरे फ़ोटो",
-        visVector: "🎨 वन्यजीव चित्र",
-        kidVoiceOn: "🧸 मधुर शिक्षक आवाज़: चालू",
-        kidVoiceOff: "🎙️ सामान्य आवाज़: बंद",
-        studentModeOn: "छात्र मोड: चालू",
-        studentModeOff: "छात्र मोड: बंद",
-        memoryHideOn: "मेमोरी हाइड: चालू",
-        memoryHideOff: "मेमोरी हाइड: बंद",
-        dailyStreak: "🔥 दैनिक 5-जीव",
-        worldMapBtn: "🌍 विश्व वन्यजीव मानचित्र",
-        darkBtn: "🌙 डार्क",
-        lightBtn: "☀️ लाइट",
-        dyslexiaBtn: "🔤 आसान पठन",
-        dataSaverOn: "📶 डेटा सेवर: चालू",
-        dataSaverOff: "📶 डेटा सेवर: बंद",
-        backupBtn: "💾 बैकअप",
-        restoreBtn: "📥 रीस्टोर",
-        worldMapHeading: "🌍 जैव-भौगोलिक क्षेत्र और महासागर के अनुसार फ़िल्टर करें:",
-        allRealms: "🌍 सभी विश्व क्षेत्र",
-        searchPlaceholder: "नाम, आवास, आहार या विशेषता से 220 जीव खोजें...",
-        showingCount: (n) => `${n} वन्यजीव प्रजातियाँ दिखाई जा रही हैं`,
-        printSheet: "🖨️ अध्ययन शीट प्रिंट करें",
-        flashcards: "🃏 फ़्लैशकार्ड",
-        ecoLab: "🌿 खाद्य जाल लैब",
-        survival: "♾️ 3-हार्ट्स सर्वाइवल",
-        quizCert: "🏆 क्विज़ और प्रमाणपत्र",
-        catNames: { ALL: "सभी प्रजातियाँ", Mammal: "स्तनधारी", Bird: "पक्षी", Reptile: "सरीसृप", Amphibian: "उभयचर", Fish: "मछलियाँ और शार्क", Insect: "कीट", Marine: "समुद्री जीव" },
-        statMastered: "सीखे गए",
-        statStarred: "पसंदीदा",
-        speciesTag: "🐾 प्रजाति",
-        habitatTag: "🌿 आवास",
-        masteredRibbon: "✓ सीखा गया",
-        detailsCue: "विवरण देखें",
-        listenBtn: "🔊 सुनें",
-        spellBtn: "🔤 वर्तनी",
-        spellTilesLabel: "ध्वनि सुनने के लिए प्रत्येक अक्षर पर टैप करें:",
-        panelForm: "🧬 शारीरिक बनावट और अनुकूलन",
-        panelHabitat: "🌍 प्राकृतिक आवास और संरक्षण",
-        panelDiet: "🍃 आहार और पारिस्थितिक भूमिका",
-        panelBehavior: "⚡ प्रमुख व्यवहार",
-        panelFact: "💡 अद्भुत तथ्य",
-        readFullStory: "📖 पूरी वन्यजीव कहानी सुनें",
-        markMastered: "✅ सीखा हुआ चिह्नित करें",
-        unmarkMastered: "🏅 सीखा गया (हटाएँ)",
-        closeModal: "बंद करें",
-        printTitle: "फ़ॉना वर्ल्ड — छात्र वन्यजीव अध्ययन शीट",
-        printSub: (cat, realm, n) => `श्रेणी: ${cat} | क्षेत्र: ${realm} | कुल प्रजातियाँ: ${n}`,
-        printStudent: "छात्र का नाम:",
-        printDate: "दिनांक:",
-        printThVisual: "प्रजाति और आवास",
-        printThName: "सामान्य नाम और शब्दांश",
-        printThSci: "वैज्ञानिक नाम",
-        printThClass: "वर्ग और उप-समूह",
-        printThHab: "आवास और संरक्षण",
-        printThDiet: "आहार और मुख्य तथ्य",
-        quizBadge: "🏆 इंटरैक्टिव प्राणीशास्त्र और पारिस्थितिकी चुनौती",
-        quizReady: "क्या आप चुनौती के लिए तैयार हैं",
-        quizDesc: "अपना सत्यापित फ़ॉना वर्ल्ड प्रमाणपत्र प्राप्त करने के लिए 10-प्रश्नोत्तरी में 70% या अधिक अंक प्राप्त करें!",
-        startQuiz: "10-प्रश्न चुनौती शुरू करें →",
-        backEncyclopedia: "← विश्वकोश पर वापस जाएँ",
-        certTitle: "वन्यजीव प्रवीणता प्रमाणपत्र",
-        certSubtitle: "फ़ॉना वर्ल्ड प्राकृतिक इतिहास और प्राणीशास्त्र अकादमी",
-        certAwardedTo: "यह प्रमाणित किया जाता है कि",
-        certBody: (score, total, pct, mode) => `ने 220-प्रजाति वन्यजीव एवं पारिस्थितिकी मूल्यांकन (${mode}) को ${score}/${total} (${pct}%) के उत्कृष्ट अंकों के साथ सफलतापूर्वक पूरा किया है।`,
-        certStudentSig: "छात्र अन्वेषक हस्ताक्षर",
-        certDateLabel: "प्रदान करने की तिथि",
-        certSeal: "आधिकारिक<br>फ़ॉना वर्ल्ड<br>मुहर",
-        printCertBtn: "🖨️ आधिकारिक प्रमाणपत्र प्रिंट करें",
-        storyTemplate: (a) => `${a.name}। वैज्ञानिक नाम: ${a.sci}। वर्ग: ${a.cat}। ${a.summary} यह ${a.habitat} में रहता है, और इसकी संरक्षण स्थिति ${a.status} है। आहार: ${a.diet}। प्रमुख व्यवहार: ${a.behavior}। अद्भुत तथ्य: ${a.fact}`
-      },
-      es: {
-        dir: "ltr",
-        signInPill: "🦁 FAUNA WORLD • PORTAL DE APRENDIZAJE ESTUDIANTIL",
-        signInTitle: "Bienvenido a Fauna World",
-        signInSub: "Ingresa tu nombre para personalizar tu expedición de 220 especies, lecciones de voz interactivas y tu Certificado de Zoología.",
-        signInLabel: "Nombre completo del estudiante / explorador",
-        signInPlaceholder: "Escribe tu nombre aquí (ej. Sofía Martínez)",
-        signInError: "Por favor ingresa al menos 2 caracteres para comenzar.",
-        signInBtn: "Explorar 220 Especies →",
-        heroBadge: "🦁 FAUNA WORLD • 220 ESPECIES SILVESTRES",
-        hello: "Hola",
-        switchName: "Cambiar nombre",
-        heroMainTitle: "Enciclopedia de Especies Vivas y Hábitats",
-        heroSub: "Explora 220 mamíferos, aves, reptiles, anfibios, peces, insectos y vida marina con fotos duales, fichas de deletreo y voz educativa multilingüe.",
-        drawerLabel: "🎛️ Modos de estudio, voz y accesibilidad",
-        visPhoto: "📸 Fotos reales duales",
-        visVector: "🎨 Diagramas ilustrados",
-        kidVoiceOn: "🧸 Voz suave de maestra: SÍ",
-        kidVoiceOff: "🎙️ Voz estándar: NO",
-        studentModeOn: "Modo Estudiante: SÍ",
-        studentModeOff: "Modo Estudiante: NO",
-        memoryHideOn: "Ocultar Memoria: SÍ",
-        memoryHideOff: "Ocultar Memoria: NO",
-        dailyStreak: "🔥 5 Animales del Día",
-        worldMapBtn: "🌍 Mapa Mundial",
-        darkBtn: "🌙 Oscuro",
-        lightBtn: "☀️ Claro",
-        dyslexiaBtn: "🔤 Lectura Fácil",
-        dataSaverOn: "📶 Ahorro Datos: SÍ",
-        dataSaverOff: "📶 Ahorro Datos: NO",
-        backupBtn: "💾 Respaldar",
-        restoreBtn: "📥 Restaurar",
-        worldMapHeading: "🌍 Filtrar fauna por región biogeográfica y cuenca oceánica:",
-        allRealms: "🌍 Todas las regiones del mundo",
-        searchPlaceholder: "Buscar 220 animales por nombre, hábitat, dieta o dato...",
-        showingCount: (n) => `Mostrando ${n} especies silvestres`,
-        printSheet: "🖨️ Imprimir ficha",
-        flashcards: "🃏 Tarjetas",
-        ecoLab: "🌿 Red Trófica",
-        survival: "♾️ Supervivencia 3 Vidas",
-        quizCert: "🏆 Cuestionario y Certificado",
-        catNames: { ALL: "Todas", Mammal: "Mamíferos", Bird: "Aves", Reptile: "Reptiles", Amphibian: "Anfibios", Fish: "Peces y Tiburones", Insect: "Insectos", Marine: "Vida Marina" },
-        statMastered: "Dominadas",
-        statStarred: "Favoritas",
-        speciesTag: "🐾 Especie",
-        habitatTag: "🌿 Hábitat",
-        masteredRibbon: "✓ Dominada",
-        detailsCue: "Ver detalles",
-        listenBtn: "🔊 Escuchar",
-        spellBtn: "🔤 Deletrear",
-        spellTilesLabel: "Toca cada letra para escuchar su sonido:",
-        panelForm: "🧬 Forma corporal y adaptación",
-        panelHabitat: "🌍 Hábitat nativo y conservación",
-        panelDiet: "🍃 Dieta y rol trófico",
-        panelBehavior: "⚡ Comportamiento clave",
-        panelFact: "💡 Dato asombroso",
-        readFullStory: "📖 Escuchar historia completa",
-        markMastered: "✅ Marcar como dominada",
-        unmarkMastered: "🏅 Dominada (Deshacer)",
-        closeModal: "Cerrar",
-        printTitle: "Fauna World — Ficha de Estudio de Vida Silvestre",
-        printSub: (cat, realm, n) => `Filtro: ${cat} | Región: ${realm} | Total de especies: ${n}`,
-        printStudent: "Estudiante:",
-        printDate: "Fecha:",
-        printThVisual: "Especie y Hábitat",
-        printThName: "Nombre común y sílabas",
-        printThSci: "Nombre científico",
-        printThClass: "Clase y subgrupo",
-        printThHab: "Hábitat y conservación",
-        printThDiet: "Dieta y dato clave",
-        quizBadge: "🏆 DESAFÍO INTERACTIVO DE ZOOLOGÍA Y ECOLOGÍA",
-        quizReady: "¿Listo para tu desafío",
-        quizDesc: "¡Obtén 70% o más en cualquier reto de 10 preguntas para desbloquear tu Certificado oficial de Fauna World!",
-        startQuiz: "Iniciar reto de 10 preguntas →",
-        backEncyclopedia: "← Volver a la enciclopedia",
-        certTitle: "Certificado de Maestría en Vida Silvestre",
-        certSubtitle: "ACADEMIA DE HISTORIA NATURAL Y ZOOLOGÍA FAUNA WORLD",
-        certAwardedTo: "Se certifica que",
-        certBody: (score, total, pct, mode) => `ha completado satisfactoriamente la Evaluación de 220 Especies y Ecología (${mode}) con una puntuación destacada de ${score}/${total} (${pct}%).`,
-        certStudentSig: "Firma del Estudiante Explorador",
-        certDateLabel: "Fecha de emisión",
-        certSeal: "SELLO OFICIAL<br>FAUNA WORLD",
-        printCertBtn: "🖨️ Imprimir Certificado Oficial",
-        storyTemplate: (a) => `${a.name}. Nombre científico: ${a.sci}. Clase: ${a.cat}. ${a.summary} Habita en ${a.habitat}, y su estado de conservación es ${a.status}. Dieta: ${a.diet}. Comportamiento clave: ${a.behavior}. Dato asombroso: ${a.fact}`
-      },
-      fr: {
-        dir: "ltr",
-        signInPill: "🦁 FAUNA WORLD • PORTAIL D'APPRENTISSAGE ÉTUDIANT",
-        signInTitle: "Bienvenue sur Fauna World",
-        signInSub: "Entrez votre nom pour personnaliser votre expédition de 220 espèces, les leçons vocales et votre Certificat de Zoologie.",
-        signInLabel: "Nom complet de l'étudiant / explorateur",
-        signInPlaceholder: "Entrez votre nom ici (ex. Camille Laurent)",
-        signInError: "Veuillez entrer au moins 2 caractères pour commencer.",
-        signInBtn: "Explorer les 220 espèces →",
-        heroBadge: "🦁 FAUNA WORLD • 220 ESPÈCES SAUVAGES",
-        hello: "Bonjour",
-        switchName: "Changer de nom",
-        heroMainTitle: "Encyclopédie des Espèces Vivantes et des Habitats",
-        heroSub: "Explorez 220 mammifères, oiseaux, reptiles, amphibiens, poissons, insectes et animaux marins avec visuels doubles et voix pédagogique multilingue.",
-        drawerLabel: "🎛️ Modes d'étude, voix et accessibilité",
-        visPhoto: "📸 Doubles photos réelles",
-        visVector: "🎨 Schémas illustrés",
-        kidVoiceOn: "🧸 Voix douce d'enseignant : OUI",
-        kidVoiceOff: "🎙️ Voix standard : NON",
-        studentModeOn: "Mode Étudiant : OUI",
-        studentModeOff: "Mode Étudiant : NON",
-        memoryHideOn: "Mode Mémoire : OUI",
-        memoryHideOff: "Mode Mémoire : NON",
-        dailyStreak: "🔥 5 Animaux du jour",
-        worldMapBtn: "🌍 Carte Mondiale",
-        darkBtn: "🌙 Sombre",
-        lightBtn: "☀️ Clair",
-        dyslexiaBtn: "🔤 Lecture Facile",
-        dataSaverOn: "📶 Économie données : OUI",
-        dataSaverOff: "📶 Économie données : NON",
-        backupBtn: "💾 Sauvegarder",
-        restoreBtn: "📥 Restaurer",
-        worldMapHeading: "🌍 Filtrer la faune par région biogéographique et bassin océanique :",
-        allRealms: "🌍 Toutes les régions du monde",
-        searchPlaceholder: "Rechercher 220 animaux par nom, habitat, régime ou fait...",
-        showingCount: (n) => `Affichage de ${n} espèces sauvages`,
-        printSheet: "🖨️ Imprimer la fiche",
-        flashcards: "🃏 Cartes mémoire",
-        ecoLab: "🌿 Réseau trophique",
-        survival: "♾️ Survie 3 Cœurs",
-        quizCert: "🏆 Quiz et Certificat",
-        catNames: { ALL: "Toutes", Mammal: "Mammifères", Bird: "Oiseaux", Reptile: "Reptiles", Amphibian: "Amphibiens", Fish: "Poissons et Requins", Insect: "Insectes", Marine: "Vie Marine" },
-        statMastered: "Maîtrisées",
-        statStarred: "Favorites",
-        speciesTag: "🐾 Espèce",
-        habitatTag: "🌿 Habitat",
-        masteredRibbon: "✓ Maîtrisée",
-        detailsCue: "Voir les détails",
-        listenBtn: "🔊 Écouter",
-        spellBtn: "🔤 Épeler",
-        spellTilesLabel: "Touchez chaque lettre pour entendre sa prononciation :",
-        panelForm: "🧬 Morphologie et adaptation",
-        panelHabitat: "🌍 Habitat naturel et conservation",
-        panelDiet: "🍃 Régime alimentaire et rôle trophique",
-        panelBehavior: "⚡ Comportement clé",
-        panelFact: "💡 Fait étonnant",
-        readFullStory: "📖 Écouter l'histoire complète",
-        markMastered: "✅ Marquer comme maîtrisée",
-        unmarkMastered: "🏅 Maîtrisée (Annuler)",
-        closeModal: "Fermer",
-        printTitle: "Fauna World — Fiche d'Étude de la Faune",
-        printSub: (cat, realm, n) => `Filtre : ${cat} | Région : ${realm} | Total des espèces : ${n}`,
-        printStudent: "Étudiant :",
-        printDate: "Date :",
-        printThVisual: "Espèce et Habitat",
-        printThName: "Nom commun et syllabes",
-        printThSci: "Nom scientifique",
-        printThClass: "Classe et sous-groupe",
-        printThHab: "Habitat et conservation",
-        printThDiet: "Régime et fait clé",
-        quizBadge: "🏆 DÉFI INTERACTIF DE ZOOLOGIE ET D'ÉCOLOGIE",
-        quizReady: "Prêt pour votre défi",
-        quizDesc: "Obtenez 70 % ou plus à un quiz de 10 questions pour débloquer votre Certificat officiel Fauna World !",
-        startQuiz: "Lancer le défi de 10 questions →",
-        backEncyclopedia: "← Retour à l'encyclopédie",
-        certTitle: "Certificat de Maîtrise de la Faune",
-        certSubtitle: "ACADÉMIE D'HISTOIRE NATURELLE ET DE ZOOLOGIE FAUNA WORLD",
-        certAwardedTo: "Ce certificat atteste que",
-        certBody: (score, total, pct, mode) => `a réussi avec succès l'évaluation des 220 espèces et d'écologie (${mode}) avec un score remarquable de ${score}/${total} (${pct} %).`,
-        certStudentSig: "Signature de l'Étudiant Explorateur",
-        certDateLabel: "Date de délivrance",
-        certSeal: "SCEAU OFFICIEL<br>FAUNA WORLD",
-        printCertBtn: "🖨️ Imprimer le Certificat Officiel",
-        storyTemplate: (a) => `${a.name}. Nom scientifique : ${a.sci}. Classe : ${a.cat}. ${a.summary} Son habitat est ${a.habitat}, et son statut de conservation est ${a.status}. Régime : ${a.diet}. Comportement clé : ${a.behavior}. Fait étonnant : ${a.fact}`
-      },
-      de: {
-        dir: "ltr",
-        signInPill: "🦁 FAUNA WORLD • SCHÜLER-LERNPORTAL",
-        signInTitle: "Willkommen bei Fauna World",
-        signInSub: "Gib deinen Namen ein, um deine Expedition mit 220 Tierarten, Sprachlektionen und dein Zoologie-Zertifikat zu personalisieren.",
-        signInLabel: "Vollständiger Name des Schülers / Entdeckers",
-        signInPlaceholder: "Namen hier eingeben (z. B. Lukas Weber)",
-        signInError: "Bitte gib mindestens 2 Zeichen ein, um zu starten.",
-        signInBtn: "220 Tierarten entdecken →",
-        heroBadge: "🦁 FAUNA WORLD • 220 WILDTIERARTEN",
-        hello: "Hallo",
-        switchName: "Name ändern",
-        heroMainTitle: "Enzyklopädie der Lebenden Arten & Lebensräume",
-        heroSub: "Entdecke 220 Säugetiere, Vögel, Reptilien, Amphibien, Fische, Insekten und Meerestiere mit Doppelbildern, Buchstabierkacheln und mehrsprachiger Lehrerstimme.",
-        drawerLabel: "🎛️ Lernmodi, Stimme & Barrierefreiheit",
-        visPhoto: "📸 Doppelte Echtfotos",
-        visVector: "🎨 Tier-Diagramme",
-        kidVoiceOn: "🧸 Sanfte Lehrerstimme: AN",
-        kidVoiceOff: "🎙️ Standardstimme: AUS",
-        studentModeOn: "Schülermodus: AN",
-        studentModeOff: "Schülermodus: AUS",
-        memoryHideOn: "Gedächtnis-Modus: AN",
-        memoryHideOff: "Gedächtnis-Modus: AUS",
-        dailyStreak: "🔥 5 Tiere des Tages",
-        worldMapBtn: "🌍 Weltkarte",
-        darkBtn: "🌙 Dunkel",
-        lightBtn: "☀️ Hell",
-        dyslexiaBtn: "🔤 Lesefreundlich",
-        dataSaverOn: "📶 Datensparmodus: AN",
-        dataSaverOff: "📶 Datensparmodus: AUS",
-        backupBtn: "💾 Sichern",
-        restoreBtn: "📥 Wiederherstellen",
-        worldMapHeading: "🌍 Tierwelt nach biogeografischer Region und Ozean filtern:",
-        allRealms: "🌍 Alle Weltregionen",
-        searchPlaceholder: "220 Tiere nach Name, Lebensraum, Nahrung oder Fakt suchen...",
-        showingCount: (n) => `${n} Wildtierarten werden angezeigt`,
-        printSheet: "🖨️ Lernblatt drucken",
-        flashcards: "🃏 Lernkarten",
-        ecoLab: "🌿 Nahrungsnetz-Labor",
-        survival: "♾️ 3-Herzen-Überleben",
-        quizCert: "🏆 Quiz & Zertifikat",
-        catNames: { ALL: "Alle Arten", Mammal: "Säugetiere", Bird: "Vögel", Reptile: "Reptilien", Amphibian: "Amphibien", Fish: "Fische & Haie", Insect: "Insekten", Marine: "Meerestiere" },
-        statMastered: "Gemeistert",
-        statStarred: "Favoriten",
-        speciesTag: "🐾 Tierart",
-        habitatTag: "🌿 Lebensraum",
-        masteredRibbon: "✓ Gemeistert",
-        detailsCue: "Details ansehen",
-        listenBtn: "🔊 Anhören",
-        spellBtn: "🔤 Buchstabieren",
-        spellTilesLabel: "Tippe auf jeden Buchstaben für die Aussprache:",
-        panelForm: "🧬 Körperbau & Anpassung",
-        panelHabitat: "🌍 Lebensraum & Schutzstatus",
-        panelDiet: "🍃 Ernährung & ökologische Rolle",
-        panelBehavior: "⚡ Schlüsselverhalten",
-        panelFact: "💡 Erstaunlicher Fakt",
-        readFullStory: "📖 Ganze Tiergeschichte vorlesen",
-        markMastered: "✅ Als gemeistert markieren",
-        unmarkMastered: "🏅 Gemeistert (Rückgängig)",
-        closeModal: "Schließen",
-        printTitle: "Fauna World — Schüler-Lernblatt Tierwelt",
-        printSub: (cat, realm, n) => `Filter: ${cat} | Region: ${realm} | Arten gesamt: ${n}`,
-        printStudent: "Schülername:",
-        printDate: "Datum:",
-        printThVisual: "Tierart & Lebensraum",
-        printThName: "Name & Silben",
-        printThSci: "Wissenschaftlicher Name",
-        printThClass: "Klasse & Untergruppe",
-        printThHab: "Lebensraum & Schutz",
-        printThDiet: "Ernährung & Fakt",
-        quizBadge: "🏆 INTERAKTIVE ZOOLOGIE- & ÖKOLOGIE-CHALLENGE",
-        quizReady: "Bereit für deine Herausforderung",
-        quizDesc: "Erreiche mindestens 70 % in einem 10-Fragen-Quiz, um dein offizielles Fauna World Zertifikat freizuschalten!",
-        startQuiz: "10-Fragen-Challenge starten →",
-        backEncyclopedia: "← Zurück zur Enzyklopädie",
-        certTitle: "Zertifikat für Wildtier-Meisterschaft",
-        certSubtitle: "FAUNA WORLD AKADEMIE FÜR NATURGESCHICHTE & ZOOLOGIE",
-        certAwardedTo: "Hiermit wird bestätigt, dass",
-        certBody: (score, total, pct, mode) => `die 220-Arten-Wildtier- und Ökologieprüfung (${mode}) erfolgreich mit einer hervorragenden Punktzahl von ${score}/${total} (${pct} %) abgeschlossen hat.`,
-        certStudentSig: "Unterschrift des Schülers",
-        certDateLabel: "Ausstellungsdatum",
-        certSeal: "OFFIZIELLES<br>FAUNA WORLD<br>SIEGEL",
-        printCertBtn: "🖨️ Offizielles Zertifikat drucken",
-        storyTemplate: (a) => `${a.name}. Wissenschaftlicher Name: ${a.sci}. Klasse: ${a.cat}. ${a.summary} Lebensraum: ${a.habitat}, Schutzstatus: ${a.status}. Ernährung: ${a.diet}. Schlüsselverhalten: ${a.behavior}. Erstaunlicher Fakt: ${a.fact}`
-      },
-      ja: {
-        dir: "ltr",
-        signInPill: "🦁 ファウナ・ワールド • 学習ポータル",
-        signInTitle: "ファウナ・ワールドへようこそ",
-        signInSub: "お名前を入力して、220種の野生生物探検、音声レッスン、動物学修了証をパーソナライズしましょう。",
-        signInLabel: "学習者・探検家の氏名",
-        signInPlaceholder: "お名前を入力してください（例：佐藤 陽翔）",
-        signInError: "学習を始めるには2文字以上入力してください。",
-        signInBtn: "220種の探検を始める →",
-        heroBadge: "🦁 ファウナ・ワールド • 野生生物220種",
-        hello: "こんにちは",
-        switchName: "名前を変更",
-        heroMainTitle: "生き物と生息地のビジュアル大百科",
-        heroSub: "220種の哺乳類・鳥類・爬虫類・両生類・魚類・昆虫・海洋生物を、種と生息地の2枚写真と優しい多言語音声で学びましょう。",
-        drawerLabel: "🎛️ 学習モード・音声・アクセシビリティ設定",
-        visPhoto: "📸 リアル2枚写真",
-        visVector: "🎨 野生生物イラスト図解",
-        kidVoiceOn: "🧸 優しい先生の声：オン",
-        kidVoiceOff: "🎙️ 標準音声：オフ",
-        studentModeOn: "学習モード：オン",
-        studentModeOff: "学習モード：オフ",
-        memoryHideOn: "暗記マスク：オン",
-        memoryHideOff: "暗記マスク：オフ",
-        dailyStreak: "🔥 今日の5種",
-        worldMapBtn: "🌍 世界生物マップ",
-        darkBtn: "🌙 ダーク",
-        lightBtn: "☀️ ライト",
-        dyslexiaBtn: "🔤 読みやすさ重視",
-        dataSaverOn: "📶 データ節約：オン",
-        dataSaverOff: "📶 データ節約：オフ",
-        backupBtn: "💾 バックアップ",
-        restoreBtn: "📥 復元",
-        worldMapHeading: "🌍 生物地理区・海洋エリアで絞り込む：",
-        allRealms: "🌍 すべての地域",
-        searchPlaceholder: "名前・生息地・食べ物・特徴で220種を検索...",
-        showingCount: (n) => `${n} 種の野生生物を表示中`,
-        printSheet: "🖨️ 学習シート印刷",
-        flashcards: "🃏 フラッシュカード",
-        ecoLab: "🌿 食物網ラボ",
-        survival: "♾️ 3ライフサバイバル",
-        quizCert: "🏆 クイズと修了証",
-        catNames: { ALL: "すべて", Mammal: "哺乳類", Bird: "鳥類", Reptile: "爬虫類", Amphibian: "両生類", Fish: "魚類・サメ", Insect: "昆虫", Marine: "海洋生物" },
-        statMastered: "習得済み",
-        statStarred: "お気に入り",
-        speciesTag: "🐾 生き物",
-        habitatTag: "🌿 生息地",
-        masteredRibbon: "✓ 習得済み",
-        detailsCue: "詳細を見る",
-        listenBtn: "🔊 聞く",
-        spellBtn: "🔤 つづり",
-        spellTilesLabel: "文字タイルをタップして発音を聞く：",
-        panelForm: "🧬 体の特徴と適応",
-        panelHabitat: "🌍 生息地と保全状況",
-        panelDiet: "🍃 食性と生態系での役割",
-        panelBehavior: "⚡ 主な行動",
-        panelFact: "💡 驚くべき豆知識",
-        readFullStory: "📖 野生生物ストーリーを全文聞く",
-        markMastered: "✅ 習得済みにする",
-        unmarkMastered: "🏅 習得済み（解除）",
-        closeModal: "閉じる",
-        printTitle: "ファウナ・ワールド — 野生生物学習シート",
-        printSub: (cat, realm, n) => `分類: ${cat} | 地域: ${realm} | 合計種数: ${n}`,
-        printStudent: "学習者名:",
-        printDate: "日付:",
-        printThVisual: "種と生息地",
-        printThName: "一般名と音節",
-        printThSci: "学名",
-        printThClass: "綱・サブグループ",
-        printThHab: "生息地と保全",
-        printThDiet: "食性と重要ポイント",
-        quizBadge: "🏆 動物学・生態学インタラクティブチャレンジ",
-        quizReady: "チャレンジの準備はできましたか",
-        quizDesc: "10問クイズで70%以上正解すると、ファウナ・ワールド公式修了証が発行されます！",
-        startQuiz: "10問チャレンジを開始 →",
-        backEncyclopedia: "← 大百科に戻る",
-        certTitle: "野生生物学 修了証書",
-        certSubtitle: "ファウナ・ワールド自然史・動物学アカデミー",
-        certAwardedTo: "下記の者が優れた成績を収めたことを証します",
-        certBody: (score, total, pct, mode) => `220種野生生物・生態学アセスメント（${mode}）において、${score}/${total}問正解（${pct}%）の優秀な成績で修了しました。`,
-        certStudentSig: "学習者署名",
-        certDateLabel: "授与日",
-        certSeal: "ファウナ・ワールド<br>公式認証印",
-        printCertBtn: "🖨️ 公式修了証を印刷する",
-        storyTemplate: (a) => `${a.name}。学名は ${a.sci}。分類は ${a.cat} です。${a.summary} 主に ${a.habitat} に生息し、保全状況は ${a.status} です。食性：${a.diet}。主な行動：${a.behavior}。豆知識：${a.fact}`
-      },
-      ar: {
-        dir: "rtl",
-        signInPill: "🦁 عالم الحيوان • بوابة تعلم الطلاب",
-        signInTitle: "مرحبًا بك في عالم الحيوان",
-        signInSub: "أدخل اسمك لتخصيص رحلتك الاستكشافية لـ 220 نوعًا من الحياة البرية والدروس الصوتية وشهادة علم الحيوان.",
-        signInLabel: "الاسم الكامل للطالب / المستكشف",
-        signInPlaceholder: "اكتب اسمك هنا (مثال: أحمد المنصور)",
-        signInError: "يرجى إدخال حرفين على الأقل لبدء التعلم.",
-        signInBtn: "ابدأ استكشاف 220 نوعًا ←",
-        heroBadge: "🦁 عالم الحيوان • 220 نوعًا بريًا",
-        hello: "مرحبًا",
-        switchName: "تغيير الاسم",
-        heroMainTitle: "موسوعة الكائنات الحية والمواطن الطبيعية",
-        heroSub: "استكشف 220 نوعًا من الثدييات والطيور والزواحف والبرمائيات والأسماك والحشرات والكائنات البحرية مع صور مزدوجة وصوت تعليمي متعدد اللغات.",
-        drawerLabel: "🎛️ أوضاع الدراسة والصوت وإمكانية الوصول",
-        visPhoto: "📸 صور حقيقية مزدوجة",
-        visVector: "🎨 رسوم توضيحية",
-        kidVoiceOn: "🧸 صوت المعلم اللطيف: مفعل",
-        kidVoiceOff: "🎙️ الصوت القياسي: متوقف",
-        studentModeOn: "وضع الطالب: مفعل",
-        studentModeOff: "وضع الطالب: متوقف",
-        memoryHideOn: "إخفاء الذاكرة: مفعل",
-        memoryHideOff: "إخفاء الذاكرة: متوقف",
-        dailyStreak: "🔥 5 حيوانات يومية",
-        worldMapBtn: "🌍 خريطة الحياة البرية",
-        darkBtn: "🌙 داكن",
-        lightBtn: "☀️ فاتح",
-        dyslexiaBtn: "🔤 قراءة مريحة",
-        dataSaverOn: "📶 توفير البيانات: مفعل",
-        dataSaverOff: "📶 توفير البيانات: متوقف",
-        backupBtn: "💾 نسخ احتياطي",
-        restoreBtn: "📥 استعادة",
-        worldMapHeading: "🌍 تصفية الحياة البرية حسب الإقليم الحيوي والمحيط:",
-        allRealms: "🌍 جميع أقاليم العالم",
-        searchPlaceholder: "ابحث في 220 حيوانًا بالاسم أو الموطن أو الغذاء...",
-        showingCount: (n) => `عرض ${n} نوعًا من الحياة البرية`,
-        printSheet: "🖨️ طباعة ورقة الدراسة",
-        flashcards: "🃏 بطاقات تعليمية",
-        ecoLab: "🌿 مختبر الشبكة الغذائية",
-        survival: "♾️ تحدي 3 قلوب",
-        quizCert: "🏆 الاختبار والشهادة",
-        catNames: { ALL: "الكل", Mammal: "الثدييات", Bird: "الطيور", Reptile: "الزواحف", Amphibian: "البرمائيات", Fish: "الأسماك والقروش", Insect: "الحشرات", Marine: "الحياة البحرية" },
-        statMastered: "تم إتقانها",
-        statStarred: "المفضلة",
-        speciesTag: "🐾 الكائن",
-        habitatTag: "🌿 الموطن",
-        masteredRibbon: "✓ متقن",
-        detailsCue: "اضغط للتفاصيل",
-        listenBtn: "🔊 استمع",
-        spellBtn: "🔤 تهجئة",
-        spellTilesLabel: "اضغط على كل حرف لسماع نطقه:",
-        panelForm: "🧬 الشكل الجسدي والتكيف",
-        panelHabitat: "🌍 الموطن الأصلي وحالة الحفظ",
-        panelDiet: "🍃 النظام الغذائي والدور البيئي",
-        panelBehavior: "⚡ السلوك الرئيسي",
-        panelFact: "💡 حقيقة مذهلة",
-        readFullStory: "📖 قراءة قصة الحياة البرية كاملة",
-        markMastered: "✅ تحديد كمتقن",
-        unmarkMastered: "🏅 متقن (تراجع)",
-        closeModal: "إغلاق",
-        printTitle: "عالم الحيوان — ورقة دراسة الحياة البرية للطالب",
-        printSub: (cat, realm, n) => `التصنيف: ${cat} | الإقليم: ${realm} | إجمالي الأنواع: ${n}`,
-        printStudent: "اسم الطالب:",
-        printDate: "التاريخ:",
-        printThVisual: "الكائن والموطن",
-        printThName: "الاسم الشائع والمقاطع",
-        printThSci: "الاسم العلمي",
-        printThClass: "الفئة والمجموعة",
-        printThHab: "الموطن وحالة الحفظ",
-        printThDiet: "الغذاء والحقيقة الرئيسية",
-        quizBadge: "🏆 تحدي علم الحيوان والبيئة التفاعلي",
-        quizReady: "هل أنت مستعد للتحدي",
-        quizDesc: "احصل على 70% أو أكثر في أي اختبار من 10 أسئلة لفتح شهادة عالم الحيوان المعتمدة!",
-        startQuiz: "بدء تحدي 10 أسئلة ←",
-        backEncyclopedia: "← العودة إلى الموسوعة",
-        certTitle: "شهادة الإتقان في علوم الحياة البرية",
-        certSubtitle: "أكاديمية عالم الحيوان للتاريخ الطبيعي وعلم الحيوان",
-        certAwardedTo: "تشهد هذه الوثيقة بأن",
-        certBody: (score, total, pct, mode) => `قد أتم بنجاح تقييم 220 نوعًا من الحياة البرية والبيئة (${mode}) بدرجة متميزة بلغت ${score}/${total} (${pct}%).`,
-        certStudentSig: "توقيع الطالب المستكشف",
-        certDateLabel: "تاريخ المنح",
-        certSeal: "الختم الرسمي<br>لعالم الحيوان",
-        printCertBtn: "🖨️ طباعة الشهادة الرسمية",
-        storyTemplate: (a) => `${a.name}. الاسم العلمي: ${a.sci}. الفئة: ${a.cat}. ${a.summary} يعيش في ${a.habitat}، وحالة حفظه هي ${a.status}. الغذاء: ${a.diet}. السلوك الرئيسي: ${a.behavior}. حقيقة مذهلة: ${a.fact}`
-      }
-    };
-
-    function tUI() {
-      return UI_I18N[appState.voiceLang] || UI_I18N.en;
-    }
-
-    function applyLanguageUI() {
-      const L = tUI();
-      document.documentElement.lang = appState.voiceLang;
-      document.documentElement.dir = L.dir;
-
-      // Sign-in Screen
-      const setTxt = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-      setTxt("signInPillText", L.signInPill);
-      setTxt("signInTitleText", L.signInTitle);
-      setTxt("signInSubText", L.signInSub);
-      setTxt("signInLabelText", L.signInLabel);
-      setTxt("signInErrorMsg", L.signInError);
-      setTxt("signInBtnText", L.signInBtn);
-      const entryInp = document.getElementById("entryStudentName");
-      if (entryInp) entryInp.placeholder = L.signInPlaceholder;
-
-      // Main Portal Header & Controls
-      setTxt("heroBrandBadge", L.heroBadge);
-      setTxt("heroHelloWord", L.hello);
-      setTxt("switchNameBtn", L.switchName);
-      setTxt("heroTitleGreeting", L.hello);
-      setTxt("heroTitleMain", L.heroMainTitle);
-      setTxt("heroSubText", L.heroSub);
-      setTxt("drawerToggleLabel", L.drawerLabel);
-      setTxt("visPhotoBtn", L.visPhoto);
-      setTxt("visVectorBtn", L.visVector);
-      setTxt("dailyStreakBtn", L.dailyStreak);
-      setTxt("mapToggleBtn", L.worldMapBtn);
-      setTxt("dyslexiaBtn", L.dyslexiaBtn);
-      setTxt("backupBtn", L.backupBtn);
-      setTxt("restoreBtn", L.restoreBtn);
-      setTxt("worldMapHeading", L.worldMapHeading);
-
-      const searchInp = document.getElementById("searchInput");
-      if (searchInp) searchInp.placeholder = L.searchPlaceholder;
-
-      setTxt("printSheetBtn", L.printSheet);
-      setTxt("flashcardsBtn", L.flashcards);
-      setTxt("ecoLabBtn", L.ecoLab);
-      setTxt("survivalBtn", L.survival);
-      setTxt("quizCertBtn", L.quizCert);
-
-      setTxt("printSheetMainTitle", L.printTitle);
-      setTxt("printStudentLbl", L.printStudent);
-      setTxt("printDateLbl", L.printDate);
-      setTxt("printThVisual", L.printThVisual);
-      setTxt("printThName", L.printThName);
-      setTxt("printThSci", L.printThSci);
-      setTxt("printThClass", L.printThClass);
-      setTxt("printThHab", L.printThHab);
-      setTxt("printThDiet", L.printThDiet);
-
-      setTxt("quizBadgeText", L.quizBadge);
-      setTxt("quizReadyTitle", L.quizReady);
-      setTxt("quizSetupDesc", L.quizDesc);
-      setTxt("startQuizBtn", L.startQuiz);
-      setTxt("quizBackBtn", L.backEncyclopedia);
-    }
-
-    // ==================== STUDENT PORTAL FLOW ====================
-    function syncStudentDisplays() {
-      const display = appState.studentName || "Explorer";
-      const ids = ["headerStudentName", "heroStudentName", "quizSetupStudentName", "printSheetStudentName"];
-      ids.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = display;
-      });
-    }
-
-    function enterMainPortal(name) {
-      appState.studentName = name.trim();
-      saveState();
-      syncStudentDisplays();
-      document.getElementById("studentSignInGate").classList.add("hidden-portal");
-      document.getElementById("faunaMainPortal").classList.remove("hidden-portal");
-      window.scrollTo({ top: 0, behavior: "instant" });
-      refreshAllUI();
-    }
-
-    function handleStudentSignIn(e) {
-      e.preventDefault();
+    function handleStudentSignIn(event) {
+      if (event) event.preventDefault();
       const input = document.getElementById("entryStudentName");
       const err = document.getElementById("signInErrorMsg");
       const val = (input.value || "").trim();
@@ -2535,1073 +1842,1516 @@
         return;
       }
       err.style.display = "none";
-      enterMainPortal(val);
+      syncStudentNameAcrossPortal(val);
+      document.getElementById("studentSignInGate").classList.add("hidden-portal");
+      document.getElementById("faunaMainPortal").classList.remove("hidden-portal");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      showToast(`👋 Hello ${currentStudentName}! Welcome to Fauna World.`);
     }
 
     function switchStudentProfile() {
+      stopAllSpeech();
+      const input = document.getElementById("entryStudentName");
+      if (input) input.value = currentStudentName;
       document.getElementById("faunaMainPortal").classList.add("hidden-portal");
       document.getElementById("studentSignInGate").classList.remove("hidden-portal");
-      const input = document.getElementById("entryStudentName");
-      input.value = appState.studentName || "";
-      setTimeout(() => input.focus(), 60);
+      if (input) input.focus();
     }
 
-    // ==================== DATA ENRICHMENT & DUAL PHOTO URLS ====================
-    function makeSyllables(name) {
-      const clean = name.split("(")[0].trim();
+    function bootPortalSession() {
+      if (currentStudentName && currentStudentName.trim().length >= 2) {
+        syncStudentNameAcrossPortal(currentStudentName);
+        document.getElementById("studentSignInGate").classList.add("hidden-portal");
+        document.getElementById("faunaMainPortal").classList.remove("hidden-portal");
+      } else {
+        document.getElementById("studentSignInGate").classList.remove("hidden-portal");
+        document.getElementById("faunaMainPortal").classList.add("hidden-portal");
+      }
+    }
+
+    function getSlotLabels(category) {
+      if (category === "Mammal") return { left: "🦁 Living Mammal", right: "🌍 Wild Habitat" };
+      if (category === "Bird") return { left: "🦅 Living Bird", right: "🌲 Nest & Biome" };
+      if (category === "Reptile") return { left: "🦎 Living Reptile", right: "🏜️ Native Habitat" };
+      if (category === "Amphibian") return { left: "🐸 Amphibian", right: "💧 Wetland Home" };
+      if (category === "Fish") return { left: "🦈 Aquatic Fish", right: "🌊 Reef / River" };
+      if (category === "Insect") return { left: "🦋 Arthropod", right: "🌸 Ecosystem" };
+      return { left: "🐙 Marine Life", right: "🪸 Ocean Realm" };
+    }
+
+    function getSyllables(name) {
+      const clean = name.replace(/\(.*?\)/g, "").trim();
       return clean.split(/\s+/).map(word => {
         if (word.length <= 4) return word.toUpperCase();
-        const chunks = word.match(/[^aeiouy]*[aeiouy]+(?:[^aeiouy](?![aeiouy]))?/gi);
-        return chunks && chunks.length > 1 ? chunks.join("·").toUpperCase() : word.toUpperCase();
-      }).join(" ");
+        const parts = word.match(/[^aeiouy]*[aeiouy]+(?:[^aeiouy](?![aeiouy]))?/gi);
+        return parts ? parts.join("-").toUpperCase() : word.toUpperCase();
+      }).join(" • ");
     }
 
-    const CATEGORY_VISUAL_META = {
-      Mammal:    { c1: "#9a3412", c2: "#f97316", badge: "🐾", h1: "#14532d", h2: "#22c55e" },
-      Bird:      { c1: "#075985", c2: "#0ea5e9", badge: "🦅", h1: "#0369a1", h2: "#38bdf8" },
-      Reptile:   { c1: "#166534", c2: "#16a34a", badge: "🦎", h1: "#3f6212", h2: "#84cc16" },
-      Amphibian: { c1: "#115e59", c2: "#14b8a6", badge: "🐸", h1: "#065f46", h2: "#10b981" },
-      Fish:      { c1: "#1e40af", c2: "#3b82f6", badge: "🦈", h1: "#1d4ed8", h2: "#60a5fa" },
-      Insect:    { c1: "#92400e", c2: "#f59e0b", badge: "🦋", h1: "#365314", h2: "#a3e635" },
-      Marine:    { c1: "#6b21a8", c2: "#a855f7", badge: "🐙", h1: "#1e3a8a", h2: "#2dd4bf" }
-    };
-
-    const REALM_COORDS = {
-      "Africa": { lat: "-2.3° S", lon: "34.8° E", biome: "Savanna, Rainforest & Desert" },
-      "Africa & Eurasia": { lat: "15.0° N", lon: "38.0° E", biome: "Salt Lakes & Wetlands" },
-      "Africa & Middle East": { lat: "24.5° N", lon: "45.0° E", biome: "Arid Sand & Steppe" },
-      "Americas": { lat: "-3.4° S", lon: "-62.2° W", biome: "Neotropical & Nearctic Forests" },
-      "Arctic & Polar": { lat: "76.5° N", lon: "-42.0° W", biome: "Polar Sea Ice & Tundra" },
-      "East & Southeast Asia": { lat: "4.2° N", lon: "114.5° E", biome: "Dipterocarp & Bamboo Forest" },
-      "Global Cosmopolitan": { lat: "20.0° N", lon: "0.0° E", biome: "Multi-Continent Ecosystems" },
-      "Mediterranean & Europe": { lat: "45.8° N", lon: "11.2° E", biome: "Alpine & Temperate Woodland" },
-      "North America & Eurasia": { lat: "56.0° N", lon: "-106.3° W", biome: "Boreal Taiga & Meadows" },
-      "Oceania & Pacific": { lat: "-25.2° S", lon: "133.7° E", biome: "Eucalyptus, Outback & Reefs" },
-      "Oceans & Marine": { lat: "0.0° N", lon: "-140.0° W", biome: "Pelagic, Abyssal & Coral Reefs" },
-      "South Asia": { lat: "22.5° N", lon: "78.9° E", biome: "Monsoon Forest, Himalayas & Rivers" },
-      "South Asia & Oceania": { lat: "10.5° N", lon: "105.0° E", biome: "Tropical Canopy & Mangroves" }
-    };
-
-    const ANIMALS = RAW_ANIMALS.map(r => {
-      const [id, name, cat, subgroup, names, sci, form, origin, habitat, status, diet, behavior, fact, summary] = r;
-      const meta = CATEGORY_VISUAL_META[cat] || CATEGORY_VISUAL_META.Mammal;
-      const geo = REALM_COORDS[origin] || { lat: "12.0° N", lon: "25.0° E", biome: "Diverse Natural Biome" };
-      const primaryQuery = name.split("(")[0].split("&")[0].trim();
-      const animalPhoto = `https://loremflickr.com/480/320/${encodeURIComponent(primaryQuery + " wildlife animal")}?lock=${id * 11 + 3}`;
-      const habitatKeyword = habitat.split("(")[0].split(",")[0].trim().split(/\s+/).slice(-2).join(" ");
-      const habitatPhoto = `https://loremflickr.com/480/320/${encodeURIComponent(habitatKeyword + " landscape nature")}?lock=${id * 17 + 9}`;
-
-      let trophic = "Secondary Consumer";
-      if (diet.startsWith("Herbivore") || diet.startsWith("Frugivore") || diet.startsWith("Nectarivore") || diet.startsWith("Granivore")) trophic = "Primary Consumer (Herbivore)";
-      else if (diet.startsWith("Detritivore") || diet.startsWith("Fungivore") || diet.startsWith("Filter Feeder")) trophic = "Decomposer / Filter Recycler";
-      else if (diet.startsWith("Omnivore")) trophic = "Omnivore (Multi-Trophic)";
-
-      return {
-        id, name, cat, subgroup, names, sci, form, origin, habitat, status,
-        diet, behavior, fact, summary, trophic,
-        syllables: makeSyllables(name),
-        c1: meta.c1, c2: meta.c2, h1: meta.h1, h2: meta.h2, badge: meta.badge,
-        lat: geo.lat, lon: geo.lon, biome: geo.biome,
-        animalPhoto, habitatPhoto
+    function getDualVectorSVG(item, side) {
+      const palettes = {
+        Mammal: { bg1: "#ffedd5", bg2: "#fed7aa", accent: "#c2410c", icon: "🦁" },
+        Bird: { bg1: "#e0f2fe", bg2: "#bae6fd", accent: "#0369a1", icon: "🦅" },
+        Reptile: { bg1: "#dcfce7", bg2: "#bbf7d0", accent: "#15803d", icon: "🦎" },
+        Amphibian: { bg1: "#ccfbf1", bg2: "#99f6e4", accent: "#0f766e", icon: "🐸" },
+        Fish: { bg1: "#dbeafe", bg2: "#bfdbfe", accent: "#1d4ed8", icon: "🦈" },
+        Insect: { bg1: "#fef3c7", bg2: "#fde68a", accent: "#b45309", icon: "🦋" },
+        Marine: { bg1: "#f3e8ff", bg2: "#e9d5ff", accent: "#7e22ce", icon: "🐙" }
       };
-    });
-
-    const SUBGROUPS_BY_CAT = {};
-    ANIMALS.forEach(a => {
-      if (!SUBGROUPS_BY_CAT[a.cat]) SUBGROUPS_BY_CAT[a.cat] = new Set();
-      SUBGROUPS_BY_CAT[a.cat].add(a.subgroup);
-    });
-
-    // ==================== DUAL VISUAL BUILDER ====================
-    function buildAnimalSvgDataUri(a) {
-      const short = a.name.split("(")[0].trim().slice(0, 22).replace(/&/g, "&amp;").replace(/</g, "&lt;");
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220">
-        <defs><linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${a.c1}"/><stop offset="100%" stop-color="${a.c2}"/></linearGradient></defs>
-        <rect width="320" height="220" fill="url(#gA)"/>
-        <circle cx="265" cy="48" r="56" fill="rgba(255,255,255,0.12)"/>
-        <circle cx="55" cy="185" r="70" fill="rgba(0,0,0,0.14)"/>
-        <text x="160" y="108" font-size="64" text-anchor="middle" dominant-baseline="middle">${a.badge}</text>
-        <rect x="18" y="156" width="284" height="44" rx="10" fill="rgba(11,31,58,0.68)"/>
-        <text x="160" y="175" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">${short}</text>
-        <text x="160" y="191" fill="#bae6fd" font-family="sans-serif" font-size="10" text-anchor="middle">${a.cat} • #${a.id}</text>
+      const p = palettes[item.category] || palettes.Mammal;
+      const emoji = side === "animal" ? p.icon : "🌍";
+      const label = side === "animal" ? "Living Species" : "Wild Habitat";
+      return `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="fbg_${item.id}_${side}" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="${side === "animal" ? p.bg1 : "#dcfce7"}"/>
+            <stop offset="100%" stop-color="${side === "animal" ? p.bg2 : "#bae6fd"}"/>
+          </linearGradient>
+        </defs>
+        <rect width="220" height="180" fill="url(#fbg_${item.id}_${side})"/>
+        <circle cx="110" cy="84" r="34" fill="${p.accent}" opacity="0.18"/>
+        <text x="110" y="96" text-anchor="middle" font-size="38">${emoji}</text>
+        <text x="110" y="158" text-anchor="middle" font-family="sans-serif" font-size="10.5" font-weight="700" fill="${p.accent}">${label}</text>
       </svg>`;
-      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
     }
 
-    function buildHabitatSvgDataUri(a) {
-      const shortHab = a.origin.slice(0, 24).replace(/&/g, "&amp;").replace(/</g, "&lt;");
-      const shortBiome = a.biome.slice(0, 26).replace(/&/g, "&amp;").replace(/</g, "&lt;");
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220">
-        <defs><linearGradient id="gH" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${a.h1}"/><stop offset="100%" stop-color="${a.h2}"/></linearGradient></defs>
-        <rect width="320" height="220" fill="url(#gH)"/>
-        <path d="M0 155 Q80 115 160 148 T320 135 L320 220 L0 220 Z" fill="rgba(6,40,25,0.45)"/>
-        <circle cx="255" cy="52" r="24" fill="rgba(254,243,199,0.75)"/>
-        <text x="160" y="96" font-size="44" text-anchor="middle">🌍</text>
-        <rect x="18" y="156" width="284" height="44" rx="10" fill="rgba(6,40,25,0.75)"/>
-        <text x="160" y="175" fill="#ecfdf5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">${shortHab}</text>
-        <text x="160" y="191" fill="#a7f3d0" font-family="sans-serif" font-size="10" text-anchor="middle">${shortBiome}</text>
-      </svg>`;
-      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+    // ==================== DUAL-PHOTO PIPELINE ====================
+    const fetchQueue = [];
+    let activeFetches = 0;
+    const MAX_CONCURRENT_FETCHES = 5;
+
+    function enqueuePhotoFetch(taskFn) {
+      fetchQueue.push(taskFn);
+      processFetchQueue();
     }
 
-    function renderDualVisualHTML(a, includeBadges = true) {
-      const L = tUI();
-      const useVector = appState.visualMode === "vector" || appState.dataSaver;
-      const aFallback = buildAnimalSvgDataUri(a);
-      const hFallback = buildHabitatSvgDataUri(a);
-      const aSrc = useVector ? aFallback : a.animalPhoto;
-      const hSrc = useVector ? hFallback : a.habitatPhoto;
+    function processFetchQueue() {
+      while (activeFetches < MAX_CONCURRENT_FETCHES && fetchQueue.length > 0) {
+        const nextTask = fetchQueue.shift();
+        activeFetches++;
+        nextTask().finally(() => {
+          activeFetches--;
+          processFetchQueue();
+        });
+      }
+    }
 
-      return `
-        <div class="media-slot">
-          ${includeBadges ? `<span class="slot-label animal-lbl">${L.speciesTag}</span>` : ""}
-          <img src="${aSrc}" alt="${a.name}" loading="lazy" onerror="this.onerror=null;this.src='${aFallback}'" />
+    const imgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const frame = entry.target;
+        const id = Number(frame.dataset.id);
+        const item = ANIMALS.find(x => x.id === id);
+        if (!item) return;
+        imgObserver.unobserve(frame);
+        loadDualPhotos(item, frame);
+      });
+    }, { rootMargin: "260px" });
+
+    const BLOCKED_URL_RE = /\.svg|flag|map|icon|logo|symbol|coat_of_arms|diagram|chart|portrait|headshot|politician|actor|singer|range_map|distribution/i;
+
+    async function fetchWikiSummaryThumb(slug) {
+      if (!slug) return null;
+      try {
+        const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(slug)}`);
+        if (res.ok) {
+          const data = await res.json();
+          const url = data.thumbnail && data.thumbnail.source ? data.thumbnail.source : null;
+          if (url && !BLOCKED_URL_RE.test(url)) return url;
+        }
+      } catch (e) {}
+      return null;
+    }
+
+    async function fetchWikiGalleryDistinctImage(slug, avoidUrl) {
+      if (!slug) return null;
+      try {
+        const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/media-list/${encodeURIComponent(slug)}`);
+        if (res.ok) {
+          const data = await res.json();
+          const items = data.items || [];
+          for (const m of items) {
+            if (m.type !== "image" || !m.srcset || !m.srcset.length) continue;
+            let src = m.srcset[0].src;
+            if (src.startsWith("//")) src = "https:" + src;
+            if (src && src !== avoidUrl && !BLOCKED_URL_RE.test(src)) return src;
+          }
+        }
+      } catch (e) {}
+      return null;
+    }
+
+    async function searchWikimediaCommonsPhoto(query, avoidUrl) {
+      try {
+        const api = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=filetype:bitmap+${encodeURIComponent(query)}&gsrnamespace=6&gsrlimit=6&prop=imageinfo&iiprop=url&iiurlwidth=440&format=json&origin=*`;
+        const cRes = await fetch(api);
+        if (cRes.ok) {
+          const cData = await cRes.json();
+          const pages = cData.query && cData.query.pages ? Object.values(cData.query.pages) : [];
+          for (const p of pages) {
+            const info = p.imageinfo && p.imageinfo[0];
+            const thumb = info ? (info.thumburl || info.url) : null;
+            if (thumb && thumb !== avoidUrl && !BLOCKED_URL_RE.test(thumb)) return thumb;
+          }
+        }
+      } catch (e) {}
+      return null;
+    }
+
+    async function resolveBothPhotos(item) {
+      const cleanName = item.name.replace(/\(.*?\)/g, "").trim();
+      let animalUrl = await fetchWikiSummaryThumb(item.animalWiki);
+      if (!animalUrl && item.altWiki) animalUrl = await fetchWikiSummaryThumb(item.altWiki);
+      if (!animalUrl) animalUrl = await searchWikimediaCommonsPhoto(`${item.scientific} wildlife`, null);
+      if (!animalUrl) animalUrl = await searchWikimediaCommonsPhoto(`${cleanName} animal`, null);
+
+      let habitatUrl = await fetchWikiGalleryDistinctImage(item.animalWiki, animalUrl);
+      if (!habitatUrl || habitatUrl === animalUrl) {
+        habitatUrl = await searchWikimediaCommonsPhoto(`${item.habitatQuery} landscape nature`, animalUrl);
+      }
+      if (!habitatUrl || habitatUrl === animalUrl) {
+        habitatUrl = await searchWikimediaCommonsPhoto(`${cleanName} wild habitat`, animalUrl);
+      }
+      return { animal: animalUrl || "NONE", habitat: habitatUrl || "NONE" };
+    }
+
+    function loadDualPhotos(item, frameEl) {
+      if (visualMode !== "photo" || dataSaverMode || !frameEl) return;
+      const animalSlot = frameEl.querySelector('[data-side="animal"]');
+      const habitatSlot = frameEl.querySelector('[data-side="habitat"]');
+      const cached = imgCache[item.id];
+
+      if (cached && cached.animal && cached.habitat) {
+        if (cached.animal !== "NONE" && animalSlot) applyPhotoToSlot(animalSlot, cached.animal, `${item.name} — Living Animal`);
+        if (cached.habitat !== "NONE" && habitatSlot) applyPhotoToSlot(habitatSlot, cached.habitat, `${item.name} — Wild Habitat`);
+        return;
+      }
+
+      enqueuePhotoFetch(async () => {
+        const pair = await resolveBothPhotos(item);
+        imgCache[item.id] = pair;
+        try {
+          localStorage.setItem("fauna_dual_img_cache_v6", JSON.stringify(imgCache));
+        } catch (e) {}
+        if (visualMode === "photo") {
+          if (pair.animal !== "NONE" && animalSlot) applyPhotoToSlot(animalSlot, pair.animal, `${item.name} — Living Animal`);
+          if (pair.habitat !== "NONE" && habitatSlot) applyPhotoToSlot(habitatSlot, pair.habitat, `${item.name} — Wild Habitat`);
+        }
+      });
+    }
+
+    function applyPhotoToSlot(slotEl, url, altText) {
+      if (!slotEl || slotEl.querySelector("img")) return;
+      const img = document.createElement("img");
+      img.src = url;
+      img.alt = altText;
+      img.loading = "lazy";
+      img.onerror = () => img.remove();
+      const existingSvg = slotEl.querySelector("svg");
+      if (existingSvg) existingSvg.replaceWith(img);
+    }
+
+    // ==================== UNIVERSAL MULTI-LANGUAGE STUDIO VOICE ENGINE ====================
+    let activeAudioPlayer = null;
+    const audioBlobCache = new Map();
+
+    function stopAllSpeech() {
+      if (activeAudioPlayer) {
+        try {
+          activeAudioPlayer.pause();
+          activeAudioPlayer.src = "";
+        } catch (e) {}
+        activeAudioPlayer = null;
+      }
+      if ("speechSynthesis" in window) {
+        try {
+          window.speechSynthesis.cancel();
+        } catch (e) {}
+      }
+      document.querySelectorAll(".speak-btn.speaking").forEach(b => b.classList.remove("speaking"));
+    }
+
+    function toggleKidVoice() {
+      kidFriendlyVoice = !kidFriendlyVoice;
+      const btn = document.getElementById("kidVoiceBtn");
+      btn.classList.toggle("active", kidFriendlyVoice);
+      btn.textContent = kidFriendlyVoice ? "🧸 Soft Gentle Teacher Voice: ON" : "🎙️ Crisp Clear Studio Voice";
+      showToast(kidFriendlyVoice
+        ? "🧸 Soft Gentle Teacher Voice ON"
+        : "🎙️ Crisp Clear Studio Voice ON");
+    }
+
+    function toggleStudioDrawer() {
+      const drawer = document.getElementById("mobileStudioDrawer");
+      const arrow = document.getElementById("studioDrawerArrow");
+      const isOpen = drawer.classList.toggle("open");
+      arrow.textContent = isOpen ? "▲ Hide" : "▼ Open";
+    }
+
+    function changeVoiceLang() {
+      selectedVoiceLang = document.getElementById("voiceLangSelect").value;
+      const label = document.getElementById("voiceLangSelect").selectedOptions[0].textContent;
+      showToast(`Pronunciation language set to ${label}`);
+    }
+
+    function getLocalizedSpeechText(item) {
+      if (selectedVoiceLang === "hi") {
+        const m = item.regional.match(/^([^(]+)\(Hindi\)/i);
+        if (m) return m[1].trim();
+      }
+      if (selectedVoiceLang === "es") {
+        const m = item.regional.match(/•\s*([^(]+)\(Spanish\)/i);
+        if (m) return m[1].trim();
+      }
+      return item.name.replace(/\(.*?\)/g, "").trim();
+    }
+
+    function pickBestSoftLocalVoice(langPrefix) {
+      if (!("speechSynthesis" in window)) return null;
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices.length) return null;
+
+      const blockedNames = /espeak|compact|robot|albert|bad news|bahh|bells|boing|bubbles|cellos|deranged|good news|hysterical|pipe organ|trinoids|whisper|zarvox/i;
+      const cleanPool = voices.filter(v => !blockedNames.test(v.name));
+      const pool = cleanPool.length ? cleanPool : voices;
+
+      const langPool = pool.filter(v => v.lang.toLowerCase().startsWith(langPrefix.toLowerCase()));
+      const candidates = langPool.length ? langPool : pool;
+
+      const softPriority = [
+        "natural", "neural", "online", "aria", "jenny", "samantha", "ava", "allison",
+        "google uk english female", "google us english", "veena", "lekha", "heera",
+        "amelie", "anna", "kyoko", "maged", "karen", "moira", "serena", "tessa", "victoria", "female", "woman"
+      ];
+
+      for (const kw of softPriority) {
+        const hit = candidates.find(v => v.name.toLowerCase().includes(kw));
+        if (hit) return hit;
+      }
+      return candidates[0];
+    }
+
+    function splitIntoChunks(text, maxLen = 175) {
+      const sentences = text.match(/[^.!?]+[.!?]*/g) || [text];
+      const chunks = [];
+      let current = "";
+      for (const s of sentences) {
+        const trimmed = s.trim();
+        if (!trimmed) continue;
+        if ((current + " " + trimmed).trim().length <= maxLen) {
+          current = (current + " " + trimmed).trim();
+        } else {
+          if (current) chunks.push(current);
+          if (trimmed.length <= maxLen) {
+            current = trimmed;
+          } else {
+            const words = trimmed.split(/\s+/);
+            let sub = "";
+            for (const w of words) {
+              if ((sub + " " + w).trim().length <= maxLen) {
+                sub = (sub + " " + w).trim();
+              } else {
+                if (sub) chunks.push(sub);
+                sub = w;
+              }
+            }
+            current = sub;
+          }
+        }
+      }
+      if (current) chunks.push(current);
+      return chunks;
+    }
+
+    async function speakUniversalStudioVoice(text, options = {}) {
+      const { lang = "en", speed = "normal", btnEl = null, onEnd = null } = options;
+      stopAllSpeech();
+      if (btnEl) btnEl.classList.add("speaking");
+
+      const playbackRate = speed === "slow" ? 0.74 : (kidFriendlyVoice ? 0.94 : 1.0);
+      const chunks = splitIntoChunks(text, 175);
+      const ttsLang = lang === "en" ? (kidFriendlyVoice ? "en-GB" : "en-US") : lang;
+
+      if (!dataSaverMode && navigator.onLine) {
+        try {
+          for (let i = 0; i < chunks.length; i++) {
+            const chunk = chunks[i];
+            const cacheKey = `${ttsLang}|${chunk}`;
+            let audioSrc = audioBlobCache.get(cacheKey);
+
+            if (!audioSrc) {
+              const url = `https://translate.googleapis.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${encodeURIComponent(ttsLang)}&q=${encodeURIComponent(chunk)}`;
+              const resp = await fetch(url);
+              if (!resp.ok) throw new Error("Cloud TTS unavailable");
+              const blob = await resp.blob();
+              audioSrc = URL.createObjectURL(blob);
+              audioBlobCache.set(cacheKey, audioSrc);
+            }
+
+            await new Promise((resolve, reject) => {
+              const audio = new Audio(audioSrc);
+              activeAudioPlayer = audio;
+              audio.playbackRate = playbackRate;
+              if ("preservesPitch" in audio) audio.preservesPitch = true;
+              audio.volume = 0.95;
+              audio.onended = resolve;
+              audio.onerror = reject;
+              const playPromise = audio.play();
+              if (playPromise && playPromise.catch) {
+                playPromise.catch(reject);
+              }
+            });
+          }
+          if (btnEl) btnEl.classList.remove("speaking");
+          if (onEnd) onEnd();
+          return;
+        } catch (err) {}
+      }
+
+      if ("speechSynthesis" in window) {
+        const localeMap = { en: "en-US", hi: "hi-IN", es: "es-ES", fr: "fr-FR", de: "de-DE", ja: "ja-JP", ar: "ar-SA" };
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = localeMap[lang] || "en-US";
+        utter.rate = speed === "slow" ? 0.68 : (kidFriendlyVoice ? 0.90 : 0.96);
+        utter.pitch = kidFriendlyVoice ? 1.12 : 1.02;
+        utter.volume = 0.95;
+        const chosen = pickBestSoftLocalVoice(lang);
+        if (chosen) utter.voice = chosen;
+        utter.onend = () => {
+          if (btnEl) btnEl.classList.remove("speaking");
+          if (onEnd) onEnd();
+        };
+        utter.onerror = () => {
+          if (btnEl) btnEl.classList.remove("speaking");
+          if (onEnd) onEnd();
+        };
+        window.speechSynthesis.speak(utter);
+      } else {
+        if (btnEl) btnEl.classList.remove("speaking");
+      }
+    }
+
+    function speakSingleLetter(letter) {
+      speakUniversalStudioVoice(letter.toLowerCase(), {
+        lang: "en",
+        speed: "normal"
+      });
+    }
+
+    function speakName(text, speed, btnEl, event, itemId) {
+      if (event) event.stopPropagation();
+      const itemObj = itemId ? ANIMALS.find(x => x.id === itemId) : ANIMALS.find(x => x.name === text);
+      const rawSpoken = itemObj ? getLocalizedSpeechText(itemObj) : text.replace(/\(.*?\)/g, "").trim();
+      const cleanWord = rawSpoken.replace(/\(.*?\)/g, "").trim();
+
+      const spokenCue = (speed === "slow" && kidFriendlyVoice && selectedVoiceLang === "en")
+        ? `${cleanWord}. ${getSyllables(cleanWord).replace(/•/g, ", ")}. ${cleanWord}.`
+        : cleanWord;
+
+      speakUniversalStudioVoice(spokenCue, {
+        lang: selectedVoiceLang,
+        speed: speed,
+        btnEl: btnEl
+      });
+    }
+
+    function narrateFullLesson(itemId, btnEl) {
+      const item = ANIMALS.find(x => x.id === itemId);
+      if (!item) return;
+
+      const learner = currentStudentName || "Explorer";
+      const cleanName = item.name.replace(/\(.*?\)/g, "").trim();
+      const script = kidFriendlyVoice
+        ? `Hello ${learner}! Let's meet the ${cleanName}. ${item.kidSummary} Its natural home is ${item.origin}. Here is an amazing wildlife fact: ${item.memoryClue}`
+        : `Hello ${learner}. ${cleanName}. Class: ${item.category}, ${item.subGroup}. Habitat and Range: ${item.origin}. Diet: ${item.diet}. Behavior: ${item.behavior}. Field Clue: ${item.memoryClue}`;
+
+      showToast(`🎙️ Hello ${learner}! Reading wildlife story aloud...`);
+      speakUniversalStudioVoice(script, {
+        lang: "en",
+        speed: "normal",
+        btnEl: btnEl
+      });
+    }
+
+    // ==================== PRINTABLE STUDY SHEET ====================
+    function printStudySheet() {
+      const list = getFilteredItems();
+      const catLabel = activeCategory === "ALL" ? "All Species (220)" : activeCategory;
+      document.getElementById("printSheetStudentName").textContent = currentStudentName || "_______________________";
+      document.getElementById("printSheetSubtitle").textContent =
+        `Category: ${catLabel} • Species Listed: ${list.length} • Includes Phonetic Syllables, Habitat & Diet`;
+      document.getElementById("printSheetDate").textContent = new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+
+      document.getElementById("printSheetBody").innerHTML = list.map((item, idx) => `
+        <tr>
+          <td>${idx + 1}</td>
+          <td><strong>${item.name}</strong><br><span style="font-size:8pt;color:#2563eb;">${getSyllables(item.name)}</span></td>
+          <td><em>${item.scientific}</em></td>
+          <td>${item.category}<br><span style="font-size:8pt;color:#475569;">${item.subGroup}</span></td>
+          <td>${item.origin}<br><span style="font-size:8pt;color:#334155;">${item.conservation}</span></td>
+          <td>${item.diet}<br><span style="font-size:8pt;color:#475569;">${item.memoryClue}</span></td>
+        </tr>
+      `).join("");
+
+      document.body.classList.remove("printing-cert");
+      document.body.classList.add("printing-sheet");
+      window.print();
+      setTimeout(() => document.body.classList.remove("printing-sheet"), 500);
+    }
+
+    function printCertificateSheet() {
+      document.body.classList.remove("printing-sheet");
+      document.body.classList.add("printing-cert");
+      window.print();
+      setTimeout(() => document.body.classList.remove("printing-cert"), 500);
+    }
+
+    // ==================== ACCESSIBILITY, DATA SAVER & PORTABLE PROGRESS ====================
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const active = document.body.classList.contains("dark-mode");
+      document.getElementById("darkModeBtn").classList.toggle("active", active);
+      document.getElementById("darkModeBtn").textContent = active ? "☀️ Light" : "🌙 Dark";
+    }
+
+    function toggleDyslexiaMode() {
+      document.body.classList.toggle("dyslexia-mode");
+      const active = document.body.classList.contains("dyslexia-mode");
+      document.getElementById("dyslexiaBtn").classList.toggle("active", active);
+      showToast(active ? "High-Legibility Reading Spacing ON" : "Standard Spacing Restored");
+    }
+
+    function toggleDataSaver() {
+      dataSaverMode = !dataSaverMode;
+      const btn = document.getElementById("dataSaverBtn");
+      btn.textContent = `📶 Data Saver: ${dataSaverMode ? "ON" : "OFF"}`;
+      btn.classList.toggle("active", dataSaverMode);
+      setVisualMode(dataSaverMode ? "vector" : "photo");
+      showToast(dataSaverMode ? "Data Saver ON: Zero-bandwidth diagrams active." : "Data Saver OFF: Real dual photos restored.");
+    }
+
+    function exportProgress() {
+      const payload = {
+        app: "FaunaWorld",
+        studentName: currentStudentName,
+        mastered: [...masteredIds],
+        starred: [...starredIds],
+        bestSurvival: bestSurvivalStreak
+      };
+      const code = btoa(JSON.stringify(payload));
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code);
+      }
+      prompt("Copy and save this Progress Backup Code anywhere to restore on any phone or computer:", code);
+    }
+
+    function importProgress() {
+      const code = prompt("Paste your saved Fauna World Progress Backup Code:");
+      if (!code) return;
+      try {
+        const data = JSON.parse(atob(code.trim()));
+        if (data.app !== "FaunaWorld") throw new Error("Invalid code");
+        if (data.studentName) syncStudentNameAcrossPortal(data.studentName);
+        masteredIds = new Set(data.mastered || []);
+        starredIds = new Set(data.starred || []);
+        bestSurvivalStreak = Number(data.bestSurvival || 0);
+        localStorage.setItem("fauna_mastered_v5", JSON.stringify([...masteredIds]));
+        localStorage.setItem("fauna_revision_v5", JSON.stringify([...starredIds]));
+        localStorage.setItem("fauna_survival_best_v2", String(bestSurvivalStreak));
+        renderStats();
+        renderTabs();
+        renderCards();
+        showToast("✅ Student study progress restored!");
+      } catch (e) {
+        showToast("❌ Invalid progress backup code.");
+      }
+    }
+
+    // ==================== DAILY STREAK, MAP & COMPARE TRAY ====================
+    function updateDailyStreak() {
+      const todayKey = new Date().toISOString().slice(0, 10);
+      const streakData = JSON.parse(localStorage.getItem("fauna_streak_v2") || '{"date":"","count":1}');
+      if (streakData.date !== todayKey) {
+        const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+        streakData.count = (streakData.date === yesterday) ? streakData.count + 1 : 1;
+        streakData.date = todayKey;
+        localStorage.setItem("fauna_streak_v2", JSON.stringify(streakData));
+      }
+      document.getElementById("dailyStreakBtn").textContent = `🔥 Daily 5-Animals (${streakData.count}d)`;
+    }
+
+    function getDailyFiveIds() {
+      const daySeed = Math.floor(Date.now() / 86400000);
+      const ids = [];
+      for (let i = 0; i < 5; i++) ids.push(ANIMALS[(daySeed * 17 + i * 43) % ANIMALS.length].id);
+      return ids;
+    }
+
+    function openDailyDeck() {
+      dailyDeckOnly = !dailyDeckOnly;
+      document.getElementById("dailyStreakBtn").classList.toggle("active", dailyDeckOnly);
+      hideAllArenas();
+      document.getElementById("cardsSection").style.display = "block";
+      renderCards();
+      showToast(dailyDeckOnly ? "Showing Today's 5 Featured Animals!" : "Showing Full 220-Species Encyclopedia.");
+    }
+
+    function toggleWorldMap() {
+      const panel = document.getElementById("worldMapPanel");
+      panel.classList.toggle("open");
+      document.getElementById("mapToggleBtn").classList.toggle("active", panel.classList.contains("open"));
+      const regions = ["ALL", ...new Set(ANIMALS.map(i => i.originRegion))];
+      document.getElementById("mapRegionChips").innerHTML = regions.map(r => `
+        <button type="button" class="map-chip ${document.getElementById("originFilter").value === r ? "active" : ""}"
+                onclick="selectOriginRegion('${r}')">${r === "ALL" ? "🌍 All Realms" : r}</button>
+      `).join("");
+    }
+
+    function selectOriginRegion(region) {
+      document.getElementById("originFilter").value = region;
+      dailyDeckOnly = false;
+      document.getElementById("dailyStreakBtn").classList.remove("active");
+      hideAllArenas();
+      document.getElementById("cardsSection").style.display = "block";
+      renderCards();
+      const regions = ["ALL", ...new Set(ANIMALS.map(i => i.originRegion))];
+      document.getElementById("mapRegionChips").innerHTML = regions.map(r => `
+        <button type="button" class="map-chip ${region === r ? "active" : ""}"
+                onclick="selectOriginRegion('${r}')">${r === "ALL" ? "🌍 All Realms" : r}</button>
+      `).join("");
+      showToast(region === "ALL" ? "Showing all world wildlife realms" : `Filtered by realm: ${region}`);
+    }
+
+    function toggleCompare(id, event) {
+      if (event) event.stopPropagation();
+      if (compareIds.includes(id)) compareIds = compareIds.filter(x => x !== id);
+      else {
+        if (compareIds.length >= 2) compareIds.shift();
+        compareIds.push(id);
+      }
+      renderCompareTray();
+      renderCards();
+    }
+
+    function renderCompareTray() {
+      const tray = document.getElementById("compareTray");
+      if (compareIds.length === 0) { tray.classList.remove("open"); return; }
+      tray.classList.add("open");
+      const selected = compareIds.map(id => ANIMALS.find(x => x.id === id)).filter(Boolean);
+      tray.innerHTML = `
+        <span style="font-size:0.8rem;font-weight:700;">⚖️ Compare (${selected.length}/2): ${selected.map(s => s.name).join(" vs. ")}</span>
+        ${selected.length === 2 ? `<button type="button" class="launch-btn" style="padding:6px 14px;font-size:0.78rem;" onclick="openCompareModal()">Compare</button>` : `<span style="font-size:0.75rem;color:#bae6fd;">Pick 1 more</span>`}
+        <button type="button" class="hero-btn" style="padding:5px 10px;font-size:0.74rem;" onclick="compareIds=[]; renderCompareTray(); renderCards();">Clear</button>
+      `;
+    }
+
+    function lockMobileModalScroll() {
+      savedScrollY = window.scrollY || window.pageYOffset || 0;
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.classList.add("modal-open");
+    }
+
+    function unlockMobileModalScroll() {
+      document.body.classList.remove("modal-open");
+      document.body.style.top = "";
+      window.scrollTo(0, savedScrollY);
+    }
+
+    function openCompareModal() {
+      if (compareIds.length < 2) return;
+      const [a, b] = compareIds.map(id => ANIMALS.find(x => x.id === id));
+      const modal = document.getElementById("detailModal");
+      const body = document.getElementById("modalCardBody");
+      body.innerHTML = `
+        <button type="button" class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-content">
+          <span class="quiz-badge">SIDE-BY-SIDE ZOOLOGY &amp; HABITAT COMPARISON</span>
+          <h2 style="font-size:1.25rem;margin-bottom:6px;">${a.name} <span style="color:var(--text-muted);">vs.</span> ${b.name}</h2>
+          <div class="compare-grid-2">
+            ${[a, b].map((item, idx) => `
+              <div class="info-panel" style="border:2px solid var(--border-light);">
+                <div class="dual-media-frame" id="fcmpFrame_${idx}" style="height:140px;border-radius:10px;margin-bottom:10px;">
+                  <div class="media-slot" data-side="animal">${getDualVectorSVG(item, "animal")}</div>
+                  <div class="media-slot" data-side="habitat">${getDualVectorSVG(item, "habitat")}</div>
+                </div>
+                <h3 style="font-size:1rem;">${item.name}</h3>
+                <div class="syllable-tag">${getSyllables(item.name)}</div>
+                <p style="font-size:0.76rem;color:var(--text-muted);font-style:italic;margin-bottom:8px;">${item.scientific}</p>
+                <p style="margin-bottom:6px;"><strong>Class:</strong> ${item.category} (${item.subGroup})</p>
+                <p style="margin-bottom:6px;"><strong>Habitat:</strong> ${item.origin}</p>
+                <p style="margin-bottom:6px;"><strong>Diet:</strong> ${item.diet}</p>
+                <p style="margin-bottom:6px;"><strong>Status:</strong> ${item.conservation}</p>
+                <p><strong>Superpower:</strong> ${item.memoryClue}</p>
+              </div>
+            `).join("")}
+          </div>
         </div>
-        <div class="media-slot">
-          ${includeBadges ? `<span class="slot-label habitat-lbl">${L.habitatTag}</span>` : ""}
-          <img src="${hSrc}" alt="${a.habitat}" loading="lazy" onerror="this.onerror=null;this.src='${hFallback}'" />
+      `;
+      lockMobileModalScroll();
+      modal.classList.add("open");
+      if (visualMode === "photo" && !dataSaverMode) {
+        loadDualPhotos(a, document.getElementById("fcmpFrame_0"));
+        loadDualPhotos(b, document.getElementById("fcmpFrame_1"));
+      }
+    }
+
+    // ==================== FLASHCARDS, FOOD WEB LAB & SURVIVAL ====================
+    let flashDeck = [];
+    let flashIdx = 0;
+    let flashFlipped = false;
+
+    function hideAllArenas() {
+      document.getElementById("cardsSection").style.display = "none";
+      document.getElementById("quizSection").classList.remove("active");
+      document.getElementById("flashcardSection").classList.remove("active");
+      document.getElementById("ecoLabSection").classList.remove("active");
+      document.getElementById("survivalSection").classList.remove("active");
+    }
+
+    function openArenaTab(mode) {
+      hideAllArenas();
+      if (mode === "FLASHCARDS") {
+        flashDeck = starredIds.size > 0 ? ANIMALS.filter(i => starredIds.has(i.id)) : shuffle(ANIMALS).slice(0, 15);
+        flashIdx = 0;
+        flashFlipped = false;
+        document.getElementById("flashcardSection").classList.add("active");
+        renderFlashcard();
+        document.getElementById("flashcardSection").scrollIntoView({ behavior: "smooth" });
+      } else if (mode === "ECOLAB") {
+        document.getElementById("ecoLabSection").classList.add("active");
+        initEcoLab();
+        document.getElementById("ecoLabSection").scrollIntoView({ behavior: "smooth" });
+      } else if (mode === "SURVIVAL") {
+        document.getElementById("survivalSection").classList.add("active");
+        startSurvivalMode();
+        document.getElementById("survivalSection").scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    function renderFlashcard() {
+      const box = document.getElementById("flashcardBox");
+      const item = flashDeck[flashIdx % flashDeck.length];
+      const labels = getSlotLabels(item.category);
+      box.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;">
+          <span class="quiz-badge">🃏 ${currentStudentName || "EXPLORER"}'S FLASHCARDS (${(flashIdx % flashDeck.length) + 1} / ${flashDeck.length})</span>
+          <button type="button" class="action-pill-btn" onclick="selectCategory('ALL')">← Back to Encyclopedia</button>
+        </div>
+        <p style="color:var(--text-muted);font-size:0.85rem;">Tap the card to flip between the wildlife clue and the full species profile!</p>
+        <div class="flashcard-stage" onclick="flashFlipped=!flashFlipped; renderFlashcard();">
+          <div class="flashcard-inner">
+            <div class="dual-media-frame" id="ffcMediaFrame" style="height:175px;border-radius:12px;margin-bottom:14px;">
+              <div class="media-slot" data-side="animal"><span class="slot-label animal-lbl">${labels.left}</span>${getDualVectorSVG(item, "animal")}</div>
+              <div class="media-slot" data-side="habitat"><span class="slot-label habitat-lbl">${labels.right}</span>${getDualVectorSVG(item, "habitat")}</div>
+            </div>
+            ${!flashFlipped ? `
+              <div style="font-size:0.82rem;font-weight:700;color:var(--primary-600);margin-bottom:8px;">CLUE: ${item.memoryClue}</div>
+              <button type="button" class="speak-btn" style="padding:7px 14px;font-size:0.82rem;" onclick="speakName('${item.name.replace(/'/g, "\\'")}', 'slow', this, event, ${item.id})">🐢 Hear Audio Clue</button>
+              <div style="margin-top:12px;font-size:0.8rem;color:var(--text-muted);">👆 Tap card to reveal Name &amp; Habitat</div>
+            ` : `
+              <h2 style="font-size:1.4rem;margin-bottom:4px;">${item.name}</h2>
+              <div class="syllable-tag">${getSyllables(item.name)}</div>
+              <div style="font-size:0.86rem;font-weight:600;color:var(--text-muted);margin-bottom:6px;">${item.regional}</div>
+              <div class="diet-box" style="text-align:left;margin-top:10px;">🍽️ ${item.diet}<br>🌍 ${item.origin}</div>
+            `}
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;gap:10px;margin-top:12px;">
+          <button type="button" class="action-pill-btn" onclick="starredIds.add(${item.id}); localStorage.setItem('fauna_revision_v5', JSON.stringify([...starredIds])); renderTabs(); flashFlipped=false; flashIdx++; renderFlashcard(); showToast('Saved for extra practice ★');">🔁 Need Practice</button>
+          <button type="button" class="launch-btn" onclick="masteredIds.add(${item.id}); localStorage.setItem('fauna_mastered_v5', JSON.stringify([...masteredIds])); renderStats(); flashFlipped=false; flashIdx++; renderFlashcard(); showToast('Marked Mastered ⭐');">✓ Got It!</button>
+        </div>
+      `;
+      if (visualMode === "photo" && !dataSaverMode) loadDualPhotos(item, document.getElementById("ffcMediaFrame"));
+    }
+
+    // ==================== INTERACTIVE FOOD WEB & ECOSYSTEM LAB ====================
+    const ECO_MISSIONS = [
+      {
+        title: "African Savanna Balance",
+        roleNote: "Grass-eating herbivores keep savannas open while apex carnivores prevent overgrazing.",
+        goal: "Select 3 species native to Africa (mix herbivores and carnivores).",
+        matches: x => x.originRegion === "Africa"
+      },
+      {
+        title: "Ocean & Coral Reef Web",
+        roleNote: "Algae-grazers, filter feeders, and reef predators maintain healthy marine biodiversity.",
+        goal: "Select 3 species from Oceans & Marine habitats.",
+        matches: x => x.originRegion === "Oceans & Marine"
+      },
+      {
+        title: "South Asian Forest & River Web",
+        roleNote: "Seed-dispersing birds, pollinators, herbivores, and big cats sustain Asian forests.",
+        goal: "Select 3 species native to South Asia.",
+        matches: x => x.originRegion === "South Asia"
+      }
+    ];
+    let currentEcoMission = ECO_MISSIONS[0];
+    let ecoSelection = [];
+    let ecoOptions = [];
+
+    function initEcoLab() {
+      currentEcoMission = ECO_MISSIONS[Math.floor(Math.random() * ECO_MISSIONS.length)];
+      ecoSelection = [];
+      const matchingPool = shuffle(ANIMALS.filter(currentEcoMission.matches)).slice(0, 6);
+      const otherPool = shuffle(ANIMALS.filter(x => !currentEcoMission.matches(x))).slice(0, 6);
+      ecoOptions = shuffle([...matchingPool, ...otherPool]);
+      renderEcoLab();
+    }
+
+    function addAnimalToEcoLab(id) {
+      if (ecoSelection.find(x => x.id === id)) return;
+      if (ecoSelection.length >= 4) {
+        showToast("Ecosystem web is full (4 species max). Remove one first!");
+        return;
+      }
+      const item = ANIMALS.find(x => x.id === id);
+      ecoSelection.push(item);
+      const isMatch = currentEcoMission.matches(item);
+      showToast(isMatch
+        ? `✓ ${item.name} fits this ecosystem!`
+        : `ℹ️ ${item.name} lives in ${item.originRegion}`
+      );
+      renderEcoLab();
+    }
+
+    function renderEcoLab() {
+      const box = document.getElementById("ecoLabBox");
+      const matchedCount = ecoSelection.filter(currentEcoMission.matches).length;
+      const solved = matchedCount >= 3;
+
+      const herbScore = Math.min(100, ecoSelection.filter(x => /herbivore|frugivore|nectarivore|granivore|filter feeder/i.test(x.diet)).length * 40);
+      const carnScore = Math.min(100, ecoSelection.filter(x => /carnivore|piscivore|insectivore/i.test(x.diet)).length * 40);
+      const divScore = Math.min(100, new Set(ecoSelection.map(x => x.category)).size * 34);
+
+      box.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;">
+          <span class="quiz-badge">🌿 ${currentStudentName || "EXPLORER"}'S FOOD WEB LAB</span>
+          <button type="button" class="action-pill-btn" onclick="selectCategory('ALL')">← Back to Encyclopedia</button>
+        </div>
+        <h2 style="font-size:1.3rem;">Mission: ${currentEcoMission.title}</h2>
+        <p style="color:var(--text-muted);font-size:0.86rem;margin-bottom:4px;"><strong>Goal:</strong> ${currentEcoMission.goal}</p>
+        <p style="color:var(--primary-600);font-size:0.8rem;font-weight:600;">💡 Ecology Note: ${currentEcoMission.roleNote}</p>
+
+        <div class="eco-layout">
+          <div>
+            <h4 style="margin-bottom:8px;font-size:0.85rem;">Step 1 — Tap Wildlife Species Below to Add to Your Ecosystem:</h4>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:8px;">
+              ${ecoOptions.map(o => {
+                const already = ecoSelection.some(x => x.id === o.id);
+                return `
+                  <button type="button" class="quiz-opt-btn" style="padding:9px 11px;font-size:0.79rem;opacity:${already ? "0.55" : "1"};"
+                          onclick="addAnimalToEcoLab(${o.id})" ${already ? "disabled" : ""}>
+                    ${already ? "✓ In Web: " : "+ "}${o.name}
+                    <br><span style="font-size:0.7rem;color:var(--primary-600);">${o.originRegion} • ${o.diet.split("•")[0].trim()}</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          </div>
+
+          <div class="eco-circle">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <h4>Step 2 — Your Food Web (${ecoSelection.length}/4)</h4>
+                <span style="font-size:0.78rem;font-weight:800;color:${solved ? "#059669" : "var(--amber-600)"};">
+                  Biome Matches: ${matchedCount} / 3
+                </span>
+              </div>
+
+              ${ecoSelection.length === 0 ? `
+                <p style="color:var(--text-muted);font-size:0.82rem;padding:14px 0;">
+                  Tap any 3–4 animals to build a balanced wildlife food web!
+                </p>
+              ` : ecoSelection.map(s => {
+                const ok = currentEcoMission.matches(s);
+                return `
+                  <div class="eco-slot-card" style="border-left:4px solid ${ok ? "#059669" : "#d97706"};">
+                    <div>
+                      <strong>${ok ? "✓" : "⚠️"} ${s.name}</strong>
+                      <div style="font-size:0.72rem;color:var(--text-muted);">${s.originRegion} • ${s.diet.split("•")[0].trim()}</div>
+                    </div>
+                    <button type="button" class="speak-btn" onclick="ecoSelection=ecoSelection.filter(x=>x.id!==${s.id}); renderEcoLab();">✕</button>
+                  </div>
+                `;
+              }).join("")}
+
+              <div class="meter-row">
+                <div class="meter-label"><span>Primary Consumers (Herbivores/Pollinators)</span><span>${herbScore}%</span></div>
+                <div class="meter-track"><div class="meter-fill" style="width:${herbScore}%;background:#059669;"></div></div>
+              </div>
+              <div class="meter-row">
+                <div class="meter-label"><span>Secondary &amp; Apex Predators</span><span>${carnScore}%</span></div>
+                <div class="meter-track"><div class="meter-fill" style="width:${carnScore}%;background:#d97706;"></div></div>
+              </div>
+              <div class="meter-row">
+                <div class="meter-label"><span>Taxonomic Class Diversity</span><span>${divScore}%</span></div>
+                <div class="meter-track"><div class="meter-fill" style="width:${divScore}%;background:#2563eb;"></div></div>
+              </div>
+            </div>
+
+            <div style="margin-top:12px;">
+              ${solved ? `
+                <div style="padding:11px;background:#d1fae5;border:1px solid #059669;border-radius:12px;color:#064e3b;font-size:0.82rem;font-weight:700;">
+                  🎉 Balanced Ecosystem Complete, ${currentStudentName || "Explorer"}!
+                  <br><button type="button" class="launch-btn" style="margin-top:8px;padding:7px 14px;font-size:0.78rem;" onclick="initEcoLab()">Next Biome Mission →</button>
+                </div>
+              ` : ""}
+            </div>
+          </div>
         </div>
       `;
     }
 
-    // ==================== SOFT GENTLE MULTI-LANGUAGE VOICE ENGINE ====================
-    const LANG_LOCALE_MAP = {
-      en: "en-US",
-      hi: "hi-IN",
-      es: "es-ES",
-      fr: "fr-FR",
-      de: "de-DE",
-      ja: "ja-JP",
-      ar: "ar-SA"
-    };
+    // ==================== ENDLESS 3-HEARTS SURVIVAL MODE ====================
+    let survLives = 3;
+    let survStreak = 0;
+    let survCurrent = null;
+    let survOptions = [];
 
-    let cachedVoices = [];
-    if ("speechSynthesis" in window) {
-      const loadVoices = () => { cachedVoices = window.speechSynthesis.getVoices(); };
-      loadVoices();
-      window.speechSynthesis.onvoiceschanged = loadVoices;
+    function startSurvivalMode() {
+      survLives = 3;
+      survStreak = 0;
+      nextSurvivalQuestion();
     }
 
-    function speakText(text, btnEl = null) {
-      if (!("speechSynthesis" in window)) {
-        showToast("Speech synthesis is not supported in this browser.");
+    function nextSurvivalQuestion() {
+      const box = document.getElementById("survivalBox");
+      if (survLives <= 0) {
+        if (survStreak > bestSurvivalStreak) {
+          bestSurvivalStreak = survStreak;
+          localStorage.setItem("fauna_survival_best_v2", String(bestSurvivalStreak));
+        }
+        box.innerHTML = `
+          <div style="text-align:center;padding:16px;">
+            <span class="quiz-badge">♾️ ENDLESS SURVIVAL RUN COMPLETE</span>
+            <h2 style="font-size:1.55rem;margin:8px 0;">${currentStudentName || "Explorer"}'s Streak: ${survStreak} Species!</h2>
+            <p style="font-size:0.95rem;color:var(--primary-600);font-weight:700;">🏆 All-Time Best Streak: ${bestSurvivalStreak}</p>
+            <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+              <button type="button" class="launch-btn" onclick="startSurvivalMode()">Play Again →</button>
+              <button type="button" class="action-pill-btn" onclick="selectCategory('ALL')">Back to Encyclopedia</button>
+            </div>
+          </div>
+        `;
         return;
       }
-      window.speechSynthesis.cancel();
-      document.querySelectorAll(".speak-btn.speaking").forEach(b => b.classList.remove("speaking"));
 
-      const utter = new SpeechSynthesisUtterance(text);
-      const targetLocale = LANG_LOCALE_MAP[appState.voiceLang] || "en-US";
-      const prefix = targetLocale.split("-")[0];
-      utter.lang = targetLocale;
+      survCurrent = ANIMALS[Math.floor(Math.random() * ANIMALS.length)];
+      const distractors = shuffle(ANIMALS.filter(x => x.id !== survCurrent.id)).slice(0, 3);
+      survOptions = shuffle([survCurrent, ...distractors]);
+      const labels = getSlotLabels(survCurrent.category);
 
-      const voices = cachedVoices.length ? cachedVoices : window.speechSynthesis.getVoices();
-      const matching = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith(prefix));
-      const gentle = matching.find(v => /aria|jenny|samantha|victoria|karen|moira|tessa|lekha|swara|paulina|monica|amelie|anna|kyoko|haruka|zira|google|natural|soft/i.test(v.name));
-      if (gentle) utter.voice = gentle;
-      else if (matching[0]) utter.voice = matching[0];
+      box.innerHTML = `
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;">
+          <span class="quiz-badge">♾️ STREAK: ${survStreak} (BEST: ${bestSurvivalStreak})</span>
+          <span style="font-size:1rem;font-weight:800;">Lives: ${"❤️".repeat(survLives)}${"🖤".repeat(3 - survLives)}</span>
+        </div>
+        <div class="quiz-dual-visual" id="fsurvVisualFrame">
+          <div class="media-slot" data-side="animal"><span class="slot-label animal-lbl">${labels.left}</span>${getDualVectorSVG(survCurrent, "animal")}</div>
+          <div class="media-slot" data-side="habitat"><span class="slot-label habitat-lbl">${labels.right}</span>${getDualVectorSVG(survCurrent, "habitat")}</div>
+        </div>
+        <h3 style="text-align:center;font-size:1.02rem;margin-bottom:6px;">Clue: "${survCurrent.memoryClue}" — Name this ${survCurrent.category.toLowerCase()}!</h3>
+        <div class="quiz-options">
+          ${survOptions.map(o => `
+            <button type="button" class="quiz-opt-btn" onclick="answerSurvival(${o.id}, this)">${o.name} (${o.subGroup})</button>
+          `).join("")}
+        </div>
+        <div id="survFeedback" style="text-align:center;margin-top:12px;font-weight:700;"></div>
+      `;
+      if (visualMode === "photo" && !dataSaverMode) loadDualPhotos(survCurrent, document.getElementById("fsurvVisualFrame"));
+    }
 
-      if (appState.kidVoice) {
-        utter.rate = 0.90;
-        utter.pitch = 1.14;
+    function answerSurvival(chosenId, btnEl) {
+      document.querySelectorAll("#survivalBox .quiz-opt-btn").forEach(b => b.disabled = true);
+      const fb = document.getElementById("survFeedback");
+      if (chosenId === survCurrent.id) {
+        survStreak++;
+        if (survStreak > bestSurvivalStreak) {
+          bestSurvivalStreak = survStreak;
+          localStorage.setItem("fauna_survival_best_v2", String(bestSurvivalStreak));
+        }
+        btnEl.classList.add("correct");
+        fb.innerHTML = `<span style="color:#059669;">✓ Correct! Streak: ${survStreak}</span>`;
+        setTimeout(nextSurvivalQuestion, 750);
       } else {
-        utter.rate = 1.0;
-        utter.pitch = 1.0;
+        survLives--;
+        btnEl.classList.add("wrong");
+        fb.innerHTML = `<span style="color:#b91c1c;">✗ That was ${survCurrent.name} (${survCurrent.scientific}).</span>`;
+        setTimeout(nextSurvivalQuestion, 1200);
       }
+    }
 
-      if (btnEl) {
-        btnEl.classList.add("speaking");
-        utter.onend = () => btnEl.classList.remove("speaking");
-        utter.onerror = () => btnEl.classList.remove("speaking");
+    // ==================== FILTERS, SINGLE SPECIES DROPDOWN, CARDS & MODAL ====================
+    function initFilters() {
+      const origins = [...new Set(ANIMALS.map(i => i.originRegion))];
+      const origSelect = document.getElementById("originFilter");
+      origins.forEach(o => {
+        const opt = document.createElement("option");
+        opt.value = o;
+        opt.textContent = o;
+        origSelect.appendChild(opt);
+      });
+      renderStats();
+      renderTabs();
+      renderCards();
+    }
+
+    function renderStats() {
+      const counts = {
+        Mammal: ANIMALS.filter(i => i.category === "Mammal").length,
+        Bird: ANIMALS.filter(i => i.category === "Bird").length,
+        Reptile: ANIMALS.filter(i => i.category === "Reptile").length,
+        Amphibian: ANIMALS.filter(i => i.category === "Amphibian").length,
+        Fish: ANIMALS.filter(i => i.category === "Fish").length,
+        Insect: ANIMALS.filter(i => i.category === "Insect").length,
+        Marine: ANIMALS.filter(i => i.category === "Marine").length
+      };
+      const cards = [
+        { num: counts.Mammal, label: "Mammals", icon: "🦁", cat: "Mammal" },
+        { num: counts.Bird, label: "Birds", icon: "🦅", cat: "Bird" },
+        { num: counts.Reptile + counts.Amphibian, label: "Reptiles & Amphibians", icon: "🦎", cat: "Reptile" },
+        { num: counts.Fish, label: "Fish & Sharks", icon: "🦈", cat: "Fish" },
+        { num: counts.Insect, label: "Insects & Spiders", icon: "🦋", cat: "Insect" },
+        { num: counts.Marine, label: "Marine Invertebrates", icon: "🐙", cat: "Marine" },
+        { num: `${masteredIds.size} / ${ANIMALS.length}`, label: "Mastered", icon: "⭐", cat: "ALL" }
+      ];
+      document.getElementById("statsGrid").innerHTML = cards.map(c => `
+        <div class="stat-card" onclick="selectCategory('${c.cat}')">
+          <div>
+            <div class="stat-num">${c.num}</div>
+            <div class="stat-label">${c.label}</div>
+          </div>
+          <div class="stat-icon">${c.icon}</div>
+        </div>
+      `).join("");
+    }
+
+    function renderTabs() {
+      const speciesOptions = [
+        { id: "ALL", label: `🐾 All Species (${ANIMALS.length})` },
+        { id: "Mammal", label: `🦁 Mammals (${ANIMALS.filter(i => i.category === "Mammal").length})` },
+        { id: "Bird", label: `🦅 Birds (${ANIMALS.filter(i => i.category === "Bird").length})` },
+        { id: "Reptile", label: `🦎 Reptiles (${ANIMALS.filter(i => i.category === "Reptile").length})` },
+        { id: "Amphibian", label: `🐸 Amphibians (${ANIMALS.filter(i => i.category === "Amphibian").length})` },
+        { id: "Fish", label: `🦈 Fish (${ANIMALS.filter(i => i.category === "Fish").length})` },
+        { id: "Insect", label: `🦋 Insects (${ANIMALS.filter(i => i.category === "Insect").length})` },
+        { id: "Marine", label: `🐙 Marine (${ANIMALS.filter(i => i.category === "Marine").length})` }
+      ];
+
+      document.getElementById("categoryTabs").innerHTML = `
+        <select id="speciesCategorySelect" class="control-select" aria-label="Filter by Animal Species Class" onchange="selectCategory(this.value)">
+          ${speciesOptions.map(opt => `
+            <option value="${opt.id}" ${activeCategory === opt.id ? "selected" : ""}>${opt.label}</option>
+          `).join("")}
+        </select>
+        <button type="button" class="cat-pill ${activeCategory === "STARRED" ? "active" : ""}" onclick="selectCategory('STARRED')">
+          ★ Revision (${starredIds.size})
+        </button>
+      `;
+
+      const subRow = document.getElementById("subgroupTabs");
+      if (["ALL", "STARRED", "QUIZ"].includes(activeCategory)) {
+        subRow.innerHTML = "";
+        return;
       }
-      window.speechSynthesis.speak(utter);
+      const subs = ["ALL", ...new Set(ANIMALS.filter(i => i.category === activeCategory).map(i => i.subGroup))];
+      subRow.innerHTML = subs.map(s => `
+        <button type="button" class="sub-pill ${activeSubGroup === s ? "active" : ""}" onclick="selectSubGroup('${s.replace(/'/g, "\\'")}')">
+          ${s === "ALL" ? `All ${activeCategory}s` : s}
+        </button>
+      `).join("");
     }
 
-    function speakById(id, btnEl = null) {
-      const a = ANIMALS.find(x => x.id === id);
-      if (!a) return;
-      const cleanName = a.name.split("(")[0].trim();
-      speakText(cleanName, btnEl);
+    function selectCategory(cat) {
+      activeCategory = cat;
+      activeSubGroup = "ALL";
+      dailyDeckOnly = false;
+      document.getElementById("dailyStreakBtn").classList.remove("active");
+      hideAllArenas();
+      document.getElementById("cardsSection").style.display = "block";
+      renderTabs();
+      renderCards();
     }
 
-    function spellWord(id, btnEl = null) {
-      const a = ANIMALS.find(x => x.id === id);
-      if (!a) return;
-      const clean = a.name.split("(")[0].trim().toUpperCase();
-      const letters = clean.split("").filter(ch => /[A-Z0-9]/.test(ch)).join(" ... ");
-      speakText(`${clean}. ${letters}. ${clean}!`, btnEl);
+    function selectSubGroup(sub) {
+      activeSubGroup = sub;
+      renderTabs();
+      renderCards();
     }
 
-    function narrateFullLesson(id, btnEl = null) {
-      const a = ANIMALS.find(x => x.id === id);
-      if (!a) return;
-      const L = tUI();
-      const story = L.storyTemplate(a);
-      speakText(story, btnEl);
+    function openQuizTab() {
+      activeCategory = "QUIZ";
+      hideAllArenas();
+      renderTabs();
+      document.getElementById("quizSection").classList.add("active");
+      document.getElementById("quizSetupView").style.display = "block";
+      document.getElementById("quizPlayView").classList.remove("active");
+      document.getElementById("quizSection").scrollIntoView({ behavior: "smooth" });
     }
 
-    // ==================== FILTERING & RENDERING ====================
-    let showingDailyOnly = false;
+    function setVisualMode(mode) {
+      visualMode = mode;
+      document.getElementById("visPhotoBtn").classList.toggle("active", mode === "photo");
+      document.getElementById("visVectorBtn").classList.toggle("active", mode === "vector");
+      renderCards();
+    }
 
-    function getFilteredAnimals() {
-      const q = (document.getElementById("searchInput").value || "").trim().toLowerCase();
-      const originVal = document.getElementById("originFilter").value || "ALL";
+    function toggleStudentMode() {
+      studentMode = !studentMode;
+      const btn = document.getElementById("studentModeBtn");
+      btn.textContent = `Student Mode: ${studentMode ? "ON" : "OFF"}`;
+      btn.classList.toggle("active", studentMode);
+      renderCards();
+      showToast(studentMode ? "Student Mode ON: Regional & scientific names hidden for self-testing." : "Student Mode OFF");
+    }
 
-      return ANIMALS.filter(a => {
-        if (showingDailyOnly && !appState.dailyIds.includes(a.id)) return false;
-        if (appState.category !== "ALL" && a.cat !== appState.category) return false;
-        if (appState.subgroup !== "ALL" && a.subgroup !== appState.subgroup) return false;
-        if (originVal !== "ALL" && a.origin !== originVal) return false;
+    function toggleMemoryHide() {
+      memoryHide = !memoryHide;
+      document.body.classList.toggle("memory-hide", memoryHide);
+      const btn = document.getElementById("memoryHideBtn");
+      btn.textContent = `Memory Hide: ${memoryHide ? "ON" : "OFF"}`;
+      btn.classList.toggle("active", memoryHide);
+    }
+
+    function toggleStar(id, event) {
+      if (event) event.stopPropagation();
+      if (starredIds.has(id)) {
+        starredIds.delete(id);
+        showToast("Removed from Revision List");
+      } else {
+        starredIds.add(id);
+        showToast("Saved to Revision List ★");
+      }
+      localStorage.setItem("fauna_revision_v5", JSON.stringify([...starredIds]));
+      renderTabs();
+      renderCards();
+    }
+
+    function getFilteredItems() {
+      const q = document.getElementById("searchInput").value.trim().toLowerCase();
+      const origin = document.getElementById("originFilter").value;
+      const dailyIds = dailyDeckOnly ? getDailyFiveIds() : null;
+
+      return ANIMALS.filter(item => {
+        if (dailyIds && !dailyIds.includes(item.id)) return false;
+        if (activeCategory === "STARRED" && !starredIds.has(item.id)) return false;
+        if (!["ALL", "STARRED", "QUIZ"].includes(activeCategory) && item.category !== activeCategory) return false;
+        if (activeSubGroup !== "ALL" && item.subGroup !== activeSubGroup) return false;
+        if (origin !== "ALL" && item.originRegion !== origin) return false;
         if (q) {
-          const hay = `${a.id} ${a.name} ${a.cat} ${a.subgroup} ${a.names} ${a.sci} ${a.form} ${a.origin} ${a.habitat} ${a.diet} ${a.behavior} ${a.fact}`.toLowerCase();
+          const hay = `${item.name} ${item.regional} ${item.scientific} ${item.category} ${item.subGroup} ${item.origin} ${item.diet} ${item.behavior} ${item.memoryClue}`.toLowerCase();
           if (!hay.includes(q)) return false;
         }
         return true;
       });
     }
 
-    function renderStats() {
-      const L = tUI();
-      const total = ANIMALS.length;
-      const cats = [
-        { key: "ALL", label: L.catNames.ALL, count: total, icon: "🌍" },
-        { key: "Mammal", label: L.catNames.Mammal, count: ANIMALS.filter(a => a.cat === "Mammal").length, icon: "🦁" },
-        { key: "Bird", label: L.catNames.Bird, count: ANIMALS.filter(a => a.cat === "Bird").length, icon: "🦅" },
-        { key: "Reptile", label: L.catNames.Reptile, count: ANIMALS.filter(a => a.cat === "Reptile").length, icon: "🦎" },
-        { key: "Amphibian", label: L.catNames.Amphibian, count: ANIMALS.filter(a => a.cat === "Amphibian").length, icon: "🐸" },
-        { key: "Fish", label: L.catNames.Fish, count: ANIMALS.filter(a => a.cat === "Fish").length, icon: "🦈" },
-        { key: "Insect", label: L.catNames.Insect, count: ANIMALS.filter(a => a.cat === "Insect").length, icon: "🦋" },
-        { key: "Marine", label: L.catNames.Marine, count: ANIMALS.filter(a => a.cat === "Marine").length, icon: "🐙" }
-      ];
-
-      document.getElementById("statsGrid").innerHTML = cats.map(c => `
-        <div class="stat-card" onclick="selectCategory('${c.key}')">
-          <div>
-            <div class="stat-num">${c.count}</div>
-            <div class="stat-label">${c.label}</div>
-          </div>
-          <div class="stat-icon">${c.icon}</div>
-        </div>
-      `).join("") + `
-        <div class="stat-card" onclick="openQuizTab()">
-          <div>
-            <div class="stat-num">${appState.masteredIds.length}/${total}</div>
-            <div class="stat-label">${L.statMastered} • ${appState.starredIds.length} ${L.statStarred}</div>
-          </div>
-          <div class="stat-icon">🏅</div>
-        </div>
-      `;
-    }
-
-    function populateOriginFilters() {
-      const L = tUI();
-      const origins = Array.from(new Set(ANIMALS.map(a => a.origin))).sort();
-      const sel = document.getElementById("originFilter");
-      const current = sel.value || "ALL";
-      sel.innerHTML = `<option value="ALL">${L.allRealms}</option>` + origins.map(o => `<option value="${o}">📍 ${o}</option>`).join("");
-      sel.value = current;
-
-      document.getElementById("mapRegionChips").innerHTML =
-        `<button type="button" class="map-chip ${current === "ALL" ? "active" : ""}" onclick="pickMapRegion('ALL')">${L.allRealms} (220)</button>` +
-        origins.map(o => {
-          const cnt = ANIMALS.filter(a => a.origin === o).length;
-          return `<button type="button" class="map-chip ${current === o ? "active" : ""}" onclick="pickMapRegion('${o.replace(/'/g, "\\'")}')">${o} (${cnt})</button>`;
-        }).join("");
-    }
-
-    function pickMapRegion(region) {
-      document.getElementById("originFilter").value = region;
-      populateOriginFilters();
-      renderCards();
-    }
-
-    function renderCategoryTabs() {
-      const L = tUI();
-      const tabKeys = ["ALL", "Mammal", "Bird", "Reptile", "Amphibian", "Fish", "Insect", "Marine"];
-      document.getElementById("categoryTabs").innerHTML = tabKeys.map(k => `
-        <button type="button" class="cat-pill ${appState.category === k && !showingDailyOnly ? "active" : ""}" onclick="selectCategory('${k}')">${L.catNames[k]}</button>
-      `).join("");
-
-      const subWrap = document.getElementById("subgroupTabs");
-      if (appState.category === "ALL" || !SUBGROUPS_BY_CAT[appState.category]) {
-        subWrap.innerHTML = "";
-      } else {
-        const subs = Array.from(SUBGROUPS_BY_CAT[appState.category]);
-        subWrap.innerHTML = `<button type="button" class="sub-pill ${appState.subgroup === "ALL" ? "active" : ""}" onclick="selectSubgroup('ALL')">All ${L.catNames[appState.category]}</button>` +
-          subs.map(s => `<button type="button" class="sub-pill ${appState.subgroup === s ? "active" : ""}" onclick="selectSubgroup('${s.replace(/'/g, "\\'")}')">${s}</button>`).join("");
-      }
-    }
-
-    function hideAllArenas() {
-      ["quizSection", "flashcardSection", "ecoLabSection", "survivalSection"].forEach(id => {
-        document.getElementById(id).classList.remove("active");
-      });
-    }
-
-    function selectCategory(cat) {
-      showingDailyOnly = false;
-      appState.category = VALID_CATEGORIES.includes(cat) ? cat : "ALL";
-      appState.subgroup = "ALL";
-      saveState();
-      hideAllArenas();
-      document.getElementById("cardsSection").style.display = "block";
-      renderCategoryTabs();
-      renderCards();
-    }
-
-    function selectSubgroup(sub) {
-      appState.subgroup = sub;
-      saveState();
-      renderCategoryTabs();
-      renderCards();
-    }
-
     function renderCards() {
-      const L = tUI();
-      const list = getFilteredAnimals();
       const grid = document.getElementById("cardsGrid");
-      document.getElementById("countSummary").textContent = L.showingCount(list.length);
+      const list = getFilteredItems();
+      document.getElementById("countSummary").textContent = `Showing ${list.length} of ${ANIMALS.length} wildlife species`;
 
-      if (!list.length) {
-        grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:34px;background:var(--card-bg);border-radius:16px;border:1px solid var(--border-light);">
-          <h3>No matching species found</h3>
-          <p style="color:var(--text-muted);margin:6px 0 12px;">Try clearing your search or switching back to All Species.</p>
-          <button type="button" class="action-pill-btn primary" onclick="document.getElementById('searchInput').value='';selectCategory('ALL')">Reset Filters</button>
+      if (list.length === 0) {
+        grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;background:var(--card-bg);border-radius:16px;border:1px solid var(--border-light);">
+          <h3>No matching wildlife found</h3>
+          <p style="color:var(--text-muted);margin-top:6px;">Try clearing your search box or switching back to All Species.</p>
         </div>`;
         return;
       }
 
-      grid.innerHTML = list.map(a => {
-        const isMastered = appState.masteredIds.includes(a.id);
-        const isStarred = appState.starredIds.includes(a.id);
-        const isCompared = appState.compareIds.includes(a.id);
+      grid.innerHTML = list.map(item => {
+        const isStarred = starredIds.has(item.id);
+        const isMastered = masteredIds.has(item.id);
+        const isCompared = compareIds.includes(item.id);
+        const safeName = item.name.replace(/'/g, "\\'");
+        const labels = getSlotLabels(item.category);
 
         return `
           <article class="animal-card">
             <div class="card-top-bar">
-              <span class="cat-tag tag-${a.cat}">#${a.id} • ${L.catNames[a.cat] || a.cat}</span>
+              <span class="cat-tag tag-${item.category}">${item.category.toUpperCase()}</span>
               <div class="audio-controls">
-                <button type="button" class="speak-btn" onclick="event.stopPropagation();speakById(${a.id}, this)">${L.listenBtn}</button>
-                <button type="button" class="speak-btn" onclick="event.stopPropagation();spellWord(${a.id}, this)">${L.spellBtn}</button>
-                <button type="button" class="star-btn ${isStarred ? "starred" : ""}" onclick="event.stopPropagation();toggleStar(${a.id})" title="Star Favorite">${isStarred ? "★" : "☆"}</button>
-                <button type="button" class="compare-mini-btn ${isCompared ? "selected" : ""}" onclick="event.stopPropagation();toggleCompare(${a.id})" title="Compare Side-by-Side">⚖️</button>
+                <button type="button" class="speak-btn" onclick="speakName('${safeName}', 'normal', this, event, ${item.id})" title="Hear Soft Voice">🔊 Say</button>
+                <button type="button" class="speak-btn" onclick="speakName('${safeName}', 'slow', this, event, ${item.id})" title="Slow Syllable Voice">🐢</button>
+                <button type="button" class="compare-mini-btn ${isCompared ? "selected" : ""}" onclick="toggleCompare(${item.id}, event)" title="Compare 2 Animals">⚖️</button>
+                <button type="button" class="star-btn ${isStarred ? "starred" : ""}" onclick="toggleStar(${item.id}, event)" title="Save for Revision">${isStarred ? "★" : "☆"}</button>
               </div>
             </div>
 
-            <div class="dual-media-frame" onclick="openModal(${a.id})">
-              ${renderDualVisualHTML(a, true)}
-              ${isMastered ? `<span class="mastered-ribbon">${L.masteredRibbon}</span>` : ""}
-              <span class="cue-hint">${L.detailsCue}</span>
+            <div class="dual-media-frame" data-id="${item.id}" onclick="openModal(${item.id})">
+              <div class="media-slot" data-side="animal">
+                <span class="slot-label animal-lbl">${labels.left}</span>
+                ${getDualVectorSVG(item, "animal")}
+              </div>
+              <div class="media-slot" data-side="habitat">
+                <span class="slot-label habitat-lbl">${labels.right}</span>
+                ${getDualVectorSVG(item, "habitat")}
+              </div>
+              ${isMastered ? `<span class="mastered-ribbon">⭐ Mastered</span>` : ""}
+              <span class="cue-hint">👆 Tap for Spelling &amp; Facts</span>
             </div>
 
-            <div class="card-body" onclick="openModal(${a.id})">
+            <div class="card-body" onclick="openModal(${item.id})">
               <div class="title-row">
-                <h2 class="card-title">${a.name}</h2>
-                <span class="subgroup-chip">${a.subgroup.split("&")[0].trim()}</span>
+                <h2 class="card-title">${item.name}</h2>
+                <span class="subgroup-chip">${item.subGroup}</span>
               </div>
-              <div class="syllable-tag">${a.syllables}</div>
-              <div class="regional-names">${a.names}</div>
-              <div class="sci-name">${a.sci}</div>
-              <div class="form-pill">${a.form}</div>
-              ${appState.studentMode ? "" : `
-                <div class="meta-line">🌍 ${a.origin} • ${a.status}</div>
-                <div class="diet-box">🍃 ${a.diet}</div>
-              `}
+              <div class="syllable-tag">${getSyllables(item.name)}</div>
+              ${!studentMode ? `
+                <div class="regional-names">${item.regional}</div>
+                <div class="sci-name">${item.scientific}</div>
+              ` : ""}
+              <div class="form-pill">✨ ${item.formTag}</div>
+              <div class="meta-line"><strong>Habitat:</strong> ${item.origin}</div>
+              <div class="diet-box">🍽️ ${item.diet}</div>
             </div>
           </article>
         `;
       }).join("");
+
+      if (visualMode === "photo" && !dataSaverMode) {
+        document.querySelectorAll(".dual-media-frame").forEach(frame => imgObserver.observe(frame));
+      }
     }
 
-    // ==================== MODAL WITH LETTER-TILE SPELLING ====================
-    let lastScrollY = 0;
-
     function openModal(id) {
-      const a = ANIMALS.find(x => x.id === id);
-      if (!a) return;
-      const L = tUI();
+      const item = ANIMALS.find(x => x.id === id);
+      if (!item) return;
+      masteredIds.add(id);
+      localStorage.setItem("fauna_mastered_v5", JSON.stringify([...masteredIds]));
+      renderStats();
 
-      lastScrollY = window.scrollY;
-      document.body.classList.add("modal-open");
-      document.body.style.top = `-${lastScrollY}px`;
+      const modal = document.getElementById("detailModal");
+      const body = document.getElementById("modalCardBody");
+      const safeName = item.name.replace(/'/g, "\\'");
+      const labels = getSlotLabels(item.category);
+      const cleanLetters = item.name.replace(/\(.*?\)/g, "").trim().toUpperCase().split("");
 
-      const cleanTitle = a.name.split("(")[0].trim().toUpperCase();
-      const letterTiles = cleanTitle.split("").map(ch => {
+      const spellingTilesHTML = cleanLetters.map(ch => {
         if (ch === " ") return `<span class="letter-tile space"></span>`;
-        if (!/[A-Z0-9-]/.test(ch)) return "";
-        return `<button type="button" class="letter-tile" onclick="speakText('${ch}')">${ch}</button>`;
+        if (!/[A-Z]/.test(ch)) return `<button type="button" class="letter-tile" style="opacity:0.6;pointer-events:none;">${ch}</button>`;
+        return `<button type="button" class="letter-tile" onclick="speakSingleLetter('${ch}')" title="Hear letter ${ch}">${ch}</button>`;
       }).join("");
 
-      const isMastered = appState.masteredIds.includes(a.id);
-
-      document.getElementById("modalCardBody").innerHTML = `
+      body.innerHTML = `
         <button type="button" class="modal-close" onclick="closeModal()">✕</button>
-        <div class="modal-dual-media">
-          ${renderDualVisualHTML(a, true)}
+        <div class="modal-dual-media" id="fmodalDualFrame">
+          <div class="media-slot" data-side="animal">
+            <span class="slot-label animal-lbl">${labels.left}</span>
+            ${getDualVectorSVG(item, "animal")}
+          </div>
+          <div class="media-slot" data-side="habitat">
+            <span class="slot-label habitat-lbl">${labels.right}</span>
+            ${getDualVectorSVG(item, "habitat")}
+          </div>
         </div>
         <div class="modal-content">
-          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;">
-            <span class="cat-tag tag-${a.cat}">#${a.id} • ${L.catNames[a.cat] || a.cat} • ${a.subgroup}</span>
-            <span style="font-size:0.78rem;font-weight:700;color:var(--text-muted);">📍 ${a.origin} (${a.lat}, ${a.lon})</span>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="cat-tag tag-${item.category}">${item.category.toUpperCase()} • ${item.subGroup}</span>
+            <span style="font-size:0.8rem;color:var(--text-muted);font-weight:700;">⭐ Mastered (+1)</span>
           </div>
-          <h2 style="font-size:1.5rem;margin-top:6px;">${a.name}</h2>
-          <div class="syllable-tag" style="font-size:0.84rem;">${a.syllables}</div>
-          <div class="regional-names" style="margin-bottom:4px;">${a.names} • <em>${a.sci}</em></div>
+          <h2 style="font-size:1.55rem;margin-bottom:2px;">${item.name}</h2>
+          <div class="syllable-tag" style="font-size:0.86rem;margin-bottom:6px;">${getSyllables(item.name)}</div>
 
-          <div style="font-size:0.75rem;font-weight:700;color:var(--text-muted);margin-top:8px;">${L.spellTilesLabel}</div>
-          <div class="spelling-strip">${letterTiles}</div>
+          <div style="font-size:0.74rem;font-weight:700;color:var(--text-muted);margin-top:6px;">👆 Tap any letter below to hear its sound:</div>
+          <div class="spelling-strip">${spellingTilesHTML}</div>
 
-          <p style="font-size:0.93rem;margin-bottom:12px;">${a.summary}</p>
+          <p style="color:var(--primary-600);font-weight:700;margin-bottom:4px;">${item.regional}</p>
+          <p style="font-style:italic;color:var(--text-muted);margin-bottom:14px;">Scientific Name: ${item.scientific}</p>
 
           <div class="modal-grid">
-            <div class="info-panel"><h4>${L.panelForm}</h4><p>${a.form}</p></div>
-            <div class="info-panel"><h4>${L.panelHabitat}</h4><p>${a.habitat}<br><strong>Status:</strong> ${a.status}</p></div>
-            <div class="info-panel"><h4>${L.panelDiet}</h4><p>${a.diet}<br><strong>Trophic Level:</strong> ${a.trophic}</p></div>
-            <div class="info-panel"><h4>${L.panelBehavior}</h4><p>${a.behavior}</p></div>
-            <div class="info-panel" style="grid-column:1/-1;background:var(--primary-100);color:#0b1f3a;">
-              <h4 style="color:#1e3a8a;">${L.panelFact}</h4><p>${a.fact}</p>
+            <div class="info-panel">
+              <h4>🌟 Kid-Friendly Summary</h4>
+              <p>${item.kidSummary}</p>
+            </div>
+            <div class="info-panel">
+              <h4>🌍 Habitat, Biome &amp; Status</h4>
+              <p><strong>Range:</strong> ${item.origin}</p>
+              <p style="margin-top:4px;"><strong>Conservation:</strong> ${item.conservation}</p>
+            </div>
+            <div class="info-panel">
+              <h4>🍽️ Diet &amp; Feeding Ecology</h4>
+              <p>${item.diet}</p>
+            </div>
+            <div class="info-panel">
+              <h4>🐾 Behavior &amp; Adaptation</h4>
+              <p>${item.behavior}</p>
+            </div>
+            <div class="info-panel" style="grid-column:1/-1;background:var(--amber-100);border-color:var(--amber-600);">
+              <h4>💡 Fascinating Wildlife Superpower</h4>
+              <p>${item.memoryClue}</p>
             </div>
           </div>
 
           <div class="modal-footer-actions">
-            <button type="button" class="action-pill-btn primary" onclick="narrateFullLesson(${a.id}, this)">${L.readFullStory}</button>
-            <button type="button" class="action-pill-btn" onclick="spellWord(${a.id}, this)">${L.spellBtn}</button>
-            <button type="button" class="action-pill-btn" onclick="toggleMastered(${a.id})">${isMastered ? L.unmarkMastered : L.markMastered}</button>
-            <button type="button" class="action-pill-btn" onclick="closeModal()">${L.closeModal}</button>
+            <button type="button" class="launch-btn" onclick="narrateFullLesson(${item.id}, this)">🎙️ Read Full Wildlife Story</button>
+            <button type="button" class="action-pill-btn" onclick="speakName('${safeName}', 'normal', this, event, ${item.id})">🔊 Pronounce Name</button>
+            <button type="button" class="action-pill-btn" onclick="speakName('${safeName}', 'slow', this, event, ${item.id})">🐢 Slow Syllables</button>
+            <button type="button" class="action-pill-btn" onclick="toggleStar(${item.id}, event); openModal(${item.id});">
+              ${starredIds.has(item.id) ? "★ Saved in Revision" : "☆ Save to Revision"}
+            </button>
           </div>
         </div>
       `;
-
-      document.getElementById("detailModal").classList.add("open");
+      lockMobileModalScroll();
+      modal.classList.add("open");
+      if (visualMode === "photo" && !dataSaverMode) loadDualPhotos(item, document.getElementById("fmodalDualFrame"));
     }
 
     function closeModal() {
+      stopAllSpeech();
       document.getElementById("detailModal").classList.remove("open");
-      document.body.classList.remove("modal-open");
-      document.body.style.top = "";
-      window.scrollTo(0, lastScrollY);
-    }
-
-    // ==================== STUDIO TOGGLES & PROGRESS ====================
-    function toggleStudioDrawer() {
-      const drawer = document.getElementById("mobileStudioDrawer");
-      const arrow = document.getElementById("studioDrawerArrow");
-      const open = drawer.classList.toggle("open");
-      arrow.textContent = open ? "▲ Close" : "▼ Open";
-    }
-
-    function setVisualMode(mode) {
-      appState.visualMode = mode;
-      saveState();
-      syncStudioButtons();
+      unlockMobileModalScroll();
       renderCards();
     }
 
-    function toggleKidVoice() {
-      appState.kidVoice = !appState.kidVoice;
-      saveState();
-      syncStudioButtons();
-      showToast(appState.kidVoice ? "Soft Gentle Teacher Voice ON" : "Standard Voice ON");
-    }
-
-    function toggleStudentMode() {
-      appState.studentMode = !appState.studentMode;
-      saveState();
-      syncStudioButtons();
-      renderCards();
-    }
-
-    function toggleMemoryHide() {
-      appState.memoryHide = !appState.memoryHide;
-      saveState();
-      syncStudioButtons();
-    }
-
-    function toggleDarkMode() {
-      appState.darkMode = !appState.darkMode;
-      saveState();
-      syncStudioButtons();
-    }
-
-    function toggleDyslexiaMode() {
-      appState.dyslexiaMode = !appState.dyslexiaMode;
-      saveState();
-      syncStudioButtons();
-    }
-
-    function toggleDataSaver() {
-      appState.dataSaver = !appState.dataSaver;
-      saveState();
-      syncStudioButtons();
-      renderCards();
-    }
-
-    function toggleWorldMap() {
-      document.getElementById("worldMapPanel").classList.toggle("open");
-    }
-
-    function changeVoiceLang() {
-      appState.voiceLang = document.getElementById("voiceLangSelect").value;
-      saveState();
-      refreshAllUI();
-    }
-
-    function syncStudioButtons() {
-      const L = tUI();
-      document.body.classList.toggle("dark-mode", appState.darkMode);
-      document.body.classList.toggle("dyslexia-mode", appState.dyslexiaMode);
-      document.body.classList.toggle("memory-hide", appState.memoryHide);
-
-      document.getElementById("visPhotoBtn").classList.toggle("active", appState.visualMode === "photo");
-      document.getElementById("visVectorBtn").classList.toggle("active", appState.visualMode === "vector");
-      document.getElementById("kidVoiceBtn").textContent = appState.kidVoice ? L.kidVoiceOn : L.kidVoiceOff;
-      document.getElementById("kidVoiceBtn").classList.toggle("active", appState.kidVoice);
-      document.getElementById("studentModeBtn").textContent = appState.studentMode ? L.studentModeOn : L.studentModeOff;
-      document.getElementById("memoryHideBtn").textContent = appState.memoryHide ? L.memoryHideOn : L.memoryHideOff;
-      document.getElementById("darkModeBtn").textContent = appState.darkMode ? L.lightBtn : L.darkBtn;
-      document.getElementById("dataSaverBtn").textContent = appState.dataSaver ? L.dataSaverOn : L.dataSaverOff;
-      document.getElementById("voiceLangSelect").value = appState.voiceLang;
-    }
-
-    function toggleMastered(id) {
-      const idx = appState.masteredIds.indexOf(id);
-      if (idx === -1) appState.masteredIds.push(id);
-      else appState.masteredIds.splice(idx, 1);
-      saveState();
-      renderStats();
-      renderCards();
-      if (document.getElementById("detailModal").classList.contains("open")) openModal(id);
-    }
-
-    function toggleStar(id) {
-      const idx = appState.starredIds.indexOf(id);
-      if (idx === -1) appState.starredIds.push(id);
-      else appState.starredIds.splice(idx, 1);
-      saveState();
-      renderStats();
-      renderCards();
-    }
-
-    function openDailyDeck() {
-      const today = new Date().toISOString().slice(0, 10);
-      if (appState.lastDailyDate !== today || appState.dailyIds.length !== 5) {
-        const shuffled = [...ANIMALS].sort(() => Math.random() - 0.5).slice(0, 5).map(a => a.id);
-        appState.dailyIds = shuffled;
-        appState.lastDailyDate = today;
-        saveState();
-      }
-      showingDailyOnly = !showingDailyOnly;
-      hideAllArenas();
-      document.getElementById("cardsSection").style.display = "block";
-      renderCategoryTabs();
-      renderCards();
-      showToast(showingDailyOnly ? "Showing Today's 5 Featured Species!" : "Showing Full 220-Species Encyclopedia");
-    }
-
-    // ==================== COMPARE TRAY ====================
-    function toggleCompare(id) {
-      const idx = appState.compareIds.indexOf(id);
-      if (idx !== -1) appState.compareIds.splice(idx, 1);
-      else {
-        if (appState.compareIds.length >= 2) appState.compareIds.shift();
-        appState.compareIds.push(id);
-      }
-      saveState();
-      renderCards();
-      updateCompareTray();
-    }
-
-    function updateCompareTray() {
-      const tray = document.getElementById("compareTray");
-      if (!appState.compareIds.length) {
-        tray.classList.remove("open");
-        return;
-      }
-      const names = appState.compareIds.map(id => ANIMALS.find(a => a.id === id)?.name.split("(")[0].trim()).join(" vs ");
-      tray.innerHTML = `
-        <span style="font-size:0.82rem;font-weight:700;">⚖️ Compare (${appState.compareIds.length}/2): ${names}</span>
-        <div style="display:flex;gap:8px;">
-          ${appState.compareIds.length === 2 ? `<button type="button" class="action-pill-btn primary" onclick="openCompareModal()">Compare Now</button>` : ""}
-          <button type="button" class="action-pill-btn" onclick="appState.compareIds=[];saveState();renderCards();updateCompareTray()">Clear</button>
-        </div>
-      `;
-      tray.classList.add("open");
-    }
-
-    function openCompareModal() {
-      if (appState.compareIds.length < 2) return;
-      const [a, b] = appState.compareIds.map(id => ANIMALS.find(x => x.id === id));
-      lastScrollY = window.scrollY;
-      document.body.classList.add("modal-open");
-      document.body.style.top = `-${lastScrollY}px`;
-
-      document.getElementById("modalCardBody").innerHTML = `
-        <button type="button" class="modal-close" onclick="closeModal()">✕</button>
-        <div class="modal-content" style="padding-top:18px;">
-          <span class="quiz-badge">⚖️ SIDE-BY-SIDE ZOOLOGY COMPARISON</span>
-          <h2 style="margin-bottom:10px;">${a.name} vs. ${b.name}</h2>
-          <div class="compare-grid-2">
-            ${[a, b].map(x => `
-              <div class="info-panel">
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;height:125px;border-radius:10px;overflow:hidden;margin-bottom:8px;">
-                  ${renderDualVisualHTML(x, false)}
-                </div>
-                <h3>${x.name}</h3>
-                <p style="font-size:0.75rem;font-style:italic;color:var(--text-muted);">${x.sci}</p>
-                <p style="margin-top:6px;"><strong>Class:</strong> ${x.cat}</p>
-                <p><strong>Realm:</strong> ${x.origin}</p>
-                <p><strong>Diet:</strong> ${x.diet}</p>
-                <p><strong>Adaptation:</strong> ${x.form}</p>
-              </div>
-            `).join("")}
-          </div>
-        </div>
-      `;
-      document.getElementById("detailModal").classList.add("open");
-    }
-
-    // ==================== PRINT STUDY SHEET (WITH DUAL VISUALS) ====================
-    function printStudySheet() {
-      const L = tUI();
-      const list = getFilteredAnimals();
-      const catLabel = L.catNames[appState.category] || appState.category;
-      const realmVal = document.getElementById("originFilter").value;
-      const realmLabel = realmVal === "ALL" ? L.allRealms : realmVal;
-      const useVector = appState.visualMode === "vector" || appState.dataSaver;
-
-      document.getElementById("printSheetStudentName").textContent = appState.studentName || "Student Explorer";
-      document.getElementById("printSheetDate").textContent = new Date().toLocaleDateString();
-      document.getElementById("printSheetSubtitle").textContent = L.printSub(catLabel, realmLabel, list.length);
-
-      document.getElementById("printSheetBody").innerHTML = list.map(a => {
-        const aFallback = buildAnimalSvgDataUri(a);
-        const hFallback = buildHabitatSvgDataUri(a);
-        const aSrc = useVector ? aFallback : a.animalPhoto;
-        const hSrc = useVector ? hFallback : a.habitatPhoto;
-
-        return `
-          <tr>
-            <td><strong>#${a.id}</strong></td>
-            <td>
-              <div class="print-dual-thumbs">
-                <img src="${aSrc}" alt="${a.name}" onerror="this.onerror=null;this.src='${aFallback}'" />
-                <img src="${hSrc}" alt="${a.habitat}" onerror="this.onerror=null;this.src='${hFallback}'" />
-              </div>
-            </td>
-            <td><strong>${a.name}</strong><br><small style="color:#1d4ed8;">${a.syllables}</small></td>
-            <td><em>${a.sci}</em></td>
-            <td>${L.catNames[a.cat] || a.cat}<br><small>${a.subgroup}</small></td>
-            <td>${a.habitat}<br><small><strong>${a.status}</strong></small></td>
-            <td>${a.diet}<br><small>💡 ${a.fact}</small></td>
-          </tr>
-        `;
-      }).join("");
-
-      document.body.classList.remove("printing-cert");
-      document.body.classList.add("printing-sheet");
-      setTimeout(() => {
-        window.print();
-        setTimeout(() => document.body.classList.remove("printing-sheet"), 600);
-      }, 300);
-    }
-
-    // ==================== QUIZ & STUDENT-ONLY CERTIFICATE ====================
+    // ==================== 4-MODE INTERACTIVE QUIZ & REALISTIC CERTIFICATE ====================
     const QUIZ_MODES = [
-      { id: "visual", icon: "📸", title: "Dual Visual & Habitat ID", desc: "Identify species from side-by-side animal & habitat clues." },
-      { id: "habitat", icon: "🌍", title: "Habitat & Conservation Match", desc: "Match each species to its native biome and IUCN status." },
-      { id: "superpower", icon: "⚡", title: "Adaptation & Superpower", desc: "Identify species by their unique anatomical traits." },
-      { id: "spelling", icon: "🔤", title: "Phonics & Spelling Bee", desc: "Listen to the teacher voice and type the species name." }
+      { id: "VISUAL", icon: "📸", title: "Dual Visual & Habitat ID", desc: "Identify species from side-by-side animal + habitat photos." },
+      { id: "DIET", icon: "🍽️", title: "Diet, Behavior & Superpower", desc: "Match each animal to its feeding ecology and adaptation." },
+      { id: "AUDIO", icon: "🔊", title: "Soft Voice Listening Challenge", desc: "Listen to the spoken name and pick the matching wildlife." },
+      { id: "SPELLING", icon: "✍️", title: "Zoology Spelling Bee", desc: "Type the exact English name from its habitat and superpower." }
     ];
+    let selectedQuizMode = "VISUAL";
+    let quizQuestions = [];
+    let quizIndex = 0;
+    let quizScore = 0;
 
-    let quizState = { questions: [], idx: 0, score: 0, answered: false };
-
-    function openQuizTab() {
-      const L = tUI();
-      hideAllArenas();
-      document.getElementById("cardsSection").style.display = "none";
-      document.getElementById("quizSection").classList.add("active");
-      document.getElementById("quizSetupView").style.display = "block";
-      document.getElementById("quizPlayView").classList.remove("active");
-      syncStudentDisplays();
-
-      const tabKeys = ["ALL", "Mammal", "Bird", "Reptile", "Amphibian", "Fish", "Insect", "Marine"];
-      const catSel = document.getElementById("quizCategorySelect");
-      catSel.innerHTML = tabKeys.map(k => `<option value="${k}" ${appState.quizCategory === k ? "selected" : ""}>${L.catNames[k]}</option>`).join("");
-      catSel.onchange = () => { appState.quizCategory = catSel.value; saveState(); };
-
+    function initQuizSetup() {
       document.getElementById("quizModesGrid").innerHTML = QUIZ_MODES.map(m => `
-        <div class="mode-card ${appState.quizMode === m.id ? "selected" : ""}" onclick="appState.quizMode='${m.id}';saveState();openQuizTab()">
-          <div style="font-size:1.5rem;">${m.icon}</div>
+        <div class="mode-card ${m.id === selectedQuizMode ? "selected" : ""}" onclick="selectedQuizMode='${m.id}'; initQuizSetup();">
+          <div style="font-size:1.55rem;">${m.icon}</div>
           <h3>${m.title}</h3>
           <p>${m.desc}</p>
         </div>
       `).join("");
     }
 
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
     function startQuiz() {
-      const pool = appState.quizCategory === "ALL" ? ANIMALS : ANIMALS.filter(a => a.cat === appState.quizCategory);
-      const selected = [...pool].sort(() => Math.random() - 0.5).slice(0, 10);
-      quizState = {
-        questions: selected.map(target => {
-          const distractors = [...ANIMALS].filter(x => x.id !== target.id).sort(() => Math.random() - 0.5).slice(0, 3);
-          const options = [target, ...distractors].sort(() => Math.random() - 0.5);
-          return { target, options };
-        }),
-        idx: 0,
-        score: 0,
-        answered: false
-      };
+      const cat = document.getElementById("quizCategorySelect").value;
+      const pool = cat === "ALL" ? ANIMALS : ANIMALS.filter(x => x.category === cat);
+      quizQuestions = shuffle(pool).slice(0, 10);
+      quizIndex = 0;
+      quizScore = 0;
       document.getElementById("quizSetupView").style.display = "none";
-      const play = document.getElementById("quizPlayView");
-      play.classList.add("active");
+      document.getElementById("quizPlayView").classList.add("active");
       renderQuizQuestion();
     }
 
     function renderQuizQuestion() {
       const play = document.getElementById("quizPlayView");
-      if (quizState.idx >= quizState.questions.length) {
-        renderQuizResults();
-        return;
-      }
-      const q = quizState.questions[quizState.idx];
-      const t = q.target;
-      quizState.answered = false;
+      if (quizIndex >= quizQuestions.length) {
+        const pct = Math.round((quizScore / quizQuestions.length) * 100);
+        const passed = pct >= 70;
+        const studentName = currentStudentName || "Wildlife Explorer";
+        const catVal = document.getElementById("quizCategorySelect").value;
+        const catName = catVal === "ALL" ? "Comprehensive 220-Species Zoology" : `${catVal} Biology & Ecology`;
+        const issueDate = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+        const certId = `FW-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
 
-      let promptText = `Which species lives in "${t.habitat}"?`;
-      if (appState.quizMode === "superpower") promptText = `Which animal has this adaptation: "${t.form}"?`;
-      else if (appState.quizMode === "visual") promptText = `Identify this species shown with its native habitat (${t.origin}):`;
-      else if (appState.quizMode === "spelling") promptText = `Listen carefully and spell this ${t.cat} (${t.syllables}):`;
-
-      play.innerHTML = `
-        <div class="quiz-progress">
-          <span>Question ${quizState.idx + 1} / ${quizState.questions.length}</span>
-          <span>Score: ${quizState.score}</span>
-        </div>
-        ${appState.quizMode !== "superpower" ? `<div class="quiz-dual-visual">${renderDualVisualHTML(t, true)}</div>` : ""}
-        <h3 style="text-align:center;margin-bottom:10px;">${promptText}</h3>
-        ${appState.quizMode === "spelling" ? `
-          <div style="text-align:center;">
-            <button type="button" class="action-pill-btn primary" onclick="speakById(${t.id}, this)">🔊 Hear Name Again</button>
-            <div class="spell-input-row">
-              <input type="text" id="spellQuizInput" class="control-input" style="max-width:300px;" placeholder="Type animal name..." />
-              <button type="button" class="launch-btn" onclick="submitSpellingQuiz()">Check Spelling</button>
+        play.innerHTML = `
+          <div style="text-align:center;padding:8px;">
+            <div class="no-print-cert">
+              <span class="quiz-badge">${passed ? "🎉 ZOOLOGY CHALLENGE PASSED!" : "📚 KEEP EXPLORING"}</span>
+              <h2 style="font-size:1.6rem;margin:6px 0;">${studentName}'s Final Score: ${quizScore} / ${quizQuestions.length} (${pct}%)</h2>
+              <p style="color:var(--text-muted);">${passed ? "Congratulations! Your verified Fauna World Certificate of Achievement is ready below." : "Score 70% or higher to earn your personalized Fauna World Certificate!"}</p>
             </div>
-            <div id="spellFeedback" style="margin-top:10px;font-weight:800;"></div>
-          </div>
-        ` : `
-          <div class="quiz-options">
-            ${q.options.map(opt => `
-              <button type="button" class="quiz-opt-btn" onclick="submitMcqQuiz(this, ${opt.id === t.id}, ${t.id})">${opt.name}</button>
-            `).join("")}
-          </div>
-        `}
-      `;
 
-      if (appState.quizMode === "spelling") speakById(t.id);
-    }
+            ${passed ? `
+              <div class="certificate-box">
+                <div class="cert-outer-frame">
+                  <div class="cert-inner-frame">
+                    <span class="cert-corner tl"></span>
+                    <span class="cert-corner tr"></span>
+                    <span class="cert-corner bl"></span>
+                    <span class="cert-corner br"></span>
 
-    function submitMcqQuiz(btn, isCorrect, targetId) {
-      if (quizState.answered) return;
-      quizState.answered = true;
-      if (isCorrect) {
-        quizState.score++;
-        btn.classList.add("correct");
-        if (!appState.masteredIds.includes(targetId)) {
-          appState.masteredIds.push(targetId);
-          saveState();
-          renderStats();
-        }
-      } else {
-        btn.classList.add("wrong");
-      }
-      setTimeout(() => { quizState.idx++; renderQuizQuestion(); }, 950);
-    }
+                    <div style="font-size:0.74rem;font-weight:800;letter-spacing:0.14em;color:#1e3a8a;text-transform:uppercase;">
+                      Fauna World Academy of Natural Sciences
+                    </div>
+                    <h2 style="font-family:Georgia,serif;font-size:1.55rem;color:#0b1f3a;margin:6px 0 4px;">
+                      Certificate of Achievement
+                    </h2>
+                    <div style="font-size:0.84rem;color:#475569;">This official credential certifies that</div>
 
-    function submitSpellingQuiz() {
-      if (quizState.answered) return;
-      const q = quizState.questions[quizState.idx];
-      const expected = q.target.name.split("(")[0].trim().toLowerCase();
-      const typed = (document.getElementById("spellQuizInput").value || "").trim().toLowerCase();
-      quizState.answered = true;
-      const fb = document.getElementById("spellFeedback");
+                    <div style="font-family:Georgia,serif;font-size:1.75rem;font-weight:700;color:#1d4ed8;border-bottom:1.5px solid #b48e3e;display:inline-block;padding:2px 24px;margin:10px 0;">
+                      ${studentName}
+                    </div>
 
-      if (typed && (expected === typed || expected.includes(typed) && typed.length >= 4)) {
-        quizState.score++;
-        fb.style.color = "#059669";
-        fb.textContent = `✅ Correct! ${q.target.name}`;
-      } else {
-        fb.style.color = "#dc2626";
-        fb.textContent = `❌ Correct spelling: ${q.target.name}`;
-      }
-      setTimeout(() => { quizState.idx++; renderQuizQuestion(); }, 1250);
-    }
+                    <p style="font-size:0.88rem;line-height:1.55;max-width:560px;margin:6px auto 12px;color:#1e293b;">
+                      has demonstrated mastery in <strong>${catName}</strong>, species identification, habitat ecology, and wildlife conservation with an honors score of <strong>${pct}%</strong>.
+                    </p>
 
-    function renderQuizResults() {
-      const L = tUI();
-      const total = quizState.questions.length;
-      const pct = Math.round((quizState.score / total) * 100);
-      const passed = pct >= 70;
-      const studentDisplay = appState.studentName || "Explorer";
-      const dateStr = new Date().toLocaleDateString();
-      const certCode = `FW-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
+                    <div class="cert-signatures">
+                      <div>
+                        <div class="cert-sig-script">Dr. E. Attenborough-Lin</div>
+                        <div class="cert-sig-line">Chief Zoology Director</div>
+                      </div>
+                      <div class="cert-gold-seal">
+                        OFFICIAL<br>FAUNA WORLD<br>SEAL<br>★ 220 ★
+                      </div>
+                      <div>
+                        <div class="cert-sig-script">${issueDate}</div>
+                        <div class="cert-sig-line">Date of Conferral</div>
+                      </div>
+                    </div>
 
-      document.getElementById("quizPlayView").innerHTML = `
-        <div style="text-align:center;" class="no-print-cert">
-          <h2>${passed ? "🎉 Congratulations" : "Keep Practicing"}, ${studentDisplay}!</h2>
-          <p style="font-size:1.1rem;font-weight:800;color:var(--primary-600);margin:6px 0;">Final Score: ${quizState.score} / ${total} (${pct}%)</p>
-          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:12px;">
-            <button type="button" class="launch-btn" onclick="startQuiz()">Try Another 10 Questions</button>
-            ${passed ? `<button type="button" class="action-pill-btn primary" onclick="printCertificate()">${L.printCertBtn}</button>` : ""}
-            <button type="button" class="action-pill-btn" onclick="selectCategory('ALL')">${L.backEncyclopedia}</button>
-          </div>
-        </div>
-
-        ${passed ? `
-          <div class="certificate-box">
-            <div class="cert-outer-frame">
-              <div class="cert-inner-frame">
-                <span class="cert-corner tl"></span><span class="cert-corner tr"></span>
-                <span class="cert-corner bl"></span><span class="cert-corner br"></span>
-                <div style="font-size:0.74rem;font-weight:800;letter-spacing:0.14em;color:#1e3a8a;">${L.certSubtitle}</div>
-                <h2 style="font-family:Georgia,serif;font-size:1.85rem;color:#0b1f3a;margin:8px 0 4px;">${L.certTitle}</h2>
-                <p style="font-size:0.86rem;color:#475569;margin-top:8px;">${L.certAwardedTo}</p>
-                <div style="font-family:Georgia,serif;font-size:1.95rem;font-weight:bold;color:#1d4ed8;border-bottom:2px solid #b48e3e;display:inline-block;padding:2px 24px;margin:6px 0 10px;">
-                  ${studentDisplay}
-                </div>
-                <p style="font-size:0.9rem;max-width:560px;margin:0 auto;color:#1e293b;">
-                  ${L.certBody(quizState.score, total, pct, appState.quizMode.toUpperCase())}
-                </p>
-
-                <div class="cert-signatures">
-                  <div>
-                    <div class="cert-sig-script">${studentDisplay}</div>
-                    <div class="cert-sig-line">${L.certStudentSig}</div>
+                    <div class="cert-meta-strip">
+                      <span>Credential ID: ${certId}</span>
+                      <span>Species Mastered: ${masteredIds.size} / 220</span>
+                    </div>
                   </div>
-                  <div class="cert-gold-seal">${L.certSeal}</div>
-                  <div>
-                    <div class="cert-sig-script">${dateStr}</div>
-                    <div class="cert-sig-line">${L.certDateLabel}</div>
-                  </div>
-                </div>
-
-                <div class="cert-meta-strip">
-                  <span>ID: ${certCode}</span>
-                  <span>220-SPECIES CURRICULUM VERIFIED</span>
                 </div>
               </div>
-            </div>
-          </div>
-        ` : ""}
-      `;
-    }
+              <div class="no-print-cert" style="margin-top:14px;">
+                <button type="button" class="action-pill-btn" onclick="printCertificateSheet()">🖨️ Print / Save PDF Certificate</button>
+              </div>
+            ` : ""}
 
-    function printCertificate() {
-      document.body.classList.remove("printing-sheet");
-      document.body.classList.add("printing-cert");
-      setTimeout(() => {
-        window.print();
-        setTimeout(() => document.body.classList.remove("printing-cert"), 600);
-      }, 200);
-    }
-
-    // ==================== FLASHCARDS, FOOD WEB LAB & 3-HEARTS SURVIVAL ====================
-    let flashIdx = 0, flashFlipped = false;
-    let ecoSlots = { producer: null, primary: null, apex: null };
-    let survState = { hearts: 3, streak: 0, current: null, opts: [] };
-
-    function openArenaTab(tab) {
-      hideAllArenas();
-      document.getElementById("cardsSection").style.display = "none";
-      if (tab === "FLASHCARDS") {
-        document.getElementById("flashcardSection").classList.add("active");
-        renderFlashcard();
-      } else if (tab === "ECOLAB") {
-        document.getElementById("ecoLabSection").classList.add("active");
-        renderEcoLab();
-      } else if (tab === "SURVIVAL") {
-        document.getElementById("survivalSection").classList.add("active");
-        startSurvival();
-      }
-    }
-
-    function renderFlashcard() {
-      const L = tUI();
-      const a = ANIMALS[flashIdx % ANIMALS.length];
-      document.getElementById("flashcardBox").innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-          <span class="quiz-badge">🃏 INTERACTIVE FLASHCARD (${flashIdx + 1} / ${ANIMALS.length})</span>
-          <button type="button" class="action-pill-btn" onclick="selectCategory('ALL')">${L.backEncyclopedia}</button>
-        </div>
-        <div class="flashcard-stage" onclick="flashFlipped=!flashFlipped;renderFlashcard()">
-          <div class="quiz-dual-visual">${renderDualVisualHTML(a, true)}</div>
-          ${!flashFlipped ? `
-            <p style="font-weight:800;color:var(--primary-600);">Tap card to reveal species name &amp; adaptation!</p>
-            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Habitat Clue: ${a.habitat}</p>
-          ` : `
-            <h2>${a.name}</h2>
-            <div class="syllable-tag">${a.syllables}</div>
-            <p style="margin-top:6px;font-size:0.88rem;">${a.form}</p>
-            <p style="margin-top:4px;font-size:0.82rem;color:var(--text-muted);">${a.fact}</p>
-          `}
-        </div>
-        <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px;">
-          <button type="button" class="action-pill-btn" onclick="flashIdx=(flashIdx-1+ANIMALS.length)%ANIMALS.length;flashFlipped=false;renderFlashcard()">← Previous</button>
-          <button type="button" class="action-pill-btn primary" onclick="speakById(${a.id}, this)">${L.listenBtn}</button>
-          <button type="button" class="action-pill-btn" onclick="flashIdx=Math.floor(Math.random()*ANIMALS.length);flashFlipped=false;renderFlashcard()">🎲 Random</button>
-          <button type="button" class="action-pill-btn" onclick="flashIdx=(flashIdx+1)%ANIMALS.length;flashFlipped=false;renderFlashcard()">Next →</button>
-        </div>
-      `;
-    }
-
-    function renderEcoLab() {
-      const L = tUI();
-      const producers = ["Acacia & Savanna Grasses", "Kelp Forest & Phytoplankton", "Rainforest Figs & Bamboo"];
-      const primaries = ANIMALS.filter(a => a.trophic.startsWith("Primary")).slice(0, 12);
-      const apexes = ANIMALS.filter(a => a.trophic === "Secondary Consumer").slice(0, 12);
-      const filled = (ecoSlots.producer ? 34 : 0) + (ecoSlots.primary ? 33 : 0) + (ecoSlots.apex ? 33 : 0);
-
-      document.getElementById("ecoLabBox").innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-          <span class="quiz-badge">🌿 ECOSYSTEM FOOD WEB BUILDER</span>
-          <button type="button" class="action-pill-btn" onclick="selectCategory('ALL')">${L.backEncyclopedia}</button>
-        </div>
-        <div class="eco-layout">
-          <div class="eco-circle">
-            <div>
-              <div class="eco-slot-card"><strong>1. Producer:</strong> <span>${ecoSlots.producer || "Select below..."}</span></div>
-              <div class="eco-slot-card"><strong>2. Primary Consumer:</strong> <span>${ecoSlots.primary || "Select below..."}</span></div>
-              <div class="eco-slot-card"><strong>3. Apex Predator:</strong> <span>${ecoSlots.apex || "Select below..."}</span></div>
-            </div>
-            <div class="meter-row">
-              <div class="meter-label"><span>Ecosystem Balance</span><span>${filled}%</span></div>
-              <div class="meter-track"><div class="meter-fill" style="width:${filled}%;background:#10b981;"></div></div>
-            </div>
-          </div>
-          <div class="info-panel">
-            <h4>Build a Balanced Food Chain:</h4>
-            <p style="margin:6px 0 4px;font-weight:700;">Producers:</p>
-            <div style="display:flex;flex-wrap:wrap;gap:5px;">
-              ${producers.map(p => `<button type="button" class="sub-pill" onclick="ecoSlots.producer='${p}';renderEcoLab()">🌱 ${p}</button>`).join("")}
-            </div>
-            <p style="margin:8px 0 4px;font-weight:700;">Primary Consumers (Herbivores):</p>
-            <div style="display:flex;flex-wrap:wrap;gap:5px;">
-              ${primaries.map(a => `<button type="button" class="sub-pill" onclick="ecoSlots.primary='${a.name.split("(")[0].trim()}';renderEcoLab()">🦌 ${a.name.split("(")[0].trim()}</button>`).join("")}
-            </div>
-            <p style="margin:8px 0 4px;font-weight:700;">Secondary / Apex Predators:</p>
-            <div style="display:flex;flex-wrap:wrap;gap:5px;">
-              ${apexes.map(a => `<button type="button" class="sub-pill" onclick="ecoSlots.apex='${a.name.split("(")[0].trim()}';renderEcoLab()">🦁 ${a.name.split("(")[0].trim()}</button>`).join("")}
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function startSurvival() {
-      survState = { hearts: 3, streak: 0, current: null, opts: [] };
-      nextSurvivalRound();
-    }
-
-    function nextSurvivalRound() {
-      const L = tUI();
-      if (survState.hearts <= 0) {
-        document.getElementById("survivalBox").innerHTML = `
-          <div style="text-align:center;padding:20px;">
-            <h2>💔 Game Over! Final Streak: ${survState.streak}</h2>
-            <div style="display:flex;justify-content:center;gap:10px;margin-top:12px;">
-              <button type="button" class="launch-btn" onclick="startSurvival()">Play Again</button>
-              <button type="button" class="action-pill-btn" onclick="selectCategory('ALL')">${L.backEncyclopedia}</button>
+            <div class="no-print-cert" style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+              <button type="button" class="launch-btn" onclick="startQuiz()">Try Another 10 Questions</button>
+              <button type="button" class="action-pill-btn" onclick="openQuizTab()">Change Quiz Mode</button>
             </div>
           </div>
         `;
         return;
       }
-      const target = ANIMALS[Math.floor(Math.random() * ANIMALS.length)];
-      const others = [...ANIMALS].filter(x => x.id !== target.id).sort(() => Math.random() - 0.5).slice(0, 3);
-      survState.current = target;
-      survState.opts = [target, ...others].sort(() => Math.random() - 0.5);
 
-      document.getElementById("survivalBox").innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-          <span class="quiz-badge">♾️ 3-HEARTS SURVIVAL • ${"❤️".repeat(survState.hearts)} • Streak: ${survState.streak}</span>
-          <button type="button" class="action-pill-btn" onclick="selectCategory('ALL')">${L.backEncyclopedia}</button>
+      const q = quizQuestions[quizIndex];
+      const distractors = shuffle(ANIMALS.filter(x => x.id !== q.id && x.category === q.category)).slice(0, 3);
+      while (distractors.length < 3) {
+        const extra = ANIMALS[Math.floor(Math.random() * ANIMALS.length)];
+        if (extra.id !== q.id && !distractors.includes(extra)) distractors.push(extra);
+      }
+      const options = shuffle([q, ...distractors]);
+      const labels = getSlotLabels(q.category);
+
+      let promptHTML = "";
+      if (selectedQuizMode === "VISUAL") {
+        promptHTML = `
+          <div class="quiz-dual-visual" id="fquizDualFrame">
+            <div class="media-slot" data-side="animal"><span class="slot-label animal-lbl">${labels.left}</span>${getDualVectorSVG(q, "animal")}</div>
+            <div class="media-slot" data-side="habitat"><span class="slot-label habitat-lbl">${labels.right}</span>${getDualVectorSVG(q, "habitat")}</div>
+          </div>
+          <h3 style="text-align:center;font-size:1.05rem;">Which wildlife species and habitat are shown above?</h3>
+        `;
+      } else if (selectedQuizMode === "DIET") {
+        promptHTML = `
+          <div class="info-panel" style="max-width:560px;margin:0 auto 14px;text-align:center;">
+            <span class="cat-tag tag-${q.category}">${q.category.toUpperCase()}</span>
+            <p style="margin-top:8px;font-weight:700;">🍽️ ${q.diet}</p>
+            <p style="margin-top:6px;">💡 ${q.memoryClue}</p>
+          </div>
+          <h3 style="text-align:center;font-size:1.05rem;">Which animal matches this diet and superpower?</h3>
+        `;
+      } else if (selectedQuizMode === "AUDIO") {
+        promptHTML = `
+          <div style="text-align:center;margin:12px 0;">
+            <button type="button" class="launch-btn" onclick="speakName('${q.name.replace(/'/g, "\\'")}', 'slow', this, event, ${q.id})">🔊 Play Spoken Animal Name</button>
+          </div>
+          <h3 style="text-align:center;font-size:1.05rem;">Listen carefully and pick the matching species:</h3>
+        `;
+        setTimeout(() => speakName(q.name, "slow", null, null, q.id), 320);
+      } else {
+        promptHTML = `
+          <div class="quiz-dual-visual" id="fquizDualFrame">
+            <div class="media-slot" data-side="animal"><span class="slot-label animal-lbl">${labels.left}</span>${getDualVectorSVG(q, "animal")}</div>
+            <div class="media-slot" data-side="habitat"><span class="slot-label habitat-lbl">${labels.right}</span>${getDualVectorSVG(q, "habitat")}</div>
+          </div>
+          <h3 style="text-align:center;font-size:1.05rem;">Type the English name of this ${q.category.toLowerCase()} (Hint: ${getSyllables(q.name)}):</h3>
+          <div class="spell-input-row">
+            <input type="text" id="spellAnswerInput" class="control-input" style="max-width:300px;" placeholder="Type animal name..." onkeydown="if(event.key==='Enter') checkSpellingAnswer()" />
+            <button type="button" class="launch-btn" onclick="checkSpellingAnswer()">Submit Spelling</button>
+          </div>
+        `;
+      }
+
+      play.innerHTML = `
+        <div class="quiz-progress">
+          <span>Question ${quizIndex + 1} of ${quizQuestions.length}</span>
+          <span>Score: ${quizScore}</span>
         </div>
-        <div class="quiz-dual-visual" style="margin-top:12px;">${renderDualVisualHTML(target, true)}</div>
-        <h3 style="text-align:center;">Identify this species (${target.origin}):</h3>
-        <div class="quiz-options">
-          ${survState.opts.map(o => `<button type="button" class="quiz-opt-btn" onclick="answerSurvival(${o.id === target.id})">${o.name}</button>`).join("")}
-        </div>
+        ${promptHTML}
+        ${selectedQuizMode !== "SPELLING" ? `
+          <div class="quiz-options">
+            ${options.map(opt => `
+              <button type="button" class="quiz-opt-btn" onclick="submitQuizChoice(${opt.id}, ${q.id}, this)">
+                ${opt.name} <span style="font-size:0.76rem;opacity:0.75;">(${opt.subGroup})</span>
+              </button>
+            `).join("")}
+          </div>
+        ` : ""}
+        <div id="quizFeedback" style="text-align:center;margin-top:14px;font-weight:700;"></div>
       `;
+
+      const frame = document.getElementById("fquizDualFrame");
+      if (frame && visualMode === "photo" && !dataSaverMode) loadDualPhotos(q, frame);
     }
 
-    function answerSurvival(ok) {
-      if (ok) survState.streak++;
-      else survState.hearts--;
-      nextSurvivalRound();
+    function submitQuizChoice(chosenId, correctId, btnEl) {
+      document.querySelectorAll(".quiz-opt-btn").forEach(b => b.disabled = true);
+      const correctObj = ANIMALS.find(x => x.id === correctId);
+      const fb = document.getElementById("quizFeedback");
+      if (chosenId === correctId) {
+        quizScore++;
+        btnEl.classList.add("correct");
+        fb.innerHTML = `<span style="color:#059669;">✓ Correct! ${correctObj.name} (${correctObj.scientific})</span>`;
+      } else {
+        btnEl.classList.add("wrong");
+        fb.innerHTML = `<span style="color:#b91c1c;">✗ Not quite — that is ${correctObj.name}.</span>`;
+      }
+      setTimeout(() => { quizIndex++; renderQuizQuestion(); }, 1150);
     }
 
-    // ==================== BACKUP, RESTORE & TOAST ====================
-    function exportProgress() {
-      const blob = new Blob([JSON.stringify(appState, null, 2)], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `fauna-world-progress-${(appState.studentName || "student").replace(/\s+/g, "_")}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-      showToast("Progress backup downloaded!");
+    function checkSpellingAnswer() {
+      const input = document.getElementById("spellAnswerInput");
+      if (!input || input.disabled) return;
+      input.disabled = true;
+      const q = quizQuestions[quizIndex];
+      const typed = input.value.trim().toLowerCase();
+      const target = q.name.replace(/\(.*?\)/g, "").trim().toLowerCase();
+      const altTargets = target.split(/&|\//).map(s => s.trim());
+      const fb = document.getElementById("quizFeedback");
+
+      if (typed && (typed === target || altTargets.includes(typed) || target.includes(typed) && typed.length >= 4)) {
+        quizScore++;
+        fb.innerHTML = `<span style="color:#059669;">✓ Excellent spelling! ${q.name}</span>`;
+      } else {
+        fb.innerHTML = `<span style="color:#b91c1c;">✗ Correct spelling: ${q.name}</span>`;
+      }
+      setTimeout(() => { quizIndex++; renderQuizQuestion(); }, 1300);
     }
 
-    function importProgress() {
-      const inp = document.createElement("input");
-      inp.type = "file";
-      inp.accept = ".json,application/json";
-      inp.onchange = e => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = ev => {
-          try {
-            const parsed = JSON.parse(ev.target.result);
-            Object.assign(appState, parsed);
-            saveState();
-            syncStudentDisplays();
-            refreshAllUI();
-            showToast("Progress restored!");
-          } catch (err) {
-            showToast("Invalid backup file.");
-          }
-        };
-        reader.readAsText(file);
-      };
-      inp.click();
-    }
-
-    let toastTimer = null;
     function showToast(msg) {
       const t = document.getElementById("toast");
       t.textContent = msg;
       t.classList.add("show");
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
     }
 
-    function refreshAllUI() {
-      applyLanguageUI();
-      syncStudioButtons();
-      renderStats();
-      populateOriginFilters();
-      renderCategoryTabs();
-      renderCards();
-      updateCompareTray();
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.getVoices();
+      window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
     }
 
-    // ==================== INITIALIZATION ====================
-    applyLanguageUI();
-    if (appState.studentName && appState.studentName.trim().length >= 2) {
-      enterMainPortal(appState.studentName);
-    } else {
-      syncStudioButtons();
-    }
+    // INITIALIZE
+    bootPortalSession();
+    updateDailyStreak();
+    initFilters();
+    initQuizSetup();
   </script>
 </body>
 </html>
