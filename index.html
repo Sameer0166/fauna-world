@@ -1964,20 +1964,20 @@
       ctx.font = "bold 20px Inter, Arial, sans-serif";
       ctx.fillText("FAUNA & SEAFOOD WORLD ACADEMY  •  OFFICIAL CREDENTIAL", 600, 130);
 
-      // Main Certificate Title
+// Main Certificate Title (constrained to 1010px so it never touches the gold frame)
       ctx.fillStyle = "#0f2942";
-      ctx.font = "bold 52px Georgia, serif";
-      ctx.fillText(lastCertData.awardTitle, 600, 210);
+      ctx.font = "bold 46px Georgia, serif";
+      ctx.fillText(lastCertData.awardTitle, 600, 210, 1010);
 
       // Presented To
       ctx.fillStyle = "#4a5b68";
       ctx.font = "italic 24px Georgia, serif";
       ctx.fillText("This certificate is proudly presented to", 600, 285);
 
-      // Student Name
+      // Student Name (also constrained to 960px for long names)
       ctx.fillStyle = "#12212e";
-      ctx.font = "bold 56px Georgia, serif";
-      ctx.fillText(lastCertData.studentName, 600, 375);
+      ctx.font = "bold 54px Georgia, serif";
+      ctx.fillText(lastCertData.studentName, 600, 375, 960);
 
       // Gold Underline
       ctx.strokeStyle = "#d4a017";
@@ -2044,6 +2044,7 @@
         printWin.document.write(`<!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fauna World Certificate - ${lastCertData.studentName}</title>
   <style>
     @page { size: landscape; margin: 0; }
