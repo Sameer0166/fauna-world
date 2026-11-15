@@ -822,9 +822,32 @@
     .toast.show { opacity: 1; transform: translateY(0); }
 
     @media print {
-      .hero-actions, .controls-section, .audio-controls, .star-btn, .quiz-section { display: none !important; }
-      .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .food-card { break-inside: avoid; box-shadow: none; }
+      @page {
+        size: landscape;
+        margin: 0.4in;
+      }
+      body * {
+        visibility: hidden;
+      }
+      #certificateBox,
+      #certificateBox * {
+        visibility: visible;
+      }
+      #certificateBox {
+        position: fixed;
+        inset: 0;
+        margin: auto;
+        width: 100%;
+        max-width: 960px;
+        height: fit-content;
+        box-shadow: none !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      #downloadCertPngBtn,
+      #printCertBtn {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -1758,6 +1781,12 @@
     let quizIndex = 0;
     let quizScore = 0;
     let quizStudentName = "Student Explorer";
+    let lastCertData = {
+      studentName: "Student Explorer",
+      scoreText: "Score: 10 / 10 (100%)",
+      awardTitle: "Certificate of Zoological & Culinary Mastery",
+      dateStr: ""
+    };
 
     function renderQuizSetup() {
       document.getElementById("quizSetupView").style.display = "block";
@@ -1907,17 +1936,180 @@
       }
     }
 
+    function buildCertificateCanvas() {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1200;
+      canvas.height = 850;
+      const ctx = canvas.getContext("2d");
+
+      // Background
+      const bgGrad = ctx.createRadialGradient(600, 320, 80, 600, 425, 750);
+      bgGrad.addColorStop(0, "#ffffff");
+      bgGrad.addColorStop(1, "#eef6fb");
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 1200, 850);
+
+      // Outer Deep Ocean Navy Border & Inner Gold Frame
+      ctx.strokeStyle = "#0f2942";
+      ctx.lineWidth = 18;
+      ctx.strokeRect(32, 32, 1136, 786);
+
+      ctx.strokeStyle = "#d4a017";
+      ctx.lineWidth = 4;
+      ctx.strokeRect(54, 54, 1092, 742);
+
+      // Header Subtitle
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#b7791f";
+      ctx.font = "bold 20px Inter, Arial, sans-serif";
+      ctx.fillText("FAUNA & SEAFOOD WORLD ACADEMY  •  OFFICIAL CREDENTIAL", 600, 130);
+
+      // Main Certificate Title
+      ctx.fillStyle = "#0f2942";
+      ctx.font = "bold 52px Georgia, serif";
+      ctx.fillText(lastCertData.awardTitle, 600, 210);
+
+      // Presented To
+      ctx.fillStyle = "#4a5b68";
+      ctx.font = "italic 24px Georgia, serif";
+      ctx.fillText("This certificate is proudly presented to", 600, 285);
+
+      // Student Name
+      ctx.fillStyle = "#12212e";
+      ctx.font = "bold 56px Georgia, serif";
+      ctx.fillText(lastCertData.studentName, 600, 375);
+
+      // Gold Underline
+      ctx.strokeStyle = "#d4a017";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(280, 398);
+      ctx.lineTo(920, 398);
+      ctx.stroke();
+
+      // Achievement Details
+      ctx.fillStyle = "#12212e";
+      ctx.font = "24px Inter, Arial, sans-serif";
+      ctx.fillText(lastCertData.scoreText, 600, 465);
+      ctx.fillStyle = "#4a5b68";
+      ctx.font = "21px Inter, Arial, sans-serif";
+      ctx.fillText("in the Fauna & Seafood World 225-Species Aquatic, Nutrition & Spelling Challenge.", 600, 505);
+
+      // Gold Seal
+      ctx.beginPath();
+      ctx.arc(600, 635, 56, 0, Math.PI * 2);
+      ctx.fillStyle = "#d4a017";
+      ctx.fill();
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "#fff8dc";
+      ctx.stroke();
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 16px Inter, Arial, sans-serif";
+      ctx.fillText("OFFICIAL", 600, 630);
+      ctx.fillText("SEAL", 600, 652);
+
+      // Footer Signatures & Date
+      ctx.fillStyle = "#12212e";
+      ctx.font = "bold 22px Georgia, serif";
+      ctx.fillText(lastCertData.dateStr, 260, 645);
+      ctx.fillText("Fauna & Seafood World", 940, 645);
+
+      ctx.fillStyle = "#4a5b68";
+      ctx.font = "17px Inter, Arial, sans-serif";
+      ctx.fillText("Date of Completion", 260, 675);
+      ctx.fillText("225-Species Visual & Audio Atlas", 940, 675);
+
+      return canvas;
+    }
+
+    function downloadCertificatePNG() {
+      const canvas = buildCertificateCanvas();
+      const safeFileName = lastCertData.studentName.replace(/[^a-z0-9]/gi, "_").toLowerCase() || "student";
+      const link = document.createElement("a");
+      link.download = `Fauna_World_Certificate_${safeFileName}.png`;
+      link.href = canvas.toDataURL("image/png");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function printOrSaveCertificatePDF() {
+      const canvas = buildCertificateCanvas();
+      const dataUrl = canvas.toDataURL("image/png");
+      const printWin = window.open("", "_blank", "width=1050,height=780");
+
+      if (printWin) {
+        printWin.document.open();
+        printWin.document.write(`<!DOCTYPE html>
+<html>
+<head>
+  <title>Fauna World Certificate - ${lastCertData.studentName}</title>
+  <style>
+    @page { size: landscape; margin: 0; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+    }
+    img {
+      max-width: 96vw;
+      max-height: 96vh;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <img id="certImg" src="${dataUrl}" alt="Fauna World Certificate" />
+  <script>
+    const img = document.getElementById("certImg");
+    const triggerPrint = () => {
+      window.focus();
+      window.print();
+    };
+    if (img.complete) {
+      setTimeout(triggerPrint, 150);
+    } else {
+      img.onload = () => setTimeout(triggerPrint, 150);
+    }
+  <\/script>
+</body>
+</html>`);
+        printWin.document.close();
+      } else {
+        window.print();
+      }
+    }
+
     function renderQuizResult() {
       const pct = Math.round((quizScore / quizQuestions.length) * 100);
       const passed = pct >= 70;
       const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+      const awardTitle = pct === 100
+        ? "Grand Master of Zoology & Culinary Arts"
+        : pct >= 90
+        ? "Distinguished Aquatic & Fauna Scholar"
+        : "Certificate of Zoological & Culinary Mastery";
+
+      lastCertData = {
+        studentName: quizStudentName,
+        scoreText: `Scored ${quizScore} out of ${quizQuestions.length} (${pct}%)`,
+        awardTitle: awardTitle,
+        dateStr: today
+      };
+
       document.getElementById("quizPlayView").innerHTML = `
         <div style="text-align:center;">
           <h2>Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)</h2>
           ${passed ? `
-            <div class="certificate-box">
+            <div class="certificate-box" id="certificateBox">
               <div style="font-size:0.8rem;font-weight:800;letter-spacing:1.5px;color:var(--ocean-700);">FAUNA &amp; SEAFOOD WORLD ACADEMY</div>
-              <h2 style="font-size:1.7rem;margin:8px 0;color:var(--ocean-950);">Certificate of Zoological &amp; Culinary Mastery</h2>
+              <h2 style="font-size:1.7rem;margin:8px 0;color:var(--ocean-950);">${awardTitle}</h2>
               <p style="color:var(--text-muted);">This certifies that</p>
               <div style="font-size:1.5rem;font-weight:800;color:var(--amber-600);margin:8px 0;">${quizStudentName}</div>
               <p style="max-width:540px;margin:0 auto 12px;font-size:0.9rem;">
@@ -1925,8 +2117,9 @@
               </p>
               <div style="font-size:0.8rem;color:var(--text-muted);">Awarded on ${today}</div>
             </div>
-            <div style="margin-top:14px;display:flex;gap:10px;justify-content:center;">
-              <button class="launch-btn" onclick="window.print()">🖨️ Print Certificate</button>
+            <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+              <button class="launch-btn" id="downloadCertPngBtn">📥 Download Certificate (PNG)</button>
+              <button class="launch-btn" id="printCertBtn" style="background:var(--ocean-900);">🖨️ Print / Save PDF</button>
               <button class="action-pill-btn" onclick="renderQuizSetup()">Play Another Round</button>
             </div>
           ` : `
@@ -1935,6 +2128,11 @@
           `}
         </div>
       `;
+
+      if (passed) {
+        document.getElementById("downloadCertPngBtn").addEventListener("click", downloadCertificatePNG);
+        document.getElementById("printCertBtn").addEventListener("click", printOrSaveCertificatePDF);
+      }
     }
 
     function shareApp() {
