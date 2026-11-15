@@ -821,32 +821,42 @@
     }
     .toast.show { opacity: 1; transform: translateY(0); }
 
-    @media print {
+@media print {
       @page {
-        size: landscape;
+        size: portrait;
         margin: 0.4in;
       }
-      body * {
-        visibility: hidden;
-      }
-      #certificateBox,
-      #certificateBox * {
-        visibility: visible;
-      }
-      #certificateBox {
-        position: fixed;
-        inset: 0;
-        margin: auto;
-        width: 100%;
-        max-width: 960px;
-        height: fit-content;
-        box-shadow: none !important;
+      body {
+        background: #ffffff !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
-      #downloadCertPngBtn,
-      #printCertBtn {
+      .hero-actions,
+      .controls-section,
+      .audio-controls,
+      .cue-hint,
+      .companion-link,
+      .modal-backdrop,
+      .toast {
         display: none !important;
+      }
+      .hero {
+        padding: 14px 16px !important;
+        border-bottom: 2px solid var(--amber-500) !important;
+      }
+      .cards-wrapper {
+        padding: 12px 0 !important;
+      }
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+      .food-card,
+      .plant-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
       }
     }
   </style>
