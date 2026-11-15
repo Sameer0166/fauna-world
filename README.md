@@ -1,45 +1,69 @@
-# 🐟 Fauna & Seafood World — Global Dual-Visual & Audio Encyclopedia
+<div align="center">
 
-An interactive, zero-dependency educational web application covering **225 human-edible animal, avian, freshwater, marine, shellfish, and global culinary species**. Designed for students, culinary learners, and nutrition enthusiasts, every card pairs two unique real-world photographs side by side: the **Living Animal / Whole Species** on the left and its **Edible Flesh / Meat Cut / Yolk** on the right.
+# 🐟 Fauna & Seafood World
+### 225-Species Dual Visual & Audio Encyclopedia
 
-🌐 **Live Website:** [https://sameer0166.github.io/fauna-world/](https://sameer0166.github.io/fauna-world/)  
-🌱 **Companion Plant Encyclopedia:** [Botanica World (220 Edible Plants)](https://sameer0166.github.io/botanica-world/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Launch_App-0d7377?style=for-the-badge&logo=githubpages&logoColor=white)](https://sameer0166.github.io/fauna-world/)
+[![Companion App](https://img.shields.io/badge/Companion_App-Botanica_World-166534?style=for-the-badge&logo=leaflet&logoColor=white)](https://sameer0166.github.io/botanica-world/)
+[![Zero Dependencies](https://img.shields.io/badge/Stack-HTML5_%7C_CSS3_%7C_Vanilla_JS-0f2942?style=for-the-badge)](#tech-stack)
+
+An interactive visual and audio encyclopedia cataloging **225 global edible animal, poultry, fish, and seafood species** through **450 paired real-world photographs**, multilingual regional names, audio pronunciation, printable study sheets, and a certificate-awarding quiz arena.
+
+</div>
 
 ---
 
-## ✨ Key Features
+## 📖 Overview
 
-* **Side-by-Side Dual Visual Learning (450 Unique Images):** Every card displays both the living organism (or intact shell) and its culinary cut, fillet, or interior yolk with strict URL deduplication so no image repeats across the catalog.
-* **225 Global Species Across 6 Major Categories:**
-  * **Eggs & Roe (20):** Chicken, Duck, Quail, Turkey, Goose, Muscovy Duck, Guinea Fowl, Pheasant, Partridge, Ostrich, Emu, Rhea, Century Egg, Salted Duck Egg, Tea Egg, Ikura, Sturgeon Caviar, Tobiko, Masago, and Bottarga.
-  * **Poultry & Game Birds (26):** Broiler, Country Chicken (Desi Murgh), Kadaknath, Silkie, Chicken Cuts, Capon, Domestic/Pekin/Muscovy/Mallard Ducks, Goose, Teal, Turkey, Quails, Guinea Fowl, Squab, Pheasant, Partridge, Grouse, Woodcock, Ostrich, Emu, and Rhea.
-  * **Red Meat, Game & Offal (38):** Goat (Chevon & Boer), Lamb & Mutton Cuts, Fat-Tailed Sheep, Beef Cuts, Wagyu, Veal, Water Buffalo (Carabeef), Himalayan Yak, Bison, Pork Cuts & Cured Hams, Rabbit, Hare, Venison, Elk, Wild Boar, Reindeer, Kangaroo, Camel, and Nutrient-Dense Offal (Liver, Marrow, Kidney, Tripe, Tongue, Gizzard).
-  * **Freshwater & Marine Fish (78):** 16 South Asian river fish (Rohu, Catla, Mrigal, Hilsa, Pabda, Magur, Singhi, Murrel/Korameenu, Karimeen, Koi, Mahseer, etc.), 16 global freshwater fish (Tilapia, Rainbow Trout, Basa, Carps, Catfish, Unagi, Zander, Pike, Perch, Arctic Char, Sturgeon, Bass, Walleye), 22 oily marine fish (Salmons, Mackerels, Surmai, Sardines, Tunas, Anchovy, Herring, Swordfish, Milkfish, Cobia, Pompano, Mullet), and 24 white marine/reef fish (Pomfrets, Bhetki, Branzino, Sea Bream, Snappers, Cods, Pollock, Haddock, Whiting, Hake, Mahi-Mahi, Halibut, Turbot, Dover Sole, Plaice, Groupers, Monkfish, John Dory, Croaker, Bombay Duck).
-  * **Seafood & Shellfish (53):** 12 shrimps, prawns & crayfish, 14 crabs & lobsters, 15 bivalves (mussels, oysters, clams, scallops, cockles), and 12 cephalopods & marine invertebrates (squids, octopuses, cuttlefishes, abalone, conch, periwinkle, sea urchin, sea cucumber).
-  * **Global Specialty & FAO Delicacies (10):** Escargot, Giant African Land Snail, Frog Legs, Alligator, Softshell Turtle, Silkworm Pupae (Beondegi/Eri), Chapulines, Roasted Crickets, Mopane Worms, and Sago Grubs.
-* **Slow & Fast Audio Pronunciation:** Built-in Web Speech API pronunciation buttons (`🐢 Slow` and `⚡ Fast`) plus letter-by-letter spelling cue cards.
-* **Multilingual & Nutritional Depth:** Includes English, Hindi, Spanish, and scientific binomial names, habitats, major producing regions, culinary uses, and key nutrition superpowers (Omega-3 EPA/DHA, Heme Iron, Zinc, Vitamin B12, Choline, Collagen).
-* **Interactive Study Tools:**
-  * **Student Mode:** Simplifies descriptions for younger learners.
-  * **Memory Hide:** Blurs species names for self-testing.
-  * **Revision List & Mastery Tracking:** Bookmark tricky species (`★`) and track mastered cards locally in the browser.
-  * **Print Study Sheet:** Clean print stylesheet for offline classroom worksheets.
-* **6-Mode Interactive Quiz Arena & Certificate:** Test visual recognition, audio spelling, kitchen uses, nutrition superpowers, and geography, unlocking a printable **Certificate of Zoological & Culinary Mastery** at 70% or higher.
+Students often struggle to connect a living organism in nature with its culinary form in kitchens and markets. **Fauna & Seafood World** solves this by placing **two paired visuals side by side** on every card—the **Living Animal / Whole Species** on the left and its **Edible Flesh / Meat Cut / Yolk** on the right—backed by nutrition highlights, spelling breakdowns, and interactive self-testing tools.
+
+---
+
+## 🗂️ Encyclopedia Coverage (225 Species)
+
+| Category | Count | What's Inside |
+| :--- | :---: | :--- |
+| 🥚 **Eggs & Roe** | **20** | Domestic poultry eggs, ratite eggs, preserved delicacies, and marine caviar/roe |
+| 🍗 **Poultry & Birds** | **26** | Chicken breeds & cuts, waterfowl, upland game birds, and lean ratite steaks |
+| 🥩 **Red Meat, Game & Offal** | **38** | Goat, sheep, cattle, swine, regional game meats, and nutrient-dense offal |
+| 🐟 **Freshwater & Marine Fish** | **78** | South Asian river carp/catfish, global freshwater fish, oily pelagic fish, and reef species |
+| 🦐 **Seafood & Shellfish** | **53** | Shrimp, prawns, crabs, lobsters, oysters, mussels, clams, squid, and octopus |
+| 🌍 **Global Specialties** | **10** | Traditional land snails, amphibians, reptiles, and FAO-recognized edible insects |
+
+---
+
+## ✨ Core Features
+
+### 🖼️ Dual Visual System (450 Paired Images)
+- **Side-by-Side Comparison:** View the living creature or whole shell next to its fillet, cut, or interior yolk.
+- **Instant Visual Toggle:** Switch between **Real Dual Photos** (fetched lazily with URL deduplication) and **Zoological & Cut SVG Diagrams**.
+
+### 🎧 Interactive Study & Memory Aids
+- **Slow & Fast Audio Pronunciation:** Built-in Web Speech synthesis (`🐢 Slow` / `⚡ Fast`) on every card and modal.
+- **Student Mode:** Simplifies scientific taxonomy and technical culinary terms into student-friendly summaries.
+- **Memory Hide:** Blurs species names across the grid so learners can practice active-recall flashcards on hover.
+- **Spelling & Cue Cards:** Click any card to inspect letter-by-letter spelling tiles, English/Hindi/Spanish names, native habitats, and nutrition superpowers.
+- **Progress Tracking:** Bookmark items to a **Revision List** and mark **Mastered Cards** persistently via `localStorage`.
+
+### 🎯 6-Mode Quiz Arena & Certificate Export
+- **6 Challenge Modes:** *Animal & Cut Detective*, *Listen & Spell*, *Kitchen & World Uses*, *Nutrition Superpower*, *Habitat Geography*, and *Grand Champion Mix*.
+- **Instant Credential Generation:** Scoring **70% or higher** generates a custom `1200×850` HTML5 Canvas certificate with **1-click PNG download** and **landscape PDF/print export**.
+
+### 🖨️ Offline Printable Study Sheets
+- Dedicated `@media print` stylesheet formats the active filter view into a clean **2-column PDF study guide** with page-break protection and zero UI clutter.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** Pure HTML5, CSS3 (CSS Grid, Custom Properties, Print Media Queries), and Vanilla ES6+ JavaScript (single-file architecture, zero build tools required).
-* **Audio Engine:** Native browser `window.speechSynthesis` API.
-* **Visual Data:** Wikipedia REST API & Wikimedia Commons Media API with intersection-observer lazy loading and offline SVG zoological fallback diagrams.
+- **Core:** Semantic HTML5, Modern CSS3 (CSS Grid, Flexbox, `@media print`), Vanilla ES6+ JavaScript
+- **Browser & Data APIs:** Wikipedia REST API, Wikimedia Commons MediaWiki API, Web Speech Synthesis API, HTML5 Canvas API, `IntersectionObserver`, and `localStorage`
+- **Deployment:** Static single-file architecture hosted on GitHub Pages (zero build tools or external dependencies)
 
 ---
 
-## 🚀 Running Locally
+## 👨‍💻 Author
 
-No installation or package manager is required:
-
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/Sameer0166/fauna-world.git](https://github.com/Sameer0166/fauna-world.git)
+**Mohd Sameer Pasha**  
+- GitHub: [@Sameer0166](https://github.com/Sameer0166)  
+- LinkedIn: [Mohd Sameer Pasha](https://www.linkedin.com/in/mohd-sameer-pasha-987785363)
